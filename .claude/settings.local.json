@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo *)",
+      "WebFetch(domain:github.com)",
+      "Bash(git clone *)",
+      "Bash(shopt -s dotglob)",
+      "Bash(mv /c/Users/luthf/OneDrive/Desktop/code/portfolio/satriabahari-source/* /c/Users/luthf/OneDrive/Desktop/code/portfolio/)",
+      "WebFetch(domain:www.satriabahari.my.id)"
+    ]
+  }
+}
