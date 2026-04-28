@@ -1,4 +1,4 @@
-import { utcToZonedTime } from "date-fns-tz";
+import { toZonedTime } from "date-fns-tz/toZonedTime";
 import { format, parseISO } from "date-fns";
 
 export const convertToOrdinal = (number: number) => {
@@ -35,7 +35,7 @@ export const formatDate = (date: string, type = "MMMM dd, yyyy") => {
   }
 
   const formattedDate = format(
-    utcToZonedTime(parseISO(date), "Asia/Jakarta"),
+    toZonedTime(parseISO(date), "Asia/Jakarta"),
     type,
   );
 

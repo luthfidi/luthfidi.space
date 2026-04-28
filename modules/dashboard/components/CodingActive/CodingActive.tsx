@@ -5,7 +5,8 @@ import useSWR from "swr";
 import { useEffect, useState } from "react";
 import { SiWakatime as WakatimeIcon } from "react-icons/si";
 import { formatDistanceToNowStrict } from "date-fns";
-import { utcToZonedTime, zonedTimeToUtc } from "date-fns-tz";
+import { toZonedTime } from "date-fns-tz/toZonedTime";
+import { fromZonedTime } from "date-fns-tz/fromZonedTime";
 import { useTranslations } from "next-intl";
 
 import CodingActiveList from "./CodingActiveList";
@@ -33,8 +34,8 @@ const CodingActive = () => {
     const formatLastUpdate = (): void => {
       const lastUpdateDate = data?.last_update;
       if (lastUpdateDate) {
-        const zoneDate = utcToZonedTime(
-          zonedTimeToUtc(lastUpdateDate, "Asia/Jakarta"),
+        const zoneDate = toZonedTime(
+          fromZonedTime(lastUpdateDate, "Asia/Jakarta"),
           "Asia/Jakarta",
         );
         const distance = formatDistanceToNowStrict(zoneDate, {
