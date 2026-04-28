@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "title": "Lummy Ticket",
+    "slug": "lummy-ticket",
+    "description": "NFT-based decentralized ticketing platform built on the Lisk blockchain with anti-scalping features. Led end-to-end product development as CTO, managing a 4-person team and securing USD 4,600 grant funding through the Lisk Spark Incubator.",
+    "image": "/images/projects/lummy-ticket.webp",
+    "link_demo": "https://lummyticket.com",
+    "link_github": null,
+    "stacks": ["Next.js", "TypeScript", "Solidity", "Foundry", "TailwindCSS"],
+    "content": "# Lummy Ticket\n\nNFT-based decentralized ticketing platform on the Lisk blockchain.\n\n## Highlights\n- Anti-scalping smart contracts\n- End-to-end product development as CTO\n- Lisk Spark Incubator graduate (USD 4,600 grant)\n- Top 5 Winner of Lisk Builders Challenge Round One",
+    "is_show": true,
+    "is_featured": true
+  }
+]

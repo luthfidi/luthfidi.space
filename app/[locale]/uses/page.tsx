@@ -3,37 +3,37 @@ import { getTranslations } from "next-intl/server";
 
 import Container from "@/common/components/elements/Container";
 import PageHeading from "@/common/components/elements/PageHeading";
-import Projects from "@/modules/projects";
+import Uses from "@/modules/uses";
 import { METADATA } from "@/common/constants/metadata";
 
-interface ProjectsPageProps {
+interface UsesPageProps {
   params: { locale: string };
 }
 
 export async function generateMetadata({
   params: { locale },
-}: ProjectsPageProps): Promise<Metadata> {
-  const t = await getTranslations({ locale, namespace: "ProjectsPage" });
+}: UsesPageProps): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "UsesPage" });
 
   return {
     title: `${t("title")} ${METADATA.exTitle}`,
     description: t("description"),
-    keywords: "portfolio frontend developer, full stack developer, luthfi hadi",
+    keywords: "uses, hardware, editor, tools, luthfi hadi",
     alternates: {
-      canonical: `${process.env.DOMAIN}/${locale}/projects`,
+      canonical: `${process.env.DOMAIN}/${locale}/uses`,
     },
   };
 }
 
-const ProjectsPage = async ({ params: { locale } }: ProjectsPageProps) => {
-  const t = await getTranslations({ locale, namespace: "ProjectsPage" });
+const UsesPage = async ({ params: { locale } }: UsesPageProps) => {
+  const t = await getTranslations({ locale, namespace: "UsesPage" });
 
   return (
     <Container data-aos="fade-up">
       <PageHeading title={t("title")} description={t("description")} />
-      <Projects />
+      <Uses />
     </Container>
   );
 };
 
-export default ProjectsPage;
+export default UsesPage;

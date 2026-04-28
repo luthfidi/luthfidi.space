@@ -1,10 +1,10 @@
 {
   "HomePage": {
     "intro": "Hi, I'm Luthfi Hadi",
-    "location": "Based in Jambi, Indonesia 🇮🇩",
-    "location_type": "Onsite",
+    "location": "Based in Jakarta, Indonesia 🇮🇩",
+    "location_type": "Remote",
     "resume": {
-      "paragraph_1": "A Software Engineer and coding content creator dedicated to building impactful digital solutions. I specialize in developing scalable web platforms and mobile applications using a modern tech stack, primarily Next.js, TypeScript, and Native Android (Kotlin).",
+      "paragraph_1": "Computer Science graduate from BINUS University with hands-on experience in IT project management, Agile/Scrum methodologies, and end-to-end product delivery. I lead cross-functional teams and stakeholder communication across 11+ client projects.",
       "paragraph_2": "My focus is on crafting software architecture that is well-structured, maintainable, and aligned with business goals. I combine technical expertise with proactive communication and leadership to ensure every project delivers logical clarity and a meaningful real-world impact."
     },
     "skills": {
@@ -40,13 +40,31 @@
     "error": "An error occurred on the server.",
     "no_data": "No data available."
   },
-  "ContentsPage": {
-    "title": "Contents",
-    "description": "A collection of my coding content and creative works.",
-    "open_tiktok": "Open TikTok",
+  "UsesPage": {
+    "title": "Uses",
+    "description": "The hardware, software, and tools I use daily."
+  },
+  "CreationsPage": {
+    "title": "Creations",
+    "description": "A collection of my Instagram and TikTok publications during my time as BNCC FILE/Filemagz Manager.",
     "view": "View",
-    "load_more": "Load More",
-    "privacy_policy": "Privacy Policy",
+    "all": "All",
+    "all_accounts": "All Accounts",
+    "all_categories": "All Categories",
+    "all_platforms": "All Platforms",
+    "sort_by": "Sort by",
+    "sort_date": "Latest",
+    "sort_likes": "Most Liked",
+    "sort_reach": "Highest Reach",
+    "sort_shares": "Most Shared",
+    "sort_saves": "Most Saved",
+    "metrics": {
+      "reach": "Reach",
+      "likes": "Likes",
+      "comments": "Comments",
+      "shares": "Shares",
+      "saves": "Saves"
+    },
     "error": "An error occurred on the server.",
     "no_data": "No data available."
   },
@@ -217,13 +235,12 @@
   "Navigation": {
     "Home": "Home",
     "About": "About",
-    "Contents": "Contents",
-    "Achievements": "Achievements",
+    "Creations": "Creations",
     "Projects": "Projects",
+    "Achievements": "Achievements",
     "Dashboard": "Dashboard",
-    "Chat Room": "Chat Room",
-    "Contact": "Contact",
-    "Smart Talk": "Smart Talk"
+    "Uses": "Uses",
+    "Contact": "Contact"
   },
   "NotFoundPage": {
     "title": "Page not found",

@@ -1,43 +1,14 @@
-import { createClient } from "@/common/utils/server";
+import projectsData from "@/data/projects.json";
+import type { ProjectItem } from "@/common/types/projects";
 
-export const getProjectsData = async () => {
-  const supabase = createClient();
+const projects = projectsData as ProjectItem[];
 
-  let { data, error } = await supabase.from("projects").select();
-
-  if (error) throw new Error(error.message);
-  if (!data) return [];
-
-  return data.map((item) => {
-    const { data: imageData } = supabase.storage
-      .from("projects")
-      .getPublicUrl(`${item.slug}.webp`);
-
-    return {
-      ...item,
-      image: imageData.publicUrl,
-    };
-  });
+export const getProjectsData = async (): Promise<ProjectItem[]> => {
+  return projects.filter((p) => p.is_show);
 };
 
-export const getProjectsDataBySlug = async (slug: string) => {
-  const supabase = createClient();
-
-  let { data, error } = await supabase
-    .from("projects")
-    .select()
-    .eq("slug", slug)
-    .single();
-
-  if (error) throw new Error(error.message);
-  if (!data) return null;
-
-  const { data: imageData } = supabase.storage
-    .from("projects")
-    .getPublicUrl(`${data.slug}.webp`);
-
-  return {
-    ...data,
-    image: imageData.publicUrl,
-  };
+export const getProjectsDataBySlug = async (
+  slug: string,
+): Promise<ProjectItem | null> => {
+  return projects.find((p) => p.slug === slug) ?? null;
 };

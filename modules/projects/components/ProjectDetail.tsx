@@ -29,11 +29,19 @@ const ProjectDetail = ({
             {stacks.map((stack: string, index: number) => {
               const stackData = STACKS[stack];
 
+              if (!stackData) {
+                return (
+                  <Tooltip title={stack} key={index}>
+                    <span className="rounded-full border border-neutral-300 bg-neutral-100 px-2 py-0.5 text-xs text-neutral-600 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400">
+                      {stack}
+                    </span>
+                  </Tooltip>
+                );
+              }
+
               return (
                 <Tooltip title={stack} key={index}>
-                  <div className={`${stackData.color}`}>
-                    {STACKS[stack].icon}
-                  </div>
+                  <div className={`${stackData.color}`}>{stackData.icon}</div>
                 </Tooltip>
               );
             })}

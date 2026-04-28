@@ -1,0 +1,422 @@
+[
+  {
+    "id": 1,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "FILEbrief",
+    "title": "Tantang Kemampuan Codingmu dengan 5 Website Coding ini!",
+    "date": "2024-04-09",
+    "url": "https://www.instagram.com/p/C5iZ8C0LU9e/",
+    "metrics": { "reach": 303, "likes": 33, "comments": 0, "shares": 0, "saves": 2 }
+  },
+  {
+    "id": 2,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Teknikal",
+    "title": "Materi Dasar Bahasa C untuk Pemula",
+    "date": "2023-10-13",
+    "url": "https://www.instagram.com/p/CyVkzgShEgQ/",
+    "metrics": { "reach": 1737, "likes": 177, "comments": 71, "shares": 17, "saves": 8 }
+  },
+  {
+    "id": 3,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Trivia",
+    "title": "Ketika Dia Suka yang Bisa Banyak Bahasa",
+    "date": "2023-11-09",
+    "url": "https://www.instagram.com/p/CzbMicPrnEx/",
+    "metrics": { "reach": 204224, "likes": 18134, "comments": 2932, "shares": 3255, "saves": 257 }
+  },
+  {
+    "id": 4,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Informatif",
+    "title": "Fakta Menarik HTML dan CSS",
+    "date": "2023-11-16",
+    "url": "https://www.instagram.com/p/CzqpyeSLUrI/",
+    "metrics": { "reach": 1995, "likes": 249, "comments": 70, "shares": 10, "saves": 3 }
+  },
+  {
+    "id": 5,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Teknikal",
+    "title": "Hello World di Berbagai Bahasa!",
+    "date": "2023-11-24",
+    "url": "https://www.instagram.com/p/C0EfqrWr7Lw/",
+    "metrics": { "reach": 1254, "likes": 134, "comments": 18, "shares": 3, "saves": 2 }
+  },
+  {
+    "id": 6,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Informatif",
+    "title": "AI Image Generator Gratis Terbaik!",
+    "date": "2023-11-28",
+    "url": "https://www.instagram.com/p/C0MHCTZrqCu/",
+    "metrics": { "reach": 1127, "likes": 110, "comments": 65, "shares": 17, "saves": 1 }
+  },
+  {
+    "id": 7,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Informatif",
+    "title": "Kenapa JavaScript Sangat Populer?",
+    "date": "2023-12-06",
+    "url": "https://www.instagram.com/p/C0eIkq_rAIG/",
+    "metrics": { "reach": 1159, "likes": 125, "comments": 22, "shares": 1, "saves": 1 }
+  },
+  {
+    "id": 8,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Teknikal",
+    "title": "Array Methods JavaScript Dasar",
+    "date": "2023-12-13",
+    "url": "https://www.instagram.com/p/C0wLx46rx6Y/",
+    "metrics": { "reach": 1152, "likes": 105, "comments": 42, "shares": 14, "saves": 1 }
+  },
+  {
+    "id": 9,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Teknikal",
+    "title": "Jenis Grafik Pada Matplotlib Python",
+    "date": "2023-12-23",
+    "url": "https://www.instagram.com/p/C1MdtU0Lmky/",
+    "metrics": { "reach": 1442, "likes": 176, "comments": 71, "shares": 17, "saves": 0 }
+  },
+  {
+    "id": 10,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Informatif",
+    "title": "Array, ArrayList, Vector Pada Java",
+    "date": "2024-01-06",
+    "url": "https://www.instagram.com/p/C1wilhprYRr/",
+    "metrics": { "reach": 955, "likes": 86, "comments": 29, "shares": 2, "saves": 4 }
+  },
+  {
+    "id": 11,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Teknikal",
+    "title": "Contoh Method ArrayList Pada Java",
+    "date": "2024-01-12",
+    "url": "https://www.instagram.com/p/C1_xtH5LJZP/",
+    "metrics": { "reach": 1128, "likes": 128, "comments": 49, "shares": 11, "saves": 2 }
+  },
+  {
+    "id": 12,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Trivia",
+    "title": "Pusing Mikirin Codingan Error",
+    "date": "2024-02-01",
+    "url": "https://www.instagram.com/p/C2zdDyZL-br/",
+    "metrics": { "reach": 702, "likes": 58, "comments": 4, "shares": 0, "saves": 0 }
+  },
+  {
+    "id": 13,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Teknikal",
+    "title": "Valentine Day Versi Anak IT",
+    "date": "2024-02-10",
+    "url": "https://www.instagram.com/p/C3Kpkh1rb6M/",
+    "metrics": { "reach": 3117, "likes": 285, "comments": 109, "shares": 28, "saves": 6 }
+  },
+  {
+    "id": 14,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Informatif",
+    "title": "Awas Terjebak Dalam Tutorial Hell",
+    "date": "2024-02-13",
+    "url": "https://www.instagram.com/p/C3SSwuUrmvG/",
+    "metrics": { "reach": 1554, "likes": 219, "comments": 124, "shares": 79, "saves": 20 }
+  },
+  {
+    "id": 15,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Trivia",
+    "title": "Ketika Kuliah Ambil Jurusan IT",
+    "date": "2024-02-25",
+    "url": "https://www.instagram.com/p/C3sLKs5ybdg/",
+    "metrics": { "reach": 1301, "likes": 85, "comments": 7, "shares": 1, "saves": 0 }
+  },
+  {
+    "id": 16,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Teknikal",
+    "title": "Asset 3D Figma Gratis Terbaik",
+    "date": "2024-02-28",
+    "url": "https://www.instagram.com/p/C3z5y2iSMY4/",
+    "metrics": { "reach": 1033, "likes": 109, "comments": 64, "shares": 19, "saves": 0 }
+  },
+  {
+    "id": 17,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Informatif",
+    "title": "Istilah Dalam Dunia Pemrograman Part 2",
+    "date": "2024-02-29",
+    "url": "https://www.instagram.com/p/C37nNlXhtgH/",
+    "metrics": { "reach": 5550, "likes": 809, "comments": 461, "shares": 91, "saves": 3 }
+  },
+  {
+    "id": 18,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Trivia",
+    "title": "Programmer Modal Hello World!",
+    "date": "2024-03-13",
+    "url": "https://www.instagram.com/p/C4dBc84L6Pn/",
+    "metrics": { "reach": 2436, "likes": 138, "comments": 8, "shares": 5, "saves": 8 }
+  },
+  {
+    "id": 19,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Teknikal",
+    "title": "CSS Murni vs Tailwind CSS",
+    "date": "2024-03-23",
+    "url": "https://www.instagram.com/p/C42wmYDLEhA/",
+    "metrics": { "reach": 7110, "likes": 775, "comments": 275, "shares": 47, "saves": 21 }
+  },
+  {
+    "id": 20,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Trivia",
+    "title": "Yuk! Kenalan Sama Framework Flutter",
+    "date": "2024-03-28",
+    "url": "https://www.instagram.com/p/C5Dryz3y-rj/",
+    "metrics": { "reach": 2583, "likes": 207, "comments": 19, "shares": 12, "saves": 5 }
+  },
+  {
+    "id": 21,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Trivia",
+    "title": "Slander Anak IT",
+    "date": "2024-04-03",
+    "url": "https://www.instagram.com/p/C5S8eDWr-bO/",
+    "metrics": { "reach": 3153, "likes": 279, "comments": 33, "shares": 48, "saves": 3 }
+  },
+  {
+    "id": 22,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Trivia",
+    "title": "Ketika Kode Disuruh Jalan",
+    "date": "2024-05-08",
+    "url": "https://www.instagram.com/p/C6tRtGnysgN/",
+    "metrics": { "reach": 15471, "likes": 903, "comments": 18, "shares": 91, "saves": 56 }
+  },
+  {
+    "id": 23,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Teknikal",
+    "title": "Rekomendasi ERD Maker Terbaik",
+    "date": "2024-05-12",
+    "url": "https://www.instagram.com/p/C63uFr7y1hG/",
+    "metrics": { "reach": 21882, "likes": 2262, "comments": 19, "shares": 637, "saves": 1706 }
+  },
+  {
+    "id": 24,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Trivia",
+    "title": "Iseng Versi Desainer Figma",
+    "date": "2024-05-27",
+    "url": "https://www.instagram.com/p/C7blJzBSQub/",
+    "metrics": { "reach": 26232, "likes": 1676, "comments": 29, "shares": 162, "saves": 183 }
+  },
+  {
+    "id": 25,
+    "account": "filetechno",
+    "platform": "instagram",
+    "category": "Informatif",
+    "title": "Extension VScode Web Developer",
+    "date": "2024-05-31",
+    "url": "https://www.instagram.com/p/C7jimBYySyZ/",
+    "metrics": { "reach": 6508, "likes": 546, "comments": 1, "shares": 75, "saves": 220 }
+  },
+  {
+    "id": 26,
+    "account": "bnccbinus",
+    "platform": "instagram",
+    "category": "Event Promotion",
+    "title": "BNCC CSR 2023 Promotion",
+    "date": "2023-10-10",
+    "url": "https://www.instagram.com/p/CyNg43EL2R6/",
+    "metrics": { "reach": 0, "likes": 216, "comments": 5, "shares": 0, "saves": 0 }
+  },
+  {
+    "id": 27,
+    "account": "bnccbinus",
+    "platform": "instagram",
+    "category": "Product Promotion",
+    "title": "Filemagz Promotion",
+    "date": "2024-05-31",
+    "url": "https://www.instagram.com/p/C7jJDVCSbtp/",
+    "metrics": { "reach": 0, "likes": 113, "comments": 7, "shares": 0, "saves": 0 }
+  },
+  {
+    "id": 28,
+    "account": "filemagz",
+    "platform": "instagram",
+    "category": "FILEgreet",
+    "title": "Hari Kesehatan Mental Dunia",
+    "date": "2023-10-10",
+    "url": "https://www.instagram.com/p/CyN5vbgrs9h/",
+    "metrics": { "reach": 599, "likes": 53, "comments": 5, "shares": 2, "saves": 0 }
+  },
+  {
+    "id": 29,
+    "account": "filemagz",
+    "platform": "instagram",
+    "category": "FILEinfo",
+    "title": "Nonton Konser dalam Bola Basket?!",
+    "date": "2023-10-16",
+    "url": "https://www.instagram.com/p/CydYx3qhJoo/",
+    "metrics": { "reach": 518, "likes": 52, "comments": 10, "shares": 2, "saves": 0 }
+  },
+  {
+    "id": 30,
+    "account": "filemagz",
+    "platform": "instagram",
+    "category": "FILEclip",
+    "title": "Reaksi Ketika Dosen Ngasih Quiz Dadakan",
+    "date": "2023-10-18",
+    "url": "https://www.instagram.com/p/CyiZ8OBB_j0/",
+    "metrics": { "reach": 592, "likes": 46, "comments": 3, "shares": 2, "saves": 0 }
+  },
+  {
+    "id": 31,
+    "account": "filemagz",
+    "platform": "instagram",
+    "category": "FILEgreet",
+    "title": "Sumpah Pemuda",
+    "date": "2023-10-09",
+    "url": "https://www.instagram.com/p/Cy7i8byLQLg/",
+    "metrics": { "reach": 207, "likes": 22, "comments": 1, "shares": 0, "saves": 0 }
+  },
+  {
+    "id": 32,
+    "account": "filemagz",
+    "platform": "instagram",
+    "category": "FILEtoVisit",
+    "title": "Berburu Kuliner India di Acara ASEAN",
+    "date": "2023-11-18",
+    "url": "https://www.instagram.com/p/Czya8IIrGfE/",
+    "metrics": { "reach": 955, "likes": 94, "comments": 4, "shares": 3, "saves": 2 }
+  },
+  {
+    "id": 33,
+    "account": "filemagz",
+    "platform": "instagram",
+    "category": "FILEclip",
+    "title": "Tips Benerin Typo di Google Docs Dengan Cepat",
+    "date": "2023-12-02",
+    "url": "https://www.instagram.com/p/C0WasMDLa4z/",
+    "metrics": { "reach": 10650, "likes": 397, "comments": 7, "shares": 14, "saves": 105 }
+  },
+  {
+    "id": 34,
+    "account": "filemagz",
+    "platform": "instagram",
+    "category": "FILEnow",
+    "title": "Youtube Rewind Indonesia 2023 Rilis! Gimana Menurut Kamu?",
+    "date": "2024-01-12",
+    "url": "https://www.instagram.com/p/C2AKPJPrJH0/",
+    "metrics": { "reach": 576, "likes": 48, "comments": 1, "shares": 1, "saves": 0 }
+  },
+  {
+    "id": 35,
+    "account": "filemagz",
+    "platform": "instagram",
+    "category": "FILEnow",
+    "title": "Indonesia Lolos 16 Besar Piala Asia Pertama Dalam Sejarah!",
+    "date": "2024-01-26",
+    "url": "https://www.instagram.com/p/C2iA1lNhg57/",
+    "metrics": { "reach": 929, "likes": 78, "comments": 8, "shares": 5, "saves": 1 }
+  },
+  {
+    "id": 36,
+    "account": "filemagz",
+    "platform": "instagram",
+    "category": "FILEnow",
+    "title": "Pemilu Bertepatan dengan Hari Valentine",
+    "date": "2024-02-14",
+    "url": "https://www.instagram.com/p/C3T-TWwLvSF/",
+    "metrics": { "reach": 100, "likes": 94, "comments": 1, "shares": 12, "saves": 2 }
+  },
+  {
+    "id": 37,
+    "account": "filemagz",
+    "platform": "instagram",
+    "category": "FILEinterview",
+    "title": "Derita Ambil Jurusan IT",
+    "date": "2024-02-26",
+    "url": "https://www.instagram.com/p/C3z6tLZSHe9/",
+    "metrics": { "reach": 8238, "likes": 475, "comments": 17, "shares": 31, "saves": 43 }
+  },
+  {
+    "id": 38,
+    "account": "filemagz",
+    "platform": "instagram",
+    "category": "FILEclip",
+    "title": "Hasil Video Realistik dari Sora OpenAI",
+    "date": "2024-03-06",
+    "url": "https://www.instagram.com/p/C4LEL9XLFPR/",
+    "metrics": { "reach": 596, "likes": 67, "comments": 1, "shares": 0, "saves": 0 }
+  },
+  {
+    "id": 39,
+    "account": "filemagz",
+    "platform": "instagram",
+    "category": "FILEinterview",
+    "title": "Tebak Singkatan Sehari-hari",
+    "date": "2024-03-27",
+    "url": "https://www.instagram.com/p/C5AB8JlS-7b/",
+    "metrics": { "reach": 12702, "likes": 290, "comments": 8, "shares": 9, "saves": 44 }
+  },
+  {
+    "id": 40,
+    "account": "filemagz",
+    "platform": "instagram",
+    "category": "FILEnow",
+    "title": "Billie Eilish Close Friend",
+    "date": "2024-04-05",
+    "url": "https://www.instagram.com/p/C5W17hqSPdu/",
+    "metrics": { "reach": 1765, "likes": 91, "comments": 2, "shares": 10, "saves": 4 }
+  },
+  {
+    "id": 41,
+    "account": "filemagz",
+    "platform": "instagram",
+    "category": "FILEinterview",
+    "title": "Tips Masuk Apple Developer Academy",
+    "date": "2024-05-29",
+    "url": "https://www.instagram.com/p/C7gqT_HOWr1/",
+    "metrics": { "reach": 1021, "likes": 85, "comments": 3, "shares": 9, "saves": 1 }
+  },
+  {
+    "id": 42,
+    "account": "filemagz",
+    "platform": "tiktok",
+    "category": "FILEclip",
+    "title": "Tips Benerin Typo di Google Docs Dengan Cepat",
+    "date": "2023-12-02",
+    "url": "https://www.tiktok.com/@filemagz/video/7336844398019349765",
+    "metrics": { "reach": 170000, "likes": 13000, "comments": 31, "shares": 1160, "saves": 8818 }
+  }
+]
