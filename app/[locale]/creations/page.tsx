@@ -8,12 +8,13 @@ import Creations from "@/modules/creations";
 import { METADATA } from "@/common/constants/metadata";
 
 interface CreationsPageProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 export async function generateMetadata({
-  params: { locale },
+  params,
 }: CreationsPageProps): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "CreationsPage" });
 
   return {
@@ -26,7 +27,8 @@ export async function generateMetadata({
   };
 }
 
-const CreationsPage = async ({ params: { locale } }: CreationsPageProps) => {
+const CreationsPage = async ({ params }: CreationsPageProps) => {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "CreationsPage" });
 
   return (

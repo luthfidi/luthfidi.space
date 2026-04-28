@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { differenceInDays, format } from "date-fns";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants } from "motion/react";
 import { useTranslations } from "next-intl";
 
 import Tooltip from "@/common/components/elements/Tooltip";

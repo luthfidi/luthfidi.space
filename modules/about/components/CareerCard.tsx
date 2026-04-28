@@ -11,7 +11,7 @@ import {
 } from "react-icons/bs";
 import { HiChevronRight as ChevronIcon } from "react-icons/hi";
 import { HiOutlineRocketLaunch as ImpactIcon } from "react-icons/hi2";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { useLocale } from "next-intl";
 import { differenceInMonths, differenceInYears, format } from "date-fns";
 

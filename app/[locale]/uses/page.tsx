@@ -7,12 +7,13 @@ import Uses from "@/modules/uses";
 import { METADATA } from "@/common/constants/metadata";
 
 interface UsesPageProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 export async function generateMetadata({
-  params: { locale },
+  params,
 }: UsesPageProps): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "UsesPage" });
 
   return {
@@ -25,7 +26,8 @@ export async function generateMetadata({
   };
 }
 
-const UsesPage = async ({ params: { locale } }: UsesPageProps) => {
+const UsesPage = async ({ params }: UsesPageProps) => {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "UsesPage" });
 
   return (

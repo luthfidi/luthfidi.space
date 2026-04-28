@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import useSWR from "swr";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 
 import EmptyState from "@/common/components/elements/EmptyState";

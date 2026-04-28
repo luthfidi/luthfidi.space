@@ -1,6 +1,168 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-primary-50: #fffef2;
+  --color-primary-100: #fffde6;
+  --color-primary-200: #fff9b8;
+  --color-primary-300: #fff58a;
+  --color-primary-400: #fff15c;
+  --color-primary-500: #ffee2e;
+  --color-primary-700: #d1c000;
+  --color-primary-800: #a39600;
+  --color-primary-900: #756c00;
+  --color-primary-950: #474100;
+  --color-primary: #fbe400;
+
+  --color-dark: #121212;
+
+  --color-light: #fafafa;
+
+  --color-neutral: #d4d4d4;
+
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-gradient-conic: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--tw-gradient-stops)
+  );
+
+  --animate-shine: shine 5s linear infinite;
+  --animate-gradient: gradient 8s linear infinite;
+  --animate-glitch-after: glitch var(--after-duration) infinite linear
+    alternate-reverse;
+  --animate-glitch-before: glitch var(--before-duration) infinite linear
+    alternate-reverse;
+  --animate-star-movement-bottom: star-movement-bottom linear infinite alternate;
+  --animate-star-movement-top: star-movement-top linear infinite alternate;
+
+  @keyframes shine {
+    0% {
+      background-position: 100%;
+    }
+    100% {
+      background-position: -100%;
+    }
+  }
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  @keyframes glitch {
+    0% {
+      clip-path: inset(20% 0 50% 0);
+    }
+    5% {
+      clip-path: inset(10% 0 60% 0);
+    }
+    10% {
+      clip-path: inset(15% 0 55% 0);
+    }
+    15% {
+      clip-path: inset(25% 0 35% 0);
+    }
+    20% {
+      clip-path: inset(30% 0 40% 0);
+    }
+    25% {
+      clip-path: inset(40% 0 20% 0);
+    }
+    30% {
+      clip-path: inset(10% 0 60% 0);
+    }
+    35% {
+      clip-path: inset(15% 0 55% 0);
+    }
+    40% {
+      clip-path: inset(25% 0 35% 0);
+    }
+    45% {
+      clip-path: inset(30% 0 40% 0);
+    }
+    50% {
+      clip-path: inset(20% 0 50% 0);
+    }
+    55% {
+      clip-path: inset(10% 0 60% 0);
+    }
+    60% {
+      clip-path: inset(15% 0 55% 0);
+    }
+    65% {
+      clip-path: inset(25% 0 35% 0);
+    }
+    70% {
+      clip-path: inset(30% 0 40% 0);
+    }
+    75% {
+      clip-path: inset(40% 0 20% 0);
+    }
+    80% {
+      clip-path: inset(20% 0 50% 0);
+    }
+    85% {
+      clip-path: inset(10% 0 60% 0);
+    }
+    90% {
+      clip-path: inset(15% 0 55% 0);
+    }
+    95% {
+      clip-path: inset(25% 0 35% 0);
+    }
+    100% {
+      clip-path: inset(30% 0 40% 0);
+    }
+  }
+  @keyframes star-movement-bottom {
+    0% {
+      transform: translate(0%, 0%);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-100%, 0%);
+      opacity: 0;
+    }
+  }
+  @keyframes star-movement-top {
+    0% {
+      transform: translate(0%, 0%);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(100%, 0%);
+      opacity: 0;
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility hexagon {
+  clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
+}
 
 @layer base {
   ::-webkit-scrollbar {
@@ -15,17 +177,11 @@
   ::-webkit-scrollbar-thumb {
     border-radius: 3px;
     border: 2px solid;
-    background-color: theme("colors.neutral.600");
-    border-color: theme("colors.neutral.300");
+    background-color: var(--color-neutral-600);
+    border-color: var(--color-neutral-300);
   }
 
   .dark ::-webkit-scrollbar-thumb {
-    background-color: theme("colors.neutral.400");
-  }
-}
-
-@layer components {
-  .hexagon {
-    clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
+    background-color: var(--color-neutral-400);
   }
 }

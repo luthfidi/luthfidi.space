@@ -1,7 +1,7 @@
 "use client";
 
 import useSWR from "swr";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { AchievementItem } from "@/common/types/achievements";

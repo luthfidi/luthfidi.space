@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { LuChevronsUpDown as ArrowIcon } from "react-icons/lu";
 import { TiTick as ActiveIcon } from "react-icons/ti";
 import { MdArrowOutward as LinkIcon } from "react-icons/md";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { useTranslations } from "next-intl";
 
 import cn from "@/common/libs/clsxm";

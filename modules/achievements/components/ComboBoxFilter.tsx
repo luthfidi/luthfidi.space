@@ -3,7 +3,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { LuChevronsUpDown as ArrowIcon } from "react-icons/lu";
 import { TiTick as ActiveIcon } from "react-icons/ti";
 import { FiSearch as SearchIcon } from "react-icons/fi";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 
 import cn from "@/common/libs/clsxm";
 import Button from "@/common/components/elements/Button";

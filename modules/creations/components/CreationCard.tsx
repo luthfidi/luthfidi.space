@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { format, parseISO } from "date-fns";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import {
   HiOutlineArrowSmRight as ViewIcon,
   HiOutlineEye,

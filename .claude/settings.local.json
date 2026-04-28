@@ -13,7 +13,12 @@
       "Bash(npx next *)",
       "Bash(npm outdated *)",
       "mcp__plugin_context7_context7__resolve-library-id",
-      "mcp__plugin_context7_context7__query-docs"
+      "mcp__plugin_context7_context7__query-docs",
+      "Bash(npm view *)",
+      "Bash(node -e \"const p = JSON.parse\\(require\\('fs'\\).readFileSync\\('package.json','utf8'\\)\\); console.log\\('next:', p.dependencies.next\\); console.log\\('react:', p.dependencies.react\\); console.log\\('motion:', p.dependencies.motion\\); console.log\\('@vercel/analytics:', p.dependencies['@vercel/analytics']\\);\")",
+      "Bash(node -e \"console.log\\('tailwindcss version:', require\\('./node_modules/tailwindcss/package.json'\\).version\\)\")",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/tailwindcss/package.json'\\).version\\)\")",
+      "Bash(node -e \"const p = JSON.parse\\(require\\('fs'\\).readFileSync\\('package.json','utf8'\\)\\); console.log\\('tailwindcss:', p.devDependencies.tailwindcss\\); console.log\\('@tailwindcss/postcss:', p.devDependencies['@tailwindcss/postcss']\\); console.log\\('autoprefixer:', p.devDependencies.autoprefixer || 'gone'\\)\")"
     ]
   }
 }

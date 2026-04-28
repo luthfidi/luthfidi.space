@@ -1,5 +1,5 @@
 import NextTopLoader from "nextjs-toploader";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -41,13 +41,12 @@ export const metadata: Metadata = {
 
 interface RootLayoutProps {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
-const RootLayout = async ({
-  children,
-  params: { locale },
-}: RootLayoutProps) => {
+const RootLayout = async ({ children, params }: RootLayoutProps) => {
+  const { locale } = await params;
+
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
