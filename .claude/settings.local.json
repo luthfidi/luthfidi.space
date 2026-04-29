@@ -33,7 +33,9 @@
       "Bash(npm run *)",
       "Bash(grep -v \"•\\\\|^$\")",
       "Bash(echo \"Exit: $?\")",
-      "Bash(echo \"TS Exit: $?\")"
+      "Bash(echo \"TS Exit: $?\")",
+      "Bash(grep -iE \"csharp|^.*csharp.*$\" node_modules/react-icons/tb/index.d.ts node_modules/react-icons/bi/index.d.ts node_modules/react-icons/fa6/index.d.ts node_modules/react-icons/vsc/index.d.ts)",
+      "Bash(echo \"exit: $?\")"
     ]
   }
 }

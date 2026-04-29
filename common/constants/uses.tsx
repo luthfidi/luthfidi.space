@@ -27,12 +27,12 @@ export const USES: UseSection[] = [
     icon: <HiOutlineDesktopComputer size={iconSize} />,
     items: [
       {
-        name: "MacBook Pro 14\" (M-series)",
-        description: "Daily driver for development.",
+        name: "Windows Laptop",
+        description: "Daily driver for development and design work.",
       },
       {
         name: "External Monitor",
-        description: "Secondary screen for split-view debugging.",
+        description: "Secondary screen for split-view debugging and design.",
       },
       {
         name: "Mechanical Keyboard",
@@ -46,17 +46,28 @@ export const USES: UseSection[] = [
     items: [
       {
         name: "Visual Studio Code",
-        description: "Primary editor for everything.",
+        description: "Primary editor for web and product development.",
         link: "https://code.visualstudio.com",
       },
       {
-        name: "Cursor",
-        description: "AI-assisted editor for heavier features.",
-        link: "https://cursor.com",
+        name: "Visual Studio",
+        description: "For ASP.NET / C# work.",
+        link: "https://visualstudio.microsoft.com",
       },
       {
-        name: "Theme: One Dark Pro",
-        description: "Long-running favorite color scheme.",
+        name: "Dev C++",
+        description: "Lightweight editor for C/C++ exercises.",
+        link: "https://www.bloodshed.net",
+      },
+      {
+        name: "Eclipse IDE",
+        description: "Used for Java coursework and projects.",
+        link: "https://www.eclipse.org",
+      },
+      {
+        name: "Remix IDE",
+        description: "Browser-based editor for Solidity smart contracts.",
+        link: "https://remix.ethereum.org",
       },
     ],
   },
@@ -65,18 +76,16 @@ export const USES: UseSection[] = [
     icon: <HiOutlineTerminal size={iconSize} />,
     items: [
       {
-        name: "iTerm2",
-        description: "Default terminal on macOS.",
-        link: "https://iterm2.com",
+        name: "Windows Terminal",
+        description: "Default terminal multiplexer on Windows.",
       },
       {
-        name: "Zsh + Oh My Zsh",
-        description: "Shell + plugin manager.",
+        name: "PowerShell",
+        description: "Primary shell for scripting and Windows tooling.",
       },
       {
-        name: "Starship",
-        description: "Cross-shell prompt.",
-        link: "https://starship.rs",
+        name: "Git Bash",
+        description: "Unix-style shell for Git workflows.",
       },
     ],
   },
@@ -85,24 +94,38 @@ export const USES: UseSection[] = [
     icon: <TbApps size={iconSize} />,
     items: [
       {
-        name: "Notion",
-        description: "Notes, knowledge base, planning.",
-        link: "https://notion.so",
+        name: "Microsoft 365",
+        description: "Word, Excel, PowerPoint for documentation and reports.",
+      },
+      {
+        name: "Google Workspace",
+        description: "Docs, Sheets, Drive, and Calendar for collaboration.",
+        link: "https://workspace.google.com",
       },
       {
         name: "Figma",
-        description: "Design and prototyping.",
+        description: "Design and product prototyping.",
         link: "https://figma.com",
       },
       {
+        name: "Canva",
+        description: "Quick visuals and social media assets.",
+        link: "https://canva.com",
+      },
+      {
         name: "ClickUp",
-        description: "Project and task management.",
+        description: "Project and task management for client work.",
         link: "https://clickup.com",
       },
       {
-        name: "Slack",
-        description: "Team communication.",
-        link: "https://slack.com",
+        name: "Adobe Premiere Pro",
+        description: "Professional video editing.",
+        link: "https://www.adobe.com/products/premiere.html",
+      },
+      {
+        name: "CapCut",
+        description: "Lightweight editor for short-form content.",
+        link: "https://www.capcut.com",
       },
     ],
   },
@@ -111,14 +134,14 @@ export const USES: UseSection[] = [
     icon: <HiOutlineGlobeAlt size={iconSize} />,
     items: [
       {
-        name: "Arc",
-        description: "Daily-driver browser.",
-        link: "https://arc.net",
+        name: "Google Chrome",
+        description: "Primary browser, DevTools, and Lighthouse audits.",
+        link: "https://www.google.com/chrome",
       },
       {
-        name: "Chrome",
-        description: "For DevTools and Lighthouse.",
-        link: "https://www.google.com/chrome",
+        name: "Microsoft Edge",
+        description: "Secondary browser for cross-browser testing.",
+        link: "https://www.microsoft.com/edge",
       },
     ],
   },
@@ -131,20 +154,24 @@ export const USES: UseSection[] = [
         description: "Frontend framework and language of choice.",
       },
       {
-        name: "Tailwind CSS",
-        description: "Utility-first styling.",
+        name: "Tailwind CSS + Chakra UI",
+        description: "Utility-first styling and component library.",
       },
       {
         name: "Golang (Echo, GORM)",
-        description: "Backend services.",
+        description: "Backend services for production projects.",
       },
       {
-        name: "Solidity / Foundry",
-        description: "Smart contract development on Lisk.",
+        name: "Laravel + PHP",
+        description: "Backend stack for client web projects.",
       },
       {
-        name: "PostgreSQL",
-        description: "Primary database.",
+        name: "Solidity + Foundry",
+        description: "Smart contract development on the Lisk blockchain.",
+      },
+      {
+        name: "PostgreSQL / MySQL",
+        description: "Primary relational databases.",
       },
     ],
   },

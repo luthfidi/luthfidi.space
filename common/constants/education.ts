@@ -6,7 +6,7 @@ export const EDUCATION: EducationProps[] = [
     major: "Computer Science",
     logo: "/images/placeholder.webp",
     location: "Jakarta, Indonesia 🇮🇩",
-    degree: "Bachelor of Computer Science",
+    degree: "Bachelor of Computer Science (Fast-Track, 3.5 years)",
     GPA: "3.42/4.00",
     start_year: 2022,
     end_year: 2026,
