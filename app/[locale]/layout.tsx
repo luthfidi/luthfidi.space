@@ -59,7 +59,7 @@ const RootLayout = async ({ children, params }: RootLayoutProps) => {
     <html lang={locale} suppressHydrationWarning={true}>
       <body className={inter.className}>
         <NextTopLoader
-          color="#fbe400"
+          color="#60a5fa"
           initialPosition={0.08}
           crawlSpeed={200}
           height={3}
@@ -67,7 +67,7 @@ const RootLayout = async ({ children, params }: RootLayoutProps) => {
           showSpinner={false}
           easing="ease"
           speed={200}
-          shadow="0 0 10px #fbe400,0 0 5px #ffffb8"
+          shadow="0 0 10px #60a5fa,0 0 5px #dbeafe"
         />
         <NextIntlClientProvider messages={messages} locale={locale}>
           <ThemeProviderContext>

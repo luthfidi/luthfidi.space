@@ -11,7 +11,6 @@ import {
   HiOutlineShare,
   HiOutlineBookmark,
 } from "react-icons/hi";
-import { SiInstagram, SiTiktok } from "react-icons/si";
 
 import SpotlightCard from "@/common/components/elements/SpotlightCard";
 import type { CreationItem } from "@/common/types/creations";
@@ -22,36 +21,38 @@ const formatNumber = (n: number): string => {
   return n.toString();
 };
 
-const accountLabel: Record<string, string> = {
-  filetechno: "@filetechno",
-  bnccbinus: "@bnccbinus",
-  filemagz: "@filemagz",
+const getInstagramEmbedUrl = (url: string): string | null => {
+  const match = url.match(/instagram\.com\/(p|reel|tv)\/([^/?]+)/);
+  if (!match) return null;
+  return `https://www.instagram.com/${match[1]}/${match[2]}/embed/`;
 };
 
 const CreationCard = ({
-  account,
   platform,
-  category,
   title,
   date,
   url,
   metrics,
 }: CreationItem) => {
   const issueDate = date ? format(parseISO(date), "d MMM yyyy") : "";
-  const PlatformIcon = platform === "tiktok" ? SiTiktok : SiInstagram;
+  const embedUrl =
+    platform === "instagram" ? getInstagramEmbedUrl(url) : null;
 
   return (
     <motion.div whileHover={{ y: -2 }} className="h-full">
       <SpotlightCard className="group flex h-full flex-col gap-3 border border-neutral-200 p-4 dark:border-neutral-800">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400">
-            <PlatformIcon size={14} />
-            <span>{accountLabel[account] || account}</span>
+        {embedUrl && (
+          <div className="relative aspect-square w-full overflow-hidden rounded-md border border-neutral-200 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900">
+            <iframe
+              src={embedUrl}
+              loading="lazy"
+              className="absolute left-0 top-[-100px] block h-[600px] w-full"
+              scrolling="no"
+              allow="clipboard-write; encrypted-media; picture-in-picture; web-share"
+              title={title}
+            />
           </div>
-          <span className="rounded-full border border-neutral-300 bg-neutral-100 px-2 py-0.5 text-[10px] capitalize text-neutral-600 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400">
-            {category}
-          </span>
-        </div>
+        )}
 
         <h3 className="line-clamp-2 text-sm font-medium text-neutral-900 dark:text-neutral-200">
           {title}
