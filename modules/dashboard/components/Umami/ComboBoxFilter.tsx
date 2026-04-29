@@ -19,20 +19,15 @@ const ComboBoxFilter = () => {
   const domainParams = searchParams.get("domain") || "all";
 
   const [isOpen, setIsOpen] = useState(false);
-  const [selectValue, setSelectValue] = useState(domainParams);
+  const selectValue = domainParams;
 
   const comboBoxRef = useRef<HTMLDivElement>(null);
   const { websites } = UMAMI_ACCOUNT;
 
   const handleSelect = (newValue: string) => {
-    setSelectValue(newValue);
     setIsOpen(false);
     router.push(`/dashboard?domain=${newValue}`, { scroll: false });
   };
-
-  useEffect(() => {
-    setSelectValue(domainParams);
-  }, [domainParams]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

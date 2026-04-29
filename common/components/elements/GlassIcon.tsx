@@ -1,6 +1,8 @@
+import type { ReactNode } from "react";
+
 export interface GlassIconProps {
   name: string;
-  icon: JSX.Element;
+  icon: ReactNode;
   background: string;
 }
 

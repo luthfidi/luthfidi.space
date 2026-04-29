@@ -6,6 +6,9 @@ const { api_key, base_url, all_time_endpoint, stats_endpoint } =
   WAKATIME_ACCOUNT;
 
 const fetchReadStats = async () => {
+  if (!api_key) {
+    return { data: {} as any };
+  }
   try {
     const response = await axios.get(
       `${base_url}${stats_endpoint}/last_7_days`,
@@ -39,6 +42,9 @@ const fetchReadStats = async () => {
 };
 
 const fetchAllTimeSinceToday = async () => {
+  if (!api_key) {
+    return { data: {} as any };
+  }
   try {
     const response = await axios.get(`${base_url}${all_time_endpoint}`, {
       headers: { Authorization: `Basic ${api_key}` },

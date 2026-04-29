@@ -10,6 +10,7 @@ const SkeletonThemeProvider = ({ children }: { children: ReactNode }) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount detection for hydration safety
     setMounted(true);
   }, []);
 

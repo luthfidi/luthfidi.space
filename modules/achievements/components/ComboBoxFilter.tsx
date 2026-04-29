@@ -21,11 +21,11 @@ const ComboBoxFilter = ({
 }: comboBoxFilterProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [inputValueSearch, setInputValueSearch] = useState("");
-  const [selectValue, setSelectValue] = useState("");
 
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const currentParams = searchParams.get(paramKey);
+  const selectValue = currentParams || "";
 
   const router = useRouter();
   const comboBoxRef = useRef<HTMLDivElement>(null);
@@ -57,28 +57,15 @@ const ComboBoxFilter = ({
     setInputValueSearch(event.target.value);
   };
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      comboBoxRef.current &&
-      !comboBoxRef.current.contains(event.target as Node)
-    ) {
-      setIsOpen(false);
-    }
-  };
-
   useEffect(() => {
-    setSelectValue(currentParams || "");
-  }, [currentParams]);
-
-  useEffect(() => {
-    if (currentParams) {
-      setSelectValue(currentParams);
-    } else {
-      setSelectValue("");
-    }
-  }, [currentParams]);
-
-  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        comboBoxRef.current &&
+        !comboBoxRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
     document.addEventListener("mousedown", handleClickOutside);
 
     return () => {

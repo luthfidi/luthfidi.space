@@ -26,7 +26,7 @@ const ProjectDetail = ({
             {t("tech_stack")} :{" "}
           </span>
           <div className="flex flex-wrap items-center gap-3">
-            {stacks.map((stack: string, index: number) => {
+            {(stacks ?? []).map((stack: string, index: number) => {
               const stackData = STACKS[stack];
 
               if (!stackData) {

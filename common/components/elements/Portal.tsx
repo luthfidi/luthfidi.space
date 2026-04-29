@@ -11,6 +11,7 @@ const Portal = ({ children }: PortalProps) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- portal needs document.body, only available after mount
     setMounted(true);
     return () => setMounted(false);
   }, []);

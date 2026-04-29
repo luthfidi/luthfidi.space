@@ -1,8 +1,11 @@
+"use client";
+
 import clsx from "clsx";
 import { AnimatePresence } from "motion/react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { useMenu } from "@/common/stores/menu";
+import useIsMobile from "@/hooks/useIsMobile";
 
 import MobileMenu from "./MobileMenu";
 import MobileMenuButton from "./MobileMenuButton";
@@ -11,28 +14,10 @@ import ThemeToggle from "./ThemeToggle";
 import IntlToggle from "./IntlToggle";
 
 const Profile = () => {
-  const [width, setWidth] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
+  const isMobile = useIsMobile();
   const { isOpen, toggleMenu } = useMenu();
 
   const imageSize = isMobile ? 40 : 100;
-
-  useEffect(() => {
-    setWidth(window.innerWidth);
-    setIsMobile(window.innerWidth < 769);
-
-    const handleResize = () => {
-      setWidth(window.innerWidth);
-      setIsMobile(window.innerWidth < 769);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   useEffect(() => {
     if (isOpen) {

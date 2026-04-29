@@ -21,7 +21,6 @@ const ContactForm = () => {
     formState: { errors },
   } = useForm<FormEmail>();
   const [isLoading, setIsLoading] = useState(false);
-  const [buttonText, setButtonText] = useState("Send Email");
   const [isSuccess, setIsSuccess] = useState(false);
 
   const t = useTranslations("ContactPage");
@@ -30,13 +29,16 @@ const ContactForm = () => {
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   useEffect(() => {
-    setButtonText(isLoading ? "Sending your message..." : "Send Email");
-    if (!isLoading && isSuccess) setButtonText("Your email sent successfully");
-    const timeout = setTimeout(() => {
-      setButtonText("Send Email");
-    }, 5000);
+    if (!isSuccess) return;
+    const timeout = setTimeout(() => setIsSuccess(false), 5000);
     return () => clearTimeout(timeout);
-  }, [isLoading, isSuccess]);
+  }, [isSuccess]);
+
+  const buttonText = isLoading
+    ? "Sending your message..."
+    : isSuccess
+      ? "Your email sent successfully"
+      : "Send Email";
 
   const handleFormSubmit = async (payload: FormEmail) => {
     setIsLoading(true);

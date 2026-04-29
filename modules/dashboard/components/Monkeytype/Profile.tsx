@@ -58,7 +58,7 @@ const Profile = ({ data }: ProfileProps) => {
     },
   };
 
-  const XpProgress = () => (
+  const xpProgress = (
     <div className="flex w-full items-center justify-between gap-3">
       <Tooltip title={`${data?.xp} ${t("total_xp")}`}>
         <span className="text-sm font-medium text-primary">{level}</span>
@@ -116,7 +116,7 @@ const Profile = ({ data }: ProfileProps) => {
           </div>
         </div>
 
-        <XpProgress />
+        {xpProgress}
       </div>
 
       <span className="hidden h-24 w-2 rounded-full bg-neutral-300 p-1 dark:bg-dark sm:inline-block" />

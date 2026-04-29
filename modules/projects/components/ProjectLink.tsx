@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { BsGithub as GithubIcon } from "react-icons/bs";
@@ -12,7 +13,7 @@ interface ProjectLinkProps {
 interface LinkComponentProps {
   url: string;
   text: string;
-  icon: JSX.Element;
+  icon: ReactNode;
 }
 
 const LinkComponent = ({ url, text, icon }: LinkComponentProps) => {

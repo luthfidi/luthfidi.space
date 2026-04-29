@@ -1,6 +1,8 @@
+import type { ReactNode } from "react";
+
 interface SkillCardProps {
   name: string;
-  icon: JSX.Element;
+  icon: ReactNode;
   color: string;
 }
 

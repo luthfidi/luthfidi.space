@@ -113,6 +113,7 @@ const TextType = ({
     );
 
     return () => clearTimeout(timeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- getSpeed reads variableSpeed which is already in deps
   }, [
     isVisible,
     charIndex,
@@ -136,6 +137,7 @@ const TextType = ({
 
   return createElement(
     Component,
+    // eslint-disable-next-line react-hooks/refs -- createElement passes ref as a prop, not reading it
     {
       ref: containerRef,
       className: `inline-block whitespace-pre-wrap tracking-tight ${className}`,

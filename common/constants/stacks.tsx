@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { BsFillBootstrapFill, BsRobot } from "react-icons/bs";
 import { TbBeach, TbBrandFramerMotion } from "react-icons/tb";
@@ -43,7 +44,7 @@ import { RiShieldKeyholeFill } from "react-icons/ri";
 
 export type SkillProps = {
   [key: string]: {
-    icon: JSX.Element;
+    icon: ReactNode;
     background: string;
     color: string;
     isActive?: boolean;

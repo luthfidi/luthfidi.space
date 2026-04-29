@@ -24,26 +24,22 @@ const BackButton = ({ url }: BackButtonProps) => {
     }
   };
 
-  const BackButtonChildComponent = () => {
-    return (
-      <>
-        <BackButtonIcon size={20} />
-        <span>{t("back_button")}</span>
-      </>
-    );
-  };
+  const childContent = (
+    <>
+      <BackButtonIcon size={20} />
+      <span>{t("back_button")}</span>
+    </>
+  );
 
   return (
     <div className="w-fit">
       {url ? (
         <Link href={url}>
-          <div className={className}>
-            <BackButtonChildComponent />
-          </div>
+          <div className={className}>{childContent}</div>
         </Link>
       ) : (
         <div className={className} onClick={handleOnClick}>
-          <BackButtonChildComponent />
+          {childContent}
         </div>
       )}
     </div>

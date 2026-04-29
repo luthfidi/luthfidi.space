@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useTransform } from "motion/react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import Image from "./Image";
 
@@ -63,6 +63,14 @@ export default function Stack({
 }: StackProps) {
   const [cards, setCards] = useState(cardsData);
 
+  const randomRotates = useMemo(
+    () =>
+      // eslint-disable-next-line react-hooks/purity -- visual jitter; intentional pseudo-random
+      randomRotation ? cards.map(() => Math.random() * 10 - 5) : [],
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- only recompute when card count changes
+    [cards.length, randomRotation],
+  );
+
   const sendToBack = (id: number) => {
     setCards((prev) => {
       const newCards = [...prev];
@@ -83,7 +91,7 @@ export default function Stack({
       }}
     >
       {cards.map((card, index) => {
-        const randomRotate = randomRotation ? Math.random() * 10 - 5 : 0;
+        const randomRotate = randomRotates[index] ?? 0;
 
         return (
           <CardRotate

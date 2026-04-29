@@ -28,7 +28,12 @@
       "Bash(node -e \"console.log\\(Object.keys\\(require\\('./node_modules/date-fns-tz'\\)\\).filter\\(k => k.includes\\('Time'\\) || k.includes\\('Zone'\\)\\)\\)\")",
       "Bash(node -e \"console.log\\(require.resolve\\('date-fns-tz'\\)\\)\")",
       "Bash(node -e \"console.log\\(Object.keys\\(require\\('./node_modules/date-fns-tz/dist/cjs/index.js'\\)\\)\\)\")",
-      "Bash(node -e \"console.log\\(JSON.stringify\\(require\\('./node_modules/date-fns-tz/package.json'\\).exports, null, 2\\)\\)\")"
+      "Bash(node -e \"console.log\\(JSON.stringify\\(require\\('./node_modules/date-fns-tz/package.json'\\).exports, null, 2\\)\\)\")",
+      "Bash(node *)",
+      "Bash(npm run *)",
+      "Bash(grep -v \"•\\\\|^$\")",
+      "Bash(echo \"Exit: $?\")",
+      "Bash(echo \"TS Exit: $?\")"
     ]
   }
 }

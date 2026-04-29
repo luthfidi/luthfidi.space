@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { BiCodeAlt as SkillsIcon } from "react-icons/bi";
 import { useTranslations } from "next-intl";
 
@@ -10,7 +11,7 @@ const SkillList = () => {
   const t = useTranslations("HomePage");
 
   const stacksInArray: Array<
-    [string, { icon: JSX.Element; background: string }]
+    [string, { icon: ReactNode; background: string }]
   > = Object.entries(STACKS)
     .filter(([, value]) => value.isActive)
     .map(([name, value]) => [
