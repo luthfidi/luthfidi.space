@@ -47,6 +47,7 @@ const CreationCard = ({
   date,
   url,
   metrics,
+  linkOnly,
 }: CreationItem) => {
   const issueDate = date ? format(parseISO(date), "d MMM yyyy") : "";
   const embedUrl = getEmbedUrl(platform, url);
@@ -89,13 +90,15 @@ const CreationCard = ({
                   allow="clipboard-write; encrypted-media; picture-in-picture; web-share"
                   title={title}
                 />
-                <Link
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={title}
-                  className="absolute inset-0 z-10"
-                />
+                {linkOnly && (
+                  <Link
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={title}
+                    className="absolute inset-0 z-10"
+                  />
+                )}
               </>
             ) : (
               <div className="absolute inset-0 leading-none">

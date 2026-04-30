@@ -270,7 +270,8 @@
       "shares": 5,
       "saves": 8
     },
-    "thumbnail": "/images/creations/18.jpg"
+    "thumbnail": "/images/creations/18.jpg",
+    "linkOnly": true
   },
   {
     "id": 19,
@@ -639,7 +640,8 @@
       "shares": 9,
       "saves": 1
     },
-    "thumbnail": "/images/creations/41.jpg"
+    "thumbnail": "/images/creations/41.jpg",
+    "linkOnly": true
   },
   {
     "id": 42,

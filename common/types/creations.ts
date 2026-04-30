@@ -18,6 +18,7 @@ export interface CreationItem {
   date: string;
   url: string;
   metrics: CreationMetrics;
+  linkOnly?: boolean;
 }
 
 export type CreationSortBy = "date" | "reach" | "likes" | "shares" | "saves";

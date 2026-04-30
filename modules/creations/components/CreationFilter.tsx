@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 
+import ComboBoxFilter from "@/modules/achievements/components/ComboBoxFilter";
 import type { CreationSortBy } from "@/common/types/creations";
 
 interface CreationFilterProps {
@@ -24,8 +25,20 @@ const accountLabel: Record<string, string> = {
   filemagz: "@filemagz",
 };
 
-const SELECT_CLASS =
-  "rounded-md border border-neutral-300 bg-white px-2 py-1.5 text-xs text-neutral-700 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300";
+const platformLabel: Record<string, string> = {
+  instagram: "Instagram",
+  tiktok: "TikTok",
+};
+
+const PLATFORMS = ["instagram", "tiktok"];
+
+const SORT_OPTIONS: CreationSortBy[] = [
+  "date",
+  "likes",
+  "reach",
+  "shares",
+  "saves",
+];
 
 const CreationFilter = ({
   accounts,
@@ -42,61 +55,53 @@ const CreationFilter = ({
 }: CreationFilterProps) => {
   const t = useTranslations("CreationsPage");
 
+  const sortLabel: Record<CreationSortBy, string> = {
+    date: t("sort_date"),
+    likes: t("sort_likes"),
+    reach: t("sort_reach"),
+    shares: t("sort_shares"),
+    saves: t("sort_saves"),
+  };
+
   return (
-    <div className="flex flex-col gap-3 rounded-lg border border-neutral-200 p-3 dark:border-neutral-800">
-      <div className="flex flex-wrap gap-2">
-        <select
+    <div className="space-y-4">
+      <div className="flex w-full flex-col gap-3 md:flex-row">
+        <ComboBoxFilter
+          data={accounts}
+          placeholder={t("all_accounts")}
+          formatLabel={(item) => accountLabel[item] || item}
           value={account}
-          onChange={(e) => onAccountChange(e.target.value)}
-          className={SELECT_CLASS}
-        >
-          <option value="">{t("all_accounts")}</option>
-          {accounts.map((a) => (
-            <option key={a} value={a}>
-              {accountLabel[a] || a}
-            </option>
-          ))}
-        </select>
-
-        <select
+          onChange={onAccountChange}
+          className="md:w-auto md:flex-1"
+        />
+        <ComboBoxFilter
+          data={PLATFORMS}
+          placeholder={t("all_platforms")}
+          formatLabel={(item) => platformLabel[item] || item}
           value={platform}
-          onChange={(e) => onPlatformChange(e.target.value)}
-          className={SELECT_CLASS}
-        >
-          <option value="">{t("all_platforms")}</option>
-          <option value="instagram">Instagram</option>
-          <option value="tiktok">TikTok</option>
-        </select>
-
-        <select
+          onChange={onPlatformChange}
+          className="md:w-auto md:flex-1"
+        />
+        <ComboBoxFilter
+          data={categories}
+          placeholder={t("all_categories")}
           value={category}
-          onChange={(e) => onCategoryChange(e.target.value)}
-          className={SELECT_CLASS}
-        >
-          <option value="">{t("all_categories")}</option>
-          {categories.map((c) => (
-            <option key={c} value={c}>
-              {c}
-            </option>
-          ))}
-        </select>
-
-        <select
+          onChange={onCategoryChange}
+          className="md:w-auto md:flex-1"
+        />
+        <ComboBoxFilter
+          data={SORT_OPTIONS}
+          placeholder={t("sort_by")}
+          formatLabel={(item) => sortLabel[item as CreationSortBy] || item}
           value={sortBy}
-          onChange={(e) => onSortChange(e.target.value as CreationSortBy)}
-          className={SELECT_CLASS}
-        >
-          <option value="date">{t("sort_date")}</option>
-          <option value="likes">{t("sort_likes")}</option>
-          <option value="reach">{t("sort_reach")}</option>
-          <option value="shares">{t("sort_shares")}</option>
-          <option value="saves">{t("sort_saves")}</option>
-        </select>
+          onChange={(v) => onSortChange((v || "date") as CreationSortBy)}
+          className="md:w-auto md:flex-1"
+        />
       </div>
 
-      <p className="text-xs text-neutral-500 dark:text-neutral-400">
-        {total} item
-      </p>
+      <div className="ml-1 text-sm text-neutral-500 dark:text-neutral-400">
+        Total: {total}
+      </div>
     </div>
   );
 };
