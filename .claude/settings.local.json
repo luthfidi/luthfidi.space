@@ -35,7 +35,10 @@
       "Bash(echo \"Exit: $?\")",
       "Bash(echo \"TS Exit: $?\")",
       "Bash(grep -iE \"csharp|^.*csharp.*$\" node_modules/react-icons/tb/index.d.ts node_modules/react-icons/bi/index.d.ts node_modules/react-icons/fa6/index.d.ts node_modules/react-icons/vsc/index.d.ts)",
-      "Bash(echo \"exit: $?\")"
+      "Bash(echo \"exit: $?\")",
+      "Bash(curl -s -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://www.instagram.com/reel/C4dBc84L6Pn/embed/\" -o /tmp/ig_reel_18.html -w \"status=%{http_code} size=%{size_download}\\\\n\")",
+      "Read(//tmp/**)",
+      "Bash(curl -sI -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://www.tiktok.com/embed/v2/7336844398019349765\")"
     ]
   }
 }

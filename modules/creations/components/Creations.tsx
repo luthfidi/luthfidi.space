@@ -28,7 +28,7 @@ const Creations = () => {
   const [account, setAccount] = useState("");
   const [platform, setPlatform] = useState("");
   const [category, setCategory] = useState("");
-  const [sortBy, setSortBy] = useState<CreationSortBy>("date");
+  const [sortBy, setSortBy] = useState<CreationSortBy>("likes");
 
   const params = new URLSearchParams();
   if (account) params.append("account", account);

@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { format, parseISO } from "date-fns";
 import { motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+import Skeleton from "react-loading-skeleton";
 import {
   HiOutlineArrowSmRight as ViewIcon,
   HiOutlineEye,
@@ -27,6 +29,18 @@ const getInstagramEmbedUrl = (url: string): string | null => {
   return `https://www.instagram.com/${match[1]}/${match[2]}/embed/`;
 };
 
+const getTikTokEmbedUrl = (url: string): string | null => {
+  const match = url.match(/tiktok\.com\/@[^/]+\/video\/(\d+)/);
+  if (!match) return null;
+  return `https://www.tiktok.com/embed/v2/${match[1]}`;
+};
+
+const getEmbedUrl = (platform: string, url: string): string | null => {
+  if (platform === "instagram") return getInstagramEmbedUrl(url);
+  if (platform === "tiktok") return getTikTokEmbedUrl(url);
+  return null;
+};
+
 const CreationCard = ({
   platform,
   title,
@@ -35,22 +49,61 @@ const CreationCard = ({
   metrics,
 }: CreationItem) => {
   const issueDate = date ? format(parseISO(date), "d MMM yyyy") : "";
-  const embedUrl =
-    platform === "instagram" ? getInstagramEmbedUrl(url) : null;
+  const embedUrl = getEmbedUrl(platform, url);
+
+  const embedRef = useRef<HTMLDivElement>(null);
+  const [shouldLoadEmbed, setShouldLoadEmbed] = useState(false);
+
+  useEffect(() => {
+    if (!embedUrl || shouldLoadEmbed) return;
+    const el = embedRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoadEmbed(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [embedUrl, shouldLoadEmbed]);
 
   return (
     <motion.div whileHover={{ y: -2 }} className="h-full">
       <SpotlightCard className="group flex h-full flex-col gap-3 border border-neutral-200 p-4 dark:border-neutral-800">
         {embedUrl && (
-          <div className="relative aspect-square w-full overflow-hidden rounded-md border border-neutral-200 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900">
-            <iframe
-              src={embedUrl}
-              loading="lazy"
-              className="absolute left-0 top-[-100px] block h-[600px] w-full"
-              scrolling="no"
-              allow="clipboard-write; encrypted-media; picture-in-picture; web-share"
-              title={title}
-            />
+          <div
+            ref={embedRef}
+            className="relative aspect-square w-full overflow-hidden rounded-md border border-neutral-200 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900"
+          >
+            {shouldLoadEmbed ? (
+              <>
+                <iframe
+                  src={embedUrl}
+                  loading="lazy"
+                  className="absolute left-0 top-[-100px] block h-[600px] w-full"
+                  scrolling="no"
+                  allow="clipboard-write; encrypted-media; picture-in-picture; web-share"
+                  title={title}
+                />
+                <Link
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={title}
+                  className="absolute inset-0 z-10"
+                />
+              </>
+            ) : (
+              <div className="absolute inset-0 leading-none">
+                <Skeleton
+                  style={{ display: "block", height: "100%", width: "100%" }}
+                />
+              </div>
+            )}
           </div>
         )}
 
