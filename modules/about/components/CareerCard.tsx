@@ -4,6 +4,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import Image from "next/image";
 import { useState } from "react";
+import * as Flags from "country-flag-icons/react/3x2";
 import {
   BsListCheck as ResponsibilityIcon,
   BsBuildings as CompanyIcon,
@@ -17,6 +18,15 @@ import { differenceInMonths, differenceInYears, format } from "date-fns";
 
 import SpotlightCard from "@/common/components/elements/SpotlightCard";
 import { CareerProps } from "@/common/types/careers";
+
+const parseFlagFromText = (text: string): { code: string | null; cleanText: string } => {
+  const flagRegex = /[\u{1F1E6}-\u{1F1FF}]{2}/gu;
+  const match = text.match(flagRegex);
+  if (!match) return { code: null, cleanText: text };
+  const chars = [...match[0]];
+  const code = chars.map(c => String.fromCharCode(c.codePointAt(0)! - 0x1F1A5)).join("");
+  return { code, cleanText: text.replace(flagRegex, "").trim() };
+};
 
 const CareerCard = ({
   position,
@@ -90,7 +100,18 @@ const CareerCard = ({
             <span className="hidden text-neutral-300 dark:text-neutral-700 md:block">
               •
             </span>
-            <span>{location}</span>
+            <span className="flex items-center gap-1">
+              {(() => {
+                const { code, cleanText } = parseFlagFromText(location);
+                const FlagComp = code ? Flags[code as keyof typeof Flags] : null;
+                return (
+                  <>
+                    {cleanText}
+                    {FlagComp && <FlagComp className="h-2.5 w-3.5 shrink-0 rounded-sm" />}
+                  </>
+                );
+              })()}
+            </span>
           </div>
 
           <div className="flex flex-col gap-2 text-[13px] md:flex-row">

@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import ID from "country-flag-icons/react/3x2/ID";
 
 const Introduction = () => {
   const t = useTranslations("HomePage");
@@ -13,7 +14,12 @@ const Introduction = () => {
 
       <div className="space-y-4">
         <ul className="ml-5 flex list-disc flex-col gap-x-10 gap-y-2 text-neutral-700 dark:text-neutral-400 md:flex-row">
-          <li>{t("location")}</li>
+          <li>
+            <span className="inline-flex items-center gap-1.5">
+              {t("location").replace(/[\u{1F1E6}-\u{1F1FF}]{2}/gu, "").trim()}
+              <ID className="h-2.5 w-3.5 shrink-0 rounded-sm" />
+            </span>
+          </li>
           <li>{t("location_type")}</li>
         </ul>
         <div className="mt-6 space-y-4 leading-7 text-neutral-600 dark:text-neutral-300">

@@ -4,7 +4,7 @@ export const CAREERS: CareerProps[] = [
   {
     position: "Chief Technology Officer",
     company: "Lummy Ticket",
-    logo: "/images/placeholder.webp",
+    logo: "/images/lummy-logo.png",
     location: "Indonesia 🇮🇩",
     location_type: "Remote",
     type: "Full-time",
@@ -31,7 +31,7 @@ export const CAREERS: CareerProps[] = [
     position: "Freelance Product Developer & Consultant",
     company: "Self-employed",
     logo: "/images/placeholder.webp",
-    location: "Singapore-based clients 🇸🇬",
+    location: "Singapore 🇸🇬",
     location_type: "Remote",
     type: "Freelance",
     start_date: "2025-03",
@@ -56,9 +56,9 @@ export const CAREERS: CareerProps[] = [
   {
     position: "Full Stack Developer",
     company: "PT Zegen Solusi Mandiri",
-    logo: "/images/placeholder.webp",
+    logo: "/images/zegen-logo.png",
     location: "Indonesia 🇮🇩",
-    location_type: "Remote",
+    location_type: "Onsite",
     type: "Full-time",
     start_date: "2025-02",
     end_date: "2026-02",
@@ -81,12 +81,12 @@ export const CAREERS: CareerProps[] = [
   {
     position: "SEO Backlinking Specialist",
     company: "PT Laskar Digital Indonesia",
-    logo: "/images/placeholder.webp",
+    logo: "/images/laskar-logo.png",
     location: "Indonesia 🇮🇩",
-    location_type: "Remote",
+    location_type: "Onsite",
     type: "Part-time",
     start_date: "2021-09",
-    end_date: "2021-12",
+    end_date: "2022-01",
     industry: "Digital Marketing",
     link: null,
     responsibilities: [
@@ -105,7 +105,7 @@ export const CAREERS: CareerProps[] = [
   {
     position: "FILE / Filemagz Manager",
     company: "Bina Nusantara Computer Club (BNCC)",
-    logo: "/images/placeholder.webp",
+    logo: "/images/bncc-logo.png",
     location: "Jakarta, Indonesia 🇮🇩",
     location_type: "Hybrid",
     type: "Part-time",
@@ -153,7 +153,7 @@ export const CAREERS: CareerProps[] = [
   {
     position: "Activist (Multiple Roles)",
     company: "Bina Nusantara Computer Club (BNCC)",
-    logo: "/images/placeholder.webp",
+    logo: "/images/bncc-logo.png",
     location: "Jakarta, Indonesia 🇮🇩",
     location_type: "Hybrid",
     type: "Part-time",
@@ -179,7 +179,7 @@ export const CAREERS: CareerProps[] = [
   {
     position: "Head of Social Media",
     company: "MarshaOshi",
-    logo: "/images/placeholder.webp",
+    logo: "/images/marshaoshi-logo.jpg",
     location: "Indonesia 🇮🇩",
     location_type: "Remote",
     type: "Part-time",

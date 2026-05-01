@@ -38,7 +38,16 @@
       "Bash(echo \"exit: $?\")",
       "Bash(curl -s -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://www.instagram.com/reel/C4dBc84L6Pn/embed/\" -o /tmp/ig_reel_18.html -w \"status=%{http_code} size=%{size_download}\\\\n\")",
       "Read(//tmp/**)",
-      "Bash(curl -sI -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://www.tiktok.com/embed/v2/7336844398019349765\")"
+      "Bash(curl -sI -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://www.tiktok.com/embed/v2/7336844398019349765\")",
+      "WebSearch",
+      "Bash(cp \"/mnt/c/Users/luthf/Downloads/lummyportrait \\(2\\).png\" \"/mnt/c/Users/luthf/OneDrive/Desktop/code/portfolio/app/icon.png\")",
+      "Bash(cp \"/mnt/c/Users/luthf/Downloads/lummyportrait \\(2\\).png\" \"/mnt/c/Users/luthf/OneDrive/Desktop/code/portfolio/public/images/logo.png\")",
+      "Bash(npm uninstall *)",
+      "Bash(sed -n '225,240p' /mnt/c/Users/luthf/OneDrive/Desktop/code/portfolio/messages/en.json)",
+      "Bash(sed -n '225,240p' /mnt/c/Users/luthf/OneDrive/Desktop/code/portfolio/messages/id.json)",
+      "Bash(cp \"/mnt/c/Users/luthf/Downloads/Fpz4jclakAEPCA7.jpg\" \"/mnt/c/Users/luthf/OneDrive/Desktop/code/portfolio/public/images/marshaoshi-logo.jpg\")",
+      "Bash(cp \"/mnt/c/Users/luthf/Downloads/laskar.png\" \"/mnt/c/Users/luthf/OneDrive/Desktop/code/portfolio/public/images/laskar-logo.png\")",
+      "Bash(cp \"/mnt/c/Users/luthf/Downloads/bnccc.png\" \"/mnt/c/Users/luthf/OneDrive/Desktop/code/portfolio/public/images/bncc-logo.png\")"
     ]
   }
 }
