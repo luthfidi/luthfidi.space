@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 
 import Layouts from "@/common/components/layouts";
+import FollowingCursor from "@/common/components/elements/FollowingCursor";
 import ThemeProviderContext from "@/common/stores/theme";
 import { METADATA } from "@/common/constants/metadata";
 import { inter } from "@/common/styles/fonts";
@@ -73,6 +74,7 @@ const RootLayout = async ({ children, params }: RootLayoutProps) => {
           <ThemeProviderContext>
             <SkeletonThemeProvider>
               <Layouts>{children}</Layouts>
+              <FollowingCursor />
             </SkeletonThemeProvider>
           </ThemeProviderContext>
         </NextIntlClientProvider>

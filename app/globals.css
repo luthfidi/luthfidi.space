@@ -185,3 +185,21 @@
     background-color: var(--color-neutral-400);
   }
 }
+
+/*
+  Custom cursor — unlayered + high-specificity selectors so that
+  `cursor: none` always wins over Tailwind utility classes like
+  `cursor-pointer`, regardless of layer ordering in v4.
+*/
+html.custom-cursor-active,
+html.custom-cursor-active body,
+html.custom-cursor-active *,
+html.custom-cursor-active *::before,
+html.custom-cursor-active *::after {
+  cursor: none !important;
+}
+html.custom-cursor-active input,
+html.custom-cursor-active textarea,
+html.custom-cursor-active [contenteditable="true"] {
+  cursor: text !important;
+}

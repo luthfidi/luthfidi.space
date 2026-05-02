@@ -47,7 +47,8 @@
       "Bash(sed -n '225,240p' /mnt/c/Users/luthf/OneDrive/Desktop/code/portfolio/messages/id.json)",
       "Bash(cp \"/mnt/c/Users/luthf/Downloads/Fpz4jclakAEPCA7.jpg\" \"/mnt/c/Users/luthf/OneDrive/Desktop/code/portfolio/public/images/marshaoshi-logo.jpg\")",
       "Bash(cp \"/mnt/c/Users/luthf/Downloads/laskar.png\" \"/mnt/c/Users/luthf/OneDrive/Desktop/code/portfolio/public/images/laskar-logo.png\")",
-      "Bash(cp \"/mnt/c/Users/luthf/Downloads/bnccc.png\" \"/mnt/c/Users/luthf/OneDrive/Desktop/code/portfolio/public/images/bncc-logo.png\")"
+      "Bash(cp \"/mnt/c/Users/luthf/Downloads/bnccc.png\" \"/mnt/c/Users/luthf/OneDrive/Desktop/code/portfolio/public/images/bncc-logo.png\")",
+      "WebFetch(domain:ui.aceternity.com)"
     ]
   }
 }
