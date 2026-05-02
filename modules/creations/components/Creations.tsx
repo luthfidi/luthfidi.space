@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
@@ -22,24 +23,76 @@ interface CreationsApiResponse {
   accounts: string[];
 }
 
+const BATCH_SIZE = 8;
+const DEFAULT_SORT: CreationSortBy = "likes";
+
 const Creations = () => {
   const t = useTranslations("CreationsPage");
 
-  const [account, setAccount] = useState("");
-  const [platform, setPlatform] = useState("");
-  const [category, setCategory] = useState("");
-  const [sortBy, setSortBy] = useState<CreationSortBy>("likes");
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
-  const params = new URLSearchParams();
-  if (account) params.append("account", account);
-  if (platform) params.append("platform", platform);
-  if (category) params.append("category", category);
-  params.append("sortBy", sortBy);
+  const account = searchParams.get("account") || "";
+  const platform = searchParams.get("platform") || "";
+  const category = searchParams.get("category") || "";
+  const sortBy =
+    (searchParams.get("sortBy") as CreationSortBy) || DEFAULT_SORT;
+
+  const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
+  const sentinelRef = useRef<HTMLDivElement>(null);
+
+  const updateParam = (key: string, value: string, fallback?: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (value && value !== fallback) {
+      params.set(key, value);
+    } else {
+      params.delete(key);
+    }
+    const qs = params.toString();
+    router.push(`${pathname}${qs ? `?${qs}` : ""}`, { scroll: false });
+  };
+
+  const fetchParams = new URLSearchParams();
+  if (account) fetchParams.append("account", account);
+  if (platform) fetchParams.append("platform", platform);
+  if (category) fetchParams.append("category", category);
+  fetchParams.append("sortBy", sortBy);
 
   const { data, isLoading, error } = useSWR<CreationsApiResponse>(
-    `/api/creations?${params.toString()}`,
+    `/api/creations?${fetchParams.toString()}`,
     fetcher,
+    { keepPreviousData: true },
   );
+
+  // Reset visible count whenever the active filter set changes
+  useEffect(() => {
+    setVisibleCount(BATCH_SIZE);
+  }, [account, platform, category, sortBy]);
+
+  // Sentinel observer for incremental loading
+  useEffect(() => {
+    const total = data?.items?.length ?? 0;
+    if (visibleCount >= total) return;
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisibleCount((prev) => Math.min(prev + BATCH_SIZE, total));
+        }
+      },
+      { rootMargin: "400px" },
+    );
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [data?.items, visibleCount]);
+
+  const totalItems = data?.items?.length ?? 0;
+  const visibleItems = data?.items?.slice(0, visibleCount) ?? [];
+  const pendingCount = Math.min(BATCH_SIZE, totalItems - visibleCount);
+  const hasMore = visibleCount < totalItems;
 
   return (
     <section className="space-y-4">
@@ -50,16 +103,16 @@ const Creations = () => {
         platform={platform}
         category={category}
         sortBy={sortBy}
-        onAccountChange={setAccount}
-        onPlatformChange={setPlatform}
-        onCategoryChange={setCategory}
-        onSortChange={setSortBy}
-        total={data?.items.length ?? 0}
+        onAccountChange={(v) => updateParam("account", v)}
+        onPlatformChange={(v) => updateParam("platform", v)}
+        onCategoryChange={(v) => updateParam("category", v)}
+        onSortChange={(v) => updateParam("sortBy", v, DEFAULT_SORT)}
+        total={totalItems}
       />
 
-      {isLoading && (
+      {isLoading && !data && (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {[...Array(4)].map((_, i) => (
+          {[...Array(BATCH_SIZE)].map((_, i) => (
             <CreationSkeleton key={i} />
           ))}
         </div>
@@ -71,19 +124,31 @@ const Creations = () => {
         <EmptyState message={t("no_data")} />
       )}
 
-      {!isLoading && data && data.items.length > 0 && (
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {data.items.map((item, index) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.03 }}
-            >
-              <CreationCard {...item} />
-            </motion.div>
-          ))}
-        </div>
+      {data && data.items.length > 0 && (
+        <>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {visibleItems.map((item, index) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.3,
+                  delay: Math.min(index % BATCH_SIZE, 6) * 0.04,
+                }}
+              >
+                <CreationCard {...item} />
+              </motion.div>
+            ))}
+            {hasMore &&
+              [...Array(pendingCount)].map((_, i) => (
+                <CreationSkeleton key={`skeleton-${i}`} />
+              ))}
+          </div>
+          {hasMore && (
+            <div ref={sentinelRef} aria-hidden="true" className="h-1 w-full" />
+          )}
+        </>
       )}
     </section>
   );

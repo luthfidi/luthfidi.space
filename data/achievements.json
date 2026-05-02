@@ -20,7 +20,7 @@
     "issuing_organization": "CodeFest Indonesia",
     "type": "Participant",
     "category": "Recognition",
-    "url_credential": "",
+    "url_credential": "https://drive.google.com/file/d/1D0_wWe7LmDWk9OMSr57S9NsIi22DTTKp/view?usp=drive_link",
     "issue_date": "2025-01-01",
     "image": "/images/placeholder.webp",
     "is_show": true
@@ -46,7 +46,7 @@
     "issuing_organization": "Dicoding Indonesia",
     "type": "Online Course",
     "category": "Course",
-    "url_credential": "",
+    "url_credential": "https://www.dicoding.com/certificates/EYX4JGGQWZDL",
     "issue_date": "2024-01-01",
     "image": "/images/placeholder.webp",
     "is_show": true
@@ -59,7 +59,7 @@
     "issuing_organization": "DailySEO ID",
     "type": "Masterclass",
     "category": "Course",
-    "url_credential": "",
+    "url_credential": "https://drive.google.com/file/d/1JDhFSGjE3l6PiHprBso14gOmuGU3lhSW/view?usp=sharing",
     "issue_date": "2024-01-01",
     "image": "/images/placeholder.webp",
     "is_show": true
@@ -72,7 +72,7 @@
     "issuing_organization": "Mekari University",
     "type": "Online Course",
     "category": "Course",
-    "url_credential": "",
+    "url_credential": "https://univ.mekari.com/certificates/dvdtugxx8g",
     "issue_date": "2024-01-01",
     "image": "/images/placeholder.webp",
     "is_show": true
@@ -85,7 +85,7 @@
     "issuing_organization": "BINUS University",
     "type": "Workshop",
     "category": "Course",
-    "url_credential": "",
+    "url_credential": "https://drive.google.com/file/d/1luYz2pazmokRWZh-tMefVDzr5HCik42Y/view?usp=sharing",
     "issue_date": "2024-01-01",
     "image": "/images/placeholder.webp",
     "is_show": true
@@ -98,7 +98,7 @@
     "issuing_organization": "BINUS University",
     "type": "Workshop",
     "category": "Course",
-    "url_credential": "",
+    "url_credential": "https://drive.google.com/file/d/1KDLR_hI24nzz_PFoztF-wyMuG5ty4dVg/view?usp=sharing",
     "issue_date": "2024-01-01",
     "image": "/images/placeholder.webp",
     "is_show": true
@@ -111,7 +111,7 @@
     "issuing_organization": "BNCC Learning and Training",
     "type": "Workshop",
     "category": "Course",
-    "url_credential": "",
+    "url_credential": "https://drive.google.com/file/d/11WrC9zwUlEwXxIDbvMpRUYE0eR3J5_2h/view?usp=sharing",
     "issue_date": "2024-01-01",
     "image": "/images/placeholder.webp",
     "is_show": true
@@ -124,7 +124,33 @@
     "issuing_organization": "Beelinguapp",
     "type": "Language Course",
     "category": "Course",
-    "url_credential": "",
+    "url_credential": "https://drive.google.com/file/d/1a-T3_OgGngVlVHFn4ADkVjXbot8vvFpz/view?usp=sharing",
+    "issue_date": "2023-01-01",
+    "image": "/images/placeholder.webp",
+    "is_show": true
+  },
+  {
+    "id": 11,
+    "credential_id": "dicoding-javascript-2024",
+    "slug": "dicoding-javascript-basics",
+    "name": "Learning the Basics of JavaScript Programming",
+    "issuing_organization": "Dicoding Indonesia",
+    "type": "Online Course",
+    "category": "Course",
+    "url_credential": "https://www.dicoding.com/certificates/4EXG7V3EQPRL",
+    "issue_date": "2024-01-01",
+    "image": "/images/placeholder.webp",
+    "is_show": true
+  },
+  {
+    "id": 12,
+    "credential_id": "bncc-backend-2023",
+    "slug": "lnt-backend-development-class",
+    "name": "LnT Back-End Development Class",
+    "issuing_organization": "BNCC Learning and Training",
+    "type": "Workshop",
+    "category": "Course",
+    "url_credential": "https://drive.google.com/file/d/15F95e0GWGOehMkn6tXTF5Uvy2vVQb3Db/view?usp=sharing",
     "issue_date": "2023-01-01",
     "image": "/images/placeholder.webp",
     "is_show": true

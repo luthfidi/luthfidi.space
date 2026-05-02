@@ -28,6 +28,7 @@ const FollowingCursor = ({
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
+  const [isOverIframe, setIsOverIframe] = useState(false);
   const [active, setActive] = useState(false);
   const visibleRef = useRef(false);
 
@@ -57,7 +58,9 @@ const FollowingCursor = ({
       setIsVisible(true);
     };
     const handleMouseOver = (e: MouseEvent) => {
-      setIsHovering(isInteractive(e.target));
+      const target = e.target;
+      setIsOverIframe(target instanceof Element && target.tagName === "IFRAME");
+      setIsHovering(isInteractive(target));
     };
     const handleMouseDown = () => setIsPressed(true);
     const handleMouseUp = () => setIsPressed(false);
@@ -90,9 +93,9 @@ const FollowingCursor = ({
 
   return (
     <AnimatePresence>
-      {isVisible && (
+      {isVisible && !isOverIframe && (
         <motion.div
-          className="pointer-events-none fixed left-0 top-0 z-[9999] will-change-transform"
+          className="pointer-events-none fixed left-0 top-0 z-[2147483647] will-change-transform"
           style={{ x, y }}
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{

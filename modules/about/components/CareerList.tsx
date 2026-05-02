@@ -12,7 +12,14 @@ import CareerCard from "./CareerCard";
 const CareerList = () => {
   const t = useTranslations("AboutPage.career");
 
-  const filteredCareers = CAREERS?.filter((career) => career.isShow);
+  // Sort: active roles first (by start_date desc), then ended roles (by end_date desc)
+  const sortedCareers = CAREERS?.filter((c) => c.isShow).slice().sort((a, b) => {
+    const aActive = !a.end_date;
+    const bActive = !b.end_date;
+    if (aActive !== bActive) return aActive ? -1 : 1;
+    if (aActive && bActive) return b.start_date.localeCompare(a.start_date);
+    return (b.end_date ?? "").localeCompare(a.end_date ?? "");
+  });
 
   return (
     <section className="space-y-6">
@@ -24,7 +31,7 @@ const CareerList = () => {
       </div>
 
       <div className="grid grid-cols-1 gap-4">
-        {filteredCareers?.map((career, index) => (
+        {sortedCareers?.map((career, index) => (
           <CareerCard key={index} indexCareer={index} {...career} />
         ))}
       </div>

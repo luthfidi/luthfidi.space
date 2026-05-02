@@ -4,7 +4,7 @@ export const EDUCATION: EducationProps[] = [
   {
     school: "Bina Nusantara University",
     major: "Computer Science",
-    logo: "/images/placeholder.webp",
+    logo: "/images/education/binus.jpg",
     location: "Jakarta, Indonesia 🇮🇩",
     degree: "Bachelor of Computer Science (Fast-Track, 3.5 years)",
     GPA: "3.42/4.00",
@@ -15,7 +15,7 @@ export const EDUCATION: EducationProps[] = [
   {
     school: "Ibnu Hajar Boarding School",
     major: "Science",
-    logo: "/images/placeholder.webp",
+    logo: "/images/education/ihbs.png",
     location: "Indonesia 🇮🇩",
     degree: "Senior High School",
     start_year: 2018,

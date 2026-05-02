@@ -30,7 +30,7 @@ export const CAREERS: CareerProps[] = [
   {
     position: "Freelance Product Developer & Consultant",
     company: "Self-employed",
-    logo: "/images/placeholder.webp",
+    logo: "/images/careers/self-employed.jpeg",
     location: "Singapore 🇸🇬",
     location_type: "Remote",
     type: "Freelance",
@@ -130,7 +130,7 @@ export const CAREERS: CareerProps[] = [
   {
     position: "Publication Coordinator",
     company: "TechnoScape 2024",
-    logo: "/images/placeholder.webp",
+    logo: "/images/careers/technoscape.png",
     location: "Jakarta, Indonesia 🇮🇩",
     location_type: "Hybrid",
     type: "Part-time",
