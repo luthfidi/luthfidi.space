@@ -175,6 +175,10 @@
 }
 
 @layer base {
+  html {
+    scrollbar-gutter: stable;
+  }
+
   ::-webkit-scrollbar {
     width: 4px;
   }
