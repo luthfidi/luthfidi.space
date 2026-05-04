@@ -97,35 +97,51 @@ const FollowingCursor = ({
         <motion.div
           className="pointer-events-none fixed left-0 top-0 z-[2147483647] will-change-transform"
           style={{ x, y }}
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{
-            scale: isPressed ? 0.92 : isHovering ? 1.15 : 1,
-            opacity: 1,
-          }}
-          exit={{ scale: 0.9, opacity: 0 }}
-          transition={PRESS_SPRING}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.15 }}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill={color}
-            stroke="white"
-            strokeWidth="1"
-            className="-translate-x-[5px] -rotate-[70deg] transform"
+          <motion.div
+            initial={{ scale: 0.9 }}
+            animate={{
+              scale: isPressed ? 0.92 : isHovering ? 1.15 : 1,
+            }}
+            exit={{ scale: 0.9 }}
+            transition={PRESS_SPRING}
+            style={{ transformOrigin: "0 0" }}
           >
-            <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z" />
-          </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill={color}
+              stroke="white"
+              strokeWidth="1"
+              className="-translate-x-[5px] -rotate-[70deg] transform"
+            >
+              <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z" />
+            </svg>
+          </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 4 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 4 }}
             transition={{ duration: 0.15 }}
             style={{ backgroundColor: color }}
-            className="ml-3 mt-1 whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-medium text-white shadow-md"
+            className="ml-3 mt-1 whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-medium shadow-md"
           >
-            {name}
+            <span
+              className="animate-cursor-shimmer bg-clip-text text-transparent"
+              style={{
+                backgroundImage:
+                  "linear-gradient(90deg, rgba(255,255,255,0.55) 25%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.55) 75%)",
+                backgroundSize: "200% 100%",
+              }}
+            >
+              {name}
+            </span>
           </motion.div>
         </motion.div>
       )}

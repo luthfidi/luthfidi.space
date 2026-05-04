@@ -1,15 +1,28 @@
 [
   {
+    "id": 13,
+    "credential_id": "hackquest-monad-builder-2025",
+    "slug": "monad-builder-hackquest",
+    "name": "Monad Builder on HackQuest",
+    "issuing_organization": "HackQuest",
+    "type": "Badge",
+    "category": "Blockchain",
+    "url_credential": "https://www.hackquest.io/api/certificate/luthfidi-1005589.png",
+    "issue_date": "2025-07-01",
+    "image": "/images/achievements/hackquest-monad-builder.png",
+    "is_show": true
+  },
+  {
     "id": 1,
     "credential_id": "lisk-builders-2025",
     "slug": "lisk-builders-challenge",
-    "name": "Top 5 Winner & Social Media Challenge Winner — Lisk Builders Challenge Round One",
+    "name": "Top 5 Winner & Social Media Challenge Winner, Lisk Builders Challenge Round One",
     "issuing_organization": "Lisk & BlockDevId",
-    "type": "Winner",
-    "category": "Award",
-    "url_credential": "",
+    "type": "Award",
+    "category": "Blockchain",
+    "url_credential": "https://devfolio.co/projects/lummy-9a9c",
     "issue_date": "2025-05-01",
-    "image": "/images/placeholder.webp",
+    "image": "/images/achievements/lisk-builders-winner.jpg",
     "is_show": true
   },
   {
@@ -18,11 +31,11 @@
     "slug": "icp-hackathon-12",
     "name": "ICP Hackathon 12 Participant",
     "issuing_organization": "CodeFest Indonesia",
-    "type": "Participant",
-    "category": "Recognition",
+    "type": "Recognition",
+    "category": "Blockchain",
     "url_credential": "https://drive.google.com/file/d/1D0_wWe7LmDWk9OMSr57S9NsIi22DTTKp/view?usp=drive_link",
     "issue_date": "2025-01-01",
-    "image": "/images/placeholder.webp",
+    "image": "/images/achievements/icp-hackathon-12.png",
     "is_show": true
   },
   {
@@ -31,11 +44,11 @@
     "slug": "lisk-spark-incubator",
     "name": "Lisk Spark Incubator Graduate",
     "issuing_organization": "Lisk",
-    "type": "Incubator",
-    "category": "Badge",
-    "url_credential": "",
+    "type": "Badge",
+    "category": "Blockchain",
+    "url_credential": "https://liskspark.com/",
     "issue_date": "2025-01-01",
-    "image": "/images/placeholder.webp",
+    "image": "/images/achievements/lisk-spark-incubator.jpg",
     "is_show": true
   },
   {
@@ -44,11 +57,11 @@
     "slug": "dicoding-frontend-2024",
     "name": "Learning Front-End Web Development for Beginners",
     "issuing_organization": "Dicoding Indonesia",
-    "type": "Online Course",
-    "category": "Course",
+    "type": "Course",
+    "category": "Frontend",
     "url_credential": "https://www.dicoding.com/certificates/EYX4JGGQWZDL",
     "issue_date": "2024-01-01",
-    "image": "/images/placeholder.webp",
+    "image": "/images/achievements/dicoding-frontend.png",
     "is_show": true
   },
   {
@@ -57,11 +70,11 @@
     "slug": "intermediate-seo-masterclass",
     "name": "3-Day Intermediate SEO Masterclass",
     "issuing_organization": "DailySEO ID",
-    "type": "Masterclass",
-    "category": "Course",
+    "type": "Course",
+    "category": "Marketing",
     "url_credential": "https://drive.google.com/file/d/1JDhFSGjE3l6PiHprBso14gOmuGU3lhSW/view?usp=sharing",
     "issue_date": "2024-01-01",
-    "image": "/images/placeholder.webp",
+    "image": "/images/achievements/seo-masterclass.png",
     "is_show": true
   },
   {
@@ -70,11 +83,11 @@
     "slug": "first-time-manager",
     "name": "Leadership: First Time Manager",
     "issuing_organization": "Mekari University",
-    "type": "Online Course",
-    "category": "Course",
+    "type": "Course",
+    "category": "Management",
     "url_credential": "https://univ.mekari.com/certificates/dvdtugxx8g",
     "issue_date": "2024-01-01",
-    "image": "/images/placeholder.webp",
+    "image": "/images/achievements/leadership-first-time-manager.png",
     "is_show": true
   },
   {
@@ -83,11 +96,11 @@
     "slug": "agile-project-management",
     "name": "Introduction to Project Management Using Agile Methodology",
     "issuing_organization": "BINUS University",
-    "type": "Workshop",
-    "category": "Course",
+    "type": "Course",
+    "category": "Management",
     "url_credential": "https://drive.google.com/file/d/1luYz2pazmokRWZh-tMefVDzr5HCik42Y/view?usp=sharing",
     "issue_date": "2024-01-01",
-    "image": "/images/placeholder.webp",
+    "image": "/images/achievements/dicoding-agile.png",
     "is_show": true
   },
   {
@@ -96,11 +109,11 @@
     "slug": "project-management-with-scrum",
     "name": "Project Management with Scrum",
     "issuing_organization": "BINUS University",
-    "type": "Workshop",
-    "category": "Course",
+    "type": "Course",
+    "category": "Management",
     "url_credential": "https://drive.google.com/file/d/1KDLR_hI24nzz_PFoztF-wyMuG5ty4dVg/view?usp=sharing",
     "issue_date": "2024-01-01",
-    "image": "/images/placeholder.webp",
+    "image": "/images/achievements/dicoding-scrum.png",
     "is_show": true
   },
   {
@@ -109,11 +122,11 @@
     "slug": "lnt-uiux-design-class",
     "name": "LnT UI/UX Design Class",
     "issuing_organization": "BNCC Learning and Training",
-    "type": "Workshop",
-    "category": "Course",
+    "type": "Course",
+    "category": "Design",
     "url_credential": "https://drive.google.com/file/d/11WrC9zwUlEwXxIDbvMpRUYE0eR3J5_2h/view?usp=sharing",
     "issue_date": "2024-01-01",
-    "image": "/images/placeholder.webp",
+    "image": "/images/achievements/lnt-uiux.png",
     "is_show": true
   },
   {
@@ -122,11 +135,11 @@
     "slug": "c-level-english-advanced",
     "name": "C-Level English for Advanced English",
     "issuing_organization": "Beelinguapp",
-    "type": "Language Course",
-    "category": "Course",
+    "type": "Course",
+    "category": "Language",
     "url_credential": "https://drive.google.com/file/d/1a-T3_OgGngVlVHFn4ADkVjXbot8vvFpz/view?usp=sharing",
     "issue_date": "2023-01-01",
-    "image": "/images/placeholder.webp",
+    "image": "/images/achievements/beelingua-english-c.png",
     "is_show": true
   },
   {
@@ -135,11 +148,11 @@
     "slug": "dicoding-javascript-basics",
     "name": "Learning the Basics of JavaScript Programming",
     "issuing_organization": "Dicoding Indonesia",
-    "type": "Online Course",
-    "category": "Course",
+    "type": "Course",
+    "category": "Backend",
     "url_credential": "https://www.dicoding.com/certificates/4EXG7V3EQPRL",
     "issue_date": "2024-01-01",
-    "image": "/images/placeholder.webp",
+    "image": "/images/achievements/dicoding-javascript.png",
     "is_show": true
   },
   {
@@ -148,11 +161,11 @@
     "slug": "lnt-backend-development-class",
     "name": "LnT Back-End Development Class",
     "issuing_organization": "BNCC Learning and Training",
-    "type": "Workshop",
-    "category": "Course",
+    "type": "Course",
+    "category": "Backend",
     "url_credential": "https://drive.google.com/file/d/15F95e0GWGOehMkn6tXTF5Uvy2vVQb3Db/view?usp=sharing",
     "issue_date": "2023-01-01",
-    "image": "/images/placeholder.webp",
+    "image": "/images/achievements/lnt-backend.png",
     "is_show": true
   }
 ]

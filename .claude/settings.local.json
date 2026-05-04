@@ -52,7 +52,19 @@
       "Bash(mkdir -p public/images/careers)",
       "Bash(cp \"/c/Users/luthf/Downloads/export figma/HCfixx.png\" \"public/images/careers/technoscape.png\")",
       "Read(//c/Users/luthf/OneDrive/Desktop/webprog/Luthfi-CV/src//**)",
-      "Read(//c/Users/luthf/OneDrive/Desktop/webprog/Luthfi-CV//**)"
+      "Read(//c/Users/luthf/OneDrive/Desktop/webprog/Luthfi-CV//**)",
+      "Bash(python3 -c \"import fitz; print\\('PyMuPDF ok'\\)\")",
+      "Bash(python3 -c \"from pdf2image import convert_from_path; print\\('pdf2image ok'\\)\")",
+      "Read(//mnt/c/Windows/System32/**)",
+      "Bash(pip3 install *)",
+      "Bash(mkdir -p /mnt/c/Users/luthf/OneDrive/Desktop/code/portfolio/public/images/achievements)",
+      "Read(//mnt/c/Users/luthf/Downloads/**)",
+      "Bash(python3 *)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:tanstack.com)",
+      "WebFetch(domain:astro.build)",
+      "WebFetch(domain:commons.wikimedia.org)",
+      "WebFetch(domain:vitejs.dev)"
     ]
   }
 }

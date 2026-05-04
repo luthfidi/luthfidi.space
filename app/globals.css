@@ -35,6 +35,16 @@
     alternate-reverse;
   --animate-star-movement-bottom: star-movement-bottom linear infinite alternate;
   --animate-star-movement-top: star-movement-top linear infinite alternate;
+  --animate-cursor-shimmer: cursor-shimmer 2.4s ease-in-out infinite;
+
+  @keyframes cursor-shimmer {
+    0% {
+      background-position: 200% 50%;
+    }
+    100% {
+      background-position: -200% 50%;
+    }
+  }
 
   @keyframes shine {
     0% {

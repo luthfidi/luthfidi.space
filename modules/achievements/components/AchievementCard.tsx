@@ -68,11 +68,6 @@ const AchievementCard = ({
 
           <div className="flex flex-1 flex-col justify-between space-y-3 p-4">
             <div className="space-y-2">
-              {credential_id && (
-                <p className="text-[10px]  uppercase tracking-widest text-neutral-500">
-                  {credential_id}
-                </p>
-              )}
               <h3 className="line-clamp-2 text-sm font-medium text-neutral-900 dark:text-neutral-200">
                 {name}
               </h3>
@@ -149,14 +144,6 @@ const AchievementCard = ({
                     <div className="mt-6 space-y-4">
                       <div>
                         <p className="text-xs uppercase text-neutral-400">
-                          Credential ID
-                        </p>
-                        <p className="text-sm dark:text-neutral-300">
-                          {credential_id || "-"}
-                        </p>
-                      </div>
-                      <div>
-                        <p className="text-xs uppercase text-neutral-400">
                           Type
                         </p>
                         <p className="text-sm capitalize dark:text-neutral-300">
@@ -184,6 +171,8 @@ const AchievementCard = ({
                     {url_credential && (
                       <Link
                         href={url_credential}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="mt-6 flex w-fit justify-between gap-2 rounded-full bg-primary px-3 py-3 text-dark transition duration-300 hover:scale-105 hover:bg-primary-400"
                       >
                         <p className="text-sm font-semibold ">Credential URL</p>

@@ -46,7 +46,9 @@ const Achievements = () => {
 
       return matchesShow && matchesType && matchesCategory;
     })
-    .sort((a: AchievementItem, b: AchievementItem) => b.id - a.id);
+    .sort((a: AchievementItem, b: AchievementItem) =>
+      new Date(b.issue_date).getTime() - new Date(a.issue_date).getTime()
+    );
 
   return (
     <section className="space-y-4">

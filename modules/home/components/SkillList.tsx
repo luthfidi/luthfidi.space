@@ -11,15 +11,15 @@ import { STACKS, SkillCategory } from "@/common/constants/stacks";
 
 import SkillCard from "./SkillCard";
 
-type FilterKey = "all" | "main" | SkillCategory;
+type FilterKey = "all" | SkillCategory;
 
 const FILTERS: { key: FilterKey; label: string }[] = [
   { key: "all", label: "All" },
-  { key: "main", label: "Main" },
   { key: "frontend", label: "Frontend" },
   { key: "backend", label: "Backend" },
-  { key: "mobile", label: "Mobile" },
   { key: "database", label: "Database" },
+  { key: "blockchain", label: "Blockchain" },
+  { key: "other", label: "Other" },
   { key: "tools", label: "Tools" },
 ];
 
@@ -36,15 +36,15 @@ const SkillList = () => {
   const counts = useMemo(() => {
     const map: Record<FilterKey, number> = {
       all: activeStacks.length,
-      main: 0,
       frontend: 0,
       backend: 0,
       mobile: 0,
       database: 0,
+      blockchain: 0,
+      other: 0,
       tools: 0,
     };
     for (const [, value] of activeStacks) {
-      if (value.isMain) map.main += 1;
       if (value.category) map[value.category] += 1;
     }
     return map;
@@ -52,8 +52,6 @@ const SkillList = () => {
 
   const visible = useMemo(() => {
     if (filter === "all") return activeStacks;
-    if (filter === "main")
-      return activeStacks.filter(([, value]) => value.isMain);
     return activeStacks.filter(([, value]) => value.category === filter);
   }, [activeStacks, filter]);
 
@@ -109,18 +107,19 @@ const SkillList = () => {
       </div>
 
       <div className="flex flex-wrap gap-2">
-        <AnimatePresence mode="popLayout" initial={false}>
+        <AnimatePresence initial={false}>
           {visible.map(([name, value]) => (
             <motion.div
               key={name}
-              layout
+              layout="position"
+              className="will-change-transform"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{
-                opacity: { duration: 0.2 },
-                scale: { duration: 0.2 },
-                layout: { type: "spring", stiffness: 350, damping: 30 },
+                opacity: { duration: 0.18 },
+                scale: { duration: 0.18 },
+                layout: { type: "spring", stiffness: 400, damping: 35 },
               }}
             >
               <SkillCard
