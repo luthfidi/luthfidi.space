@@ -64,7 +64,8 @@
       "WebFetch(domain:tanstack.com)",
       "WebFetch(domain:astro.build)",
       "WebFetch(domain:commons.wikimedia.org)",
-      "WebFetch(domain:vitejs.dev)"
+      "WebFetch(domain:vitejs.dev)",
+      "Bash(npx eslint *)"
     ]
   }
 }
