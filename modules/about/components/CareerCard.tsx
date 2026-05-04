@@ -75,24 +75,43 @@ const CareerCard = ({
   const responsibilityLabel = locale === "en" ? "Responsibilities" : "Tugas";
 
   return (
+    <div
+      role="button"
+      tabIndex={0}
+      onClick={() => setIsShowDetails(!isShowDetails)}
+      onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setIsShowDetails(!isShowDetails)}
+      className="cursor-pointer"
+    >
     <SpotlightCard className="flex items-start gap-5 p-6">
       {logo ? (
         <Image
-          width={60}
-          height={60}
+          width={75}
+          height={75}
           src={logo}
           alt={company}
           className="shrink-0 rounded-lg border-[1.5px] border-neutral-300 bg-neutral-100 dark:border-neutral-700"
         />
       ) : (
-        <CompanyIcon size={60} className="shrink-0 text-neutral-500" />
+        <CompanyIcon size={75} className="shrink-0 text-neutral-500" />
       )}
 
       <div className="w-full space-y-1">
-        <h5>{position}</h5>
+        <div className="flex items-start justify-between gap-2">
+          <h5>{position}</h5>
+          <div className="flex shrink-0 items-center gap-0.5 text-xs text-neutral-400 dark:text-neutral-500">
+            <span>Details</span>
+            <motion.span
+              animate={{ rotate: isShowDetails ? 90 : 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="inline-block"
+            >
+              <ChevronIcon size={15} />
+            </motion.span>
+          </div>
+        </div>
         <div className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
           <div className="flex flex-col gap-2 md:flex-row">
-            <Link href={link || "#"} target="_blank">
+            <Link href={link || "#"} target="_blank" onClick={(e) => e.stopPropagation()}>
               <span className="cursor-pointer hover:text-neutral-900 hover:underline hover:dark:text-neutral-50">
                 {company}
               </span>
@@ -140,24 +159,7 @@ const CareerCard = ({
             </span>
           </div>
 
-          <div className="pt-2">
-            <button
-              onClick={() => setIsShowDetails(!isShowDetails)}
-              className="-ml-1 flex items-center justify-center gap-x-1 transition duration-300 hover:text-neutral-800 dark:text-neutral-500 dark:hover:text-neutral-300"
-            >
-              <motion.span
-                animate={{ rotate: isShowDetails ? 90 : 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="inline-block"
-              >
-                <ChevronIcon size={18} />
-              </motion.span>
-              <p className="text-sm font-medium">
-                {isShowDetails ? hideText : showText} {detailsText}
-              </p>
-            </button>
-
-            <AnimatePresence>
+          <AnimatePresence>
               {isShowDetails && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
@@ -245,10 +247,10 @@ const CareerCard = ({
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
         </div>
       </div>
     </SpotlightCard>
+    </div>
   );
 };
 

@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { LuChevronsUpDown as ArrowIcon } from "react-icons/lu";
 import { TiTick as ActiveIcon } from "react-icons/ti";
 import { MdArrowOutward as LinkIcon } from "react-icons/md";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 
 import cn from "@/common/libs/clsxm";
@@ -23,6 +23,21 @@ const ComboBoxFilter = () => {
 
   const comboBoxRef = useRef<HTMLDivElement>(null);
   const { websites } = UMAMI_ACCOUNT;
+  const reduceMotion = useReducedMotion();
+
+  const motionProps = reduceMotion
+    ? {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        exit: { opacity: 0 },
+        transition: { duration: 0.1 },
+      }
+    : {
+        initial: { opacity: 0, y: -8 },
+        animate: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: -8 },
+        transition: { duration: 0.15, ease: "easeOut" as const },
+      };
 
   const handleSelect = (newValue: string) => {
     setIsOpen(false);
@@ -59,10 +74,8 @@ const ComboBoxFilter = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="absolute left-0 top-12 z-10 w-full rounded-md border bg-neutral-100 shadow-xl dark:border-neutral-800 dark:bg-neutral-900"
+            {...motionProps}
+            className="absolute left-0 top-full z-10 mt-1 w-full origin-top rounded-md border bg-neutral-100 shadow-xl dark:border-neutral-800 dark:bg-neutral-900"
           >
             <div className="space-y-1 p-1">
               <button

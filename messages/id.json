@@ -213,7 +213,14 @@
       "input_name": "Nama",
       "input_email": "Email",
       "input_message": "Pesan",
-      "button": "Kirim Email"
+      "button": "Kirim Email",
+      "sending": "Mengirim pesan...",
+      "success": "Email Anda berhasil dikirim",
+      "error": "Gagal mengirim. Silakan coba lagi.",
+      "errors": {
+        "required": "{field} wajib diisi",
+        "invalid_email": "Silakan masukkan email yang valid"
+      }
     }
   },
   "SmartTalkPage": {

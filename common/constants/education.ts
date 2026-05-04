@@ -16,7 +16,7 @@ export const EDUCATION: EducationProps[] = [
     school: "Ibnu Hajar Boarding School",
     major: "Science",
     logo: "/images/education/ihbs.png",
-    location: "Indonesia 🇮🇩",
+    location: "Depok, Indonesia 🇮🇩",
     degree: "Senior High School",
     start_year: 2018,
     end_year: 2021,

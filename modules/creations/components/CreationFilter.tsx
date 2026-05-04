@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 
-import ComboBoxFilter from "@/modules/achievements/components/ComboBoxFilter";
+import ComboBoxFilter from "@/common/components/elements/ComboBoxFilter";
 import type { CreationSortBy } from "@/common/types/creations";
 
 interface CreationFilterProps {
@@ -69,6 +69,7 @@ const CreationFilter = ({
         <ComboBoxFilter
           data={accounts}
           placeholder={t("all_accounts")}
+          clearLabel={t("all_accounts")}
           formatLabel={(item) => accountLabel[item] || item}
           value={account}
           onChange={onAccountChange}
@@ -77,6 +78,7 @@ const CreationFilter = ({
         <ComboBoxFilter
           data={PLATFORMS}
           placeholder={t("all_platforms")}
+          clearLabel={t("all_platforms")}
           formatLabel={(item) => platformLabel[item] || item}
           value={platform}
           onChange={onPlatformChange}
@@ -85,6 +87,7 @@ const CreationFilter = ({
         <ComboBoxFilter
           data={categories}
           placeholder={t("all_categories")}
+          clearLabel={t("all_categories")}
           value={category}
           onChange={onCategoryChange}
           className="md:w-auto md:flex-1"
@@ -92,6 +95,7 @@ const CreationFilter = ({
         <ComboBoxFilter
           data={SORT_OPTIONS}
           placeholder={t("sort_by")}
+          clearable={false}
           formatLabel={(item) => sortLabel[item as CreationSortBy] || item}
           value={sortBy}
           onChange={(v) => onSortChange((v || "date") as CreationSortBy)}

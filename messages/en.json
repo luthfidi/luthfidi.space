@@ -213,7 +213,14 @@
       "input_name": "Name",
       "input_email": "Email",
       "input_message": "Message",
-      "button": "Send Email"
+      "button": "Send Email",
+      "sending": "Sending your message...",
+      "success": "Your email was sent successfully",
+      "error": "Failed to send. Please try again.",
+      "errors": {
+        "required": "{field} is required",
+        "invalid_email": "Please enter a valid email"
+      }
     }
   },
   "SmartTalkPage": {

@@ -1,4 +1,5 @@
-import ComboBoxFilter from "./ComboBoxFilter";
+import ComboBoxFilter from "@/common/components/elements/ComboBoxFilter";
+
 import InputSearch from "./InputSearch";
 
 interface FilterHeaderProps {
@@ -21,12 +22,16 @@ const FilterHeader = ({
             data={typeOptions}
             paramKey="type"
             placeholder="Filter by Type"
+            clearLabel="All Types"
+            umamiEvent="click_filter_achievements_type"
           />
 
           <ComboBoxFilter
             data={categoryOptions}
             paramKey="category"
             placeholder="Filter by Category"
+            clearLabel="All Categories"
+            umamiEvent="click_filter_achievements_category"
           />
         </div>
       </div>

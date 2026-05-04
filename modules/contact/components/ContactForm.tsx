@@ -22,6 +22,7 @@ const ContactForm = () => {
   } = useForm<FormEmail>();
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const t = useTranslations("ContactPage");
 
@@ -35,20 +36,24 @@ const ContactForm = () => {
   }, [isSuccess]);
 
   const buttonText = isLoading
-    ? "Sending your message..."
+    ? t("form.sending")
     : isSuccess
-      ? "Your email sent successfully"
-      : "Send Email";
+      ? t("form.success")
+      : t("form.button");
 
   const handleFormSubmit = async (payload: FormEmail) => {
     setIsLoading(true);
+    setSubmitError(null);
     try {
       const response = await axios.post("/api/email", payload);
-      if (response.status === 200) setIsSuccess(true);
-      reset();
-      setIsLoading(false);
+      if (response.status === 200) {
+        setIsSuccess(true);
+        reset();
+      }
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      setSubmitError(t("form.error"));
+    } finally {
       setIsLoading(false);
     }
   };
@@ -58,22 +63,34 @@ const ContactForm = () => {
       <h2>{t("form.title")}</h2>
       <form
         onSubmit={handleSubmit(handleFormSubmit)}
+        aria-busy={isLoading}
         className="space-y-4 transition-all duration-300"
       >
         <div className="flex w-full flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0">
           <InputField
             name="name"
+            label={t("form.input_name")}
+            placeholder={t("form.input_name")}
+            requiredMessage={t("form.errors.required", {
+              field: t("form.input_name"),
+            })}
             rule={{ required: true }}
             register={register}
             error={errors}
           />
           <InputField
             name="email"
+            type="email"
+            label={t("form.input_email")}
+            placeholder={t("form.input_email")}
+            requiredMessage={t("form.errors.required", {
+              field: t("form.input_email"),
+            })}
             rule={{
               required: true,
               pattern: {
                 value: regexEmail,
-                message: "please enter a valid email",
+                message: t("form.errors.invalid_email"),
               },
             }}
             register={register}
@@ -82,6 +99,11 @@ const ContactForm = () => {
         </div>
         <InputField
           name="message"
+          label={t("form.input_message")}
+          placeholder={t("form.input_message")}
+          requiredMessage={t("form.errors.required", {
+            field: t("form.input_message"),
+          })}
           rule={{ required: true }}
           register={register}
           error={errors}
@@ -90,10 +112,24 @@ const ContactForm = () => {
         <button
           disabled={isLoading}
           type="submit"
-          className="w-full rounded-lg bg-neutral-600 px-4 py-2 text-neutral-50 shadow-md transition-all duration-300 hover:bg-neutral-700 hover:shadow-lg dark:bg-neutral-800 hover:dark:bg-neutral-700"
+          className="w-full rounded-lg bg-neutral-600 px-4 py-2 text-neutral-50 shadow-md transition-all duration-300 hover:bg-neutral-700 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70 dark:bg-neutral-800 hover:dark:bg-neutral-700"
         >
           {buttonText}
         </button>
+
+        <div role="status" aria-live="polite" className="sr-only">
+          {isLoading
+            ? t("form.sending")
+            : isSuccess
+              ? t("form.success")
+              : ""}
+        </div>
+
+        {submitError && (
+          <p role="alert" className="text-sm text-red-500">
+            {submitError}
+          </p>
+        )}
       </form>
     </div>
   );

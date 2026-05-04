@@ -11,7 +11,7 @@ export const CAREERS: CareerProps[] = [
     start_date: "2025-04",
     end_date: null,
     industry: "Web3 / Ticketing",
-    link: "https://lummyticket.com",
+    link: "https://www.instagram.com/lummy.ticket/",
     responsibilities: [
       "Led end-to-end product development of an NFT-based ticketing platform on the Lisk blockchain.",
       "Managed a team of 4 members under technical direction while defining the product roadmap and feature priorities.",
@@ -63,7 +63,7 @@ export const CAREERS: CareerProps[] = [
     start_date: "2025-02",
     end_date: "2026-02",
     industry: "EdTech / LMS",
-    link: null,
+    link: "https://zegen.id/compro/",
     responsibilities: [
       "Collaborated with a cross-functional team to develop a comprehensive Learning Management System using React, Golang, and Chakra UI.",
       "Built 10+ prototype mini-projects to validate core LMS features before production implementation.",
@@ -88,7 +88,7 @@ export const CAREERS: CareerProps[] = [
     start_date: "2021-09",
     end_date: "2022-01",
     industry: "Digital Marketing",
-    link: null,
+    link: "https://laskarseo.com/",
     responsibilities: [
       "Contributed to ranking 40+ websites/articles on Google's first page for targeted keywords through coordinated SEO team efforts.",
       "Published 174 SEO-optimized articles and curated 150 high-authority social bookmarking websites.",
@@ -137,7 +137,7 @@ export const CAREERS: CareerProps[] = [
     start_date: "2024-02",
     end_date: "2024-12",
     industry: "Student Event / Organization",
-    link: null,
+    link: "https://technoscape.id/",
     responsibilities: [
       "Led a team of 8, managing 45+ publications across the @technoscapebncc Instagram account.",
       "Coordinated content pipeline across designers, copywriters, and editors to keep release cadence consistent.",
@@ -186,7 +186,7 @@ export const CAREERS: CareerProps[] = [
     start_date: "2020-12",
     end_date: "2023-01",
     industry: "Entertainment / Fanbase",
-    link: null,
+    link: "https://x.com/marshaoshi_",
     responsibilities: [
       "Led the social media team across Twitter/X, Instagram, TikTok, and Showroom Live.",
       "Owned content strategy and posting cadence across platforms.",

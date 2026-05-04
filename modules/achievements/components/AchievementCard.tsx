@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useId, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { format, parseISO } from "date-fns";
 import { motion, AnimatePresence } from "motion/react";
@@ -27,12 +27,17 @@ const AchievementCard = ({
   const layoutKey = `${id}-${image}`;
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations("AchievementsPage");
+  const titleId = useId();
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLDivElement>(null);
 
   const issueDate = issue_date ? format(parseISO(issue_date), "MMMM yyyy") : "";
 
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
+      // Move focus into the modal so screen readers + keyboard users land here
+      closeButtonRef.current?.focus();
     } else {
       document.body.style.overflow = "unset";
     }
@@ -41,12 +46,40 @@ const AchievementCard = ({
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
+
+  const handleClose = () => {
+    setIsOpen(false);
+    // Return focus to the card that opened the modal
+    requestAnimationFrame(() => triggerRef.current?.focus());
+  };
+
   return (
     <>
       <motion.div
+        ref={triggerRef}
         layoutId={`card-${layoutKey}`}
+        role="button"
+        tabIndex={0}
+        aria-haspopup="dialog"
+        aria-label={`View details for ${name}`}
         onClick={() => setIsOpen(true)}
-        className="h-full cursor-pointer"
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setIsOpen(true);
+          }
+        }}
+        className="h-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:focus-visible:ring-offset-neutral-900"
       >
         <SpotlightCard className="group flex h-full flex-col overflow-hidden border border-neutral-200 dark:border-neutral-800">
           <div className="relative overflow-hidden">
@@ -99,13 +132,18 @@ const AchievementCard = ({
       <Portal>
         <AnimatePresence>
           {isOpen && (
-            <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-8">
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby={titleId}
+              className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-8"
+            >
               {/* Backdrop Blur */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                onClick={() => setIsOpen(false)}
+                onClick={handleClose}
                 className="absolute inset-0 bg-black/80 backdrop-blur-sm"
               />
 
@@ -115,8 +153,11 @@ const AchievementCard = ({
                 onClick={(e) => e.stopPropagation()}
               >
                 <button
-                  onClick={() => setIsOpen(false)}
-                  className="absolute right-4 top-4 z-[10001] rounded-full bg-black/50 p-2 text-white backdrop-blur-md transition-transform hover:scale-110 active:scale-95"
+                  ref={closeButtonRef}
+                  type="button"
+                  onClick={handleClose}
+                  aria-label="Close dialog"
+                  className="absolute right-4 top-4 z-[10001] rounded-full bg-black/50 p-2 text-white backdrop-blur-md transition-transform hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-white active:scale-95"
                 >
                   <CloseIcon size={20} />
                 </button>
@@ -135,7 +176,10 @@ const AchievementCard = ({
                   </div>
 
                   <div className="w-90 hidden flex-col border-l border-neutral-200 py-4 pl-8 pr-20 dark:border-neutral-800 md:flex">
-                    <h2 className="text-lg font-bold text-neutral-900 dark:text-white">
+                    <h2
+                      id={titleId}
+                      className="text-lg font-bold text-neutral-900 dark:text-white"
+                    >
                       {name}
                     </h2>
                     <p className="mt-2 text-neutral-500">
