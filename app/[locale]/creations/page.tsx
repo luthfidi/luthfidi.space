@@ -22,7 +22,7 @@ export async function generateMetadata({
     description: t("description"),
     keywords: "luthfi hadi creations, social media content, instagram, tiktok",
     alternates: {
-      canonical: `${process.env.DOMAIN}/${locale}/creations`,
+      canonical: `/${locale}/creations`,
     },
   };
 }

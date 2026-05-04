@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${t("title")} ${METADATA.exTitle}`,
     description: t("description"),
-    alternates: { canonical: `${process.env.DOMAIN}/${locale}/about` },
+    alternates: { canonical: `/${locale}/about` },
   };
 }
 

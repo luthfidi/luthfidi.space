@@ -21,7 +21,7 @@ export async function generateMetadata({
     description: t("description"),
     keywords: "portfolio frontend developer, full stack developer, luthfi hadi",
     alternates: {
-      canonical: `${process.env.DOMAIN}/${locale}/projects`,
+      canonical: `/${locale}/projects`,
     },
   };
 }

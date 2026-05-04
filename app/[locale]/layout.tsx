@@ -9,7 +9,7 @@ import "../globals.css";
 import Layouts from "@/common/components/layouts";
 import FollowingCursor from "@/common/components/elements/FollowingCursor";
 import ThemeProviderContext from "@/common/stores/theme";
-import { METADATA } from "@/common/constants/metadata";
+import { METADATA, getSiteUrl } from "@/common/constants/metadata";
 import { inter } from "@/common/styles/fonts";
 import SkeletonThemeProvider from "@/SkeletonThemeProvider";
 import { routing } from "@/i18n/routing";
@@ -19,14 +19,7 @@ export function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : process.env.DOMAIN ||
-        (process.env.VERCEL_URL
-          ? `https://${process.env.VERCEL_URL}`
-          : "http://localhost:3000"),
-  ),
+  metadataBase: new URL(getSiteUrl()),
   description: METADATA.description,
   keywords: METADATA.keyword,
   creator: METADATA.creator,

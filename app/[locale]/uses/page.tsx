@@ -21,7 +21,7 @@ export async function generateMetadata({
     description: t("description"),
     keywords: "uses, hardware, editor, tools, luthfi hadi",
     alternates: {
-      canonical: `${process.env.DOMAIN}/${locale}/uses`,
+      canonical: `/${locale}/uses`,
     },
   };
 }

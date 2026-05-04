@@ -44,7 +44,7 @@ export const generateMetadata = async ({
     },
     keywords: project.title,
     alternates: {
-      canonical: `${process.env.DOMAIN}/${locale}/projects/${slug}`,
+      canonical: `/${locale}/projects/${slug}`,
     },
   };
 };

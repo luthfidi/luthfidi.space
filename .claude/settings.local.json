@@ -65,7 +65,9 @@
       "WebFetch(domain:astro.build)",
       "WebFetch(domain:commons.wikimedia.org)",
       "WebFetch(domain:vitejs.dev)",
-      "Bash(npx eslint *)"
+      "Bash(npx eslint *)",
+      "Bash(DOMAIN= NODE_ENV=production npx tsc --noEmit)",
+      "Bash(tasklist.exe)"
     ]
   }
 }

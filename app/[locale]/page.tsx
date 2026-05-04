@@ -19,12 +19,12 @@ export async function generateMetadata({
     title: `${METADATA.creator} | Portfolio`,
     description: t("resume.paragraph_1"),
     alternates: {
-      canonical: `${process.env.DOMAIN}/${locale}`,
+      canonical: `/${locale}`,
     },
     openGraph: {
       title: `${METADATA.creator} | Personal Website`,
       description: t("resume.paragraph_1"),
-      url: `${process.env.DOMAIN}/${locale}`,
+      url: `/${locale}`,
       siteName: METADATA.openGraph.siteName,
       locale: locale === "id" ? "id_ID" : "en_US",
       type: "website",
