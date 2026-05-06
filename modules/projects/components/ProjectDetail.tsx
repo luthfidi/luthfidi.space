@@ -64,17 +64,7 @@ const ProjectDetail = ({
         />
       </div>
 
-      <div className="overflow-hidden">
-        <Image
-          src={image}
-          alt={title}
-          width={1000}
-          height={400}
-          className="transition duration-500 hover:scale-[1.04]"
-        />
-      </div>
-
-      {videoId && link_video && (
+      {videoId && link_video ? (
         <a
           href={link_video}
           target="_blank"
@@ -98,6 +88,16 @@ const ProjectDetail = ({
             Watch demo video
           </div>
         </a>
+      ) : (
+        <div className="overflow-hidden">
+          <Image
+            src={image}
+            alt={title}
+            width={1000}
+            height={400}
+            className="transition duration-500 hover:scale-[1.04]"
+          />
+        </div>
       )}
 
       {content ? (
