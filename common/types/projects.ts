@@ -6,6 +6,7 @@ export type ProjectItem = {
   image: string;
   link_demo?: string | null;
   link_github?: string | null;
+  link_video?: string | null;
   stacks: string[];
   content?: string | null;
   is_show: boolean;

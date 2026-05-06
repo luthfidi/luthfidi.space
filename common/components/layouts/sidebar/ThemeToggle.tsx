@@ -1,12 +1,30 @@
+"use client";
+
 import { motion } from "motion/react";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import {
   MdDarkMode as DarkModeIcon,
   MdLightMode as LightModeIcon,
 } from "react-icons/md";
 
 const ThemeToggle = () => {
+  const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
+
+  useEffect(() => setMounted(true), []);
+
+  // Render a same-shape placeholder before hydration so server and client
+  // markup match — useTheme returns undefined on the server, so any
+  // theme-dependent rendering causes a hydration mismatch.
+  if (!mounted) {
+    return (
+      <div className="flex items-center justify-center">
+        <div className="hidden h-10 w-[5.25rem] rounded-full border-[1.5px] border-neutral-300 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800 lg:block" />
+        <div className="h-10 w-10 rounded-full border-[1.5px] border-neutral-300 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800 lg:hidden" />
+      </div>
+    );
+  }
 
   const isLightMode = resolvedTheme === "light";
 

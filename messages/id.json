@@ -136,7 +136,11 @@
       "title_average_contribution": "Rata-rata",
       "title_less_contribution": "Sedikit",
       "title_more_contribution": "Banyak",
-      "unit": "hari"
+      "unit": "hari",
+      "current_streak": "Streak Saat Ini",
+      "longest_streak": "Streak Terlama",
+      "days_unit": "hari",
+      "top_languages": "Bahasa Teratas"
     },
     "wakatime": {
       "title": "Statistik WakaTime",

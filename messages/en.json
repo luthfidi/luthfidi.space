@@ -136,7 +136,11 @@
       "title_average_contribution": "Average",
       "title_less_contribution": "Less",
       "title_more_contribution": "More",
-      "unit": "day"
+      "unit": "day",
+      "current_streak": "Current Streak",
+      "longest_streak": "Longest Streak",
+      "days_unit": "days",
+      "top_languages": "Top Languages"
     },
     "wakatime": {
       "title": "WakaTime Stats",

@@ -19,8 +19,13 @@ interface ProjectDetailPageProps {
 const getProjectDetail = async (slug: string): Promise<ProjectItem> => {
   const projects = await getProjectsDataBySlug(slug);
   const contents = loadMdxFiles();
-  const content = contents.find((item) => item.slug === slug);
-  const response = { ...projects, content: content?.content };
+  const mdxContent = contents.find((item) => item.slug === slug)?.content;
+  // Prefer MDX file if it exists, otherwise fall back to inline content
+  // from projects.json so projects without a separate MDX still render.
+  const response = {
+    ...projects,
+    content: mdxContent ?? projects?.content,
+  };
   return JSON.parse(JSON.stringify(response));
 };
 

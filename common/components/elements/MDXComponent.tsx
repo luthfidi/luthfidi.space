@@ -32,10 +32,10 @@ const MDXComponent = ({ children }: MarkdownRendererProps) => {
             {...props}
           />
         ),
-        p: (props) => <div {...props} className="font-sans" />,
+        p: (props) => <div {...props} />,
         h2: (props) => (
           <h2
-            className="font-sans text-xl font-medium dark:text-neutral-300"
+            className="border-b border-neutral-300 pb-2 text-xl font-medium dark:border-neutral-700 dark:text-neutral-300"
             {...props}
           />
         ),
@@ -46,13 +46,10 @@ const MDXComponent = ({ children }: MarkdownRendererProps) => {
           />
         ),
         ul: (props) => (
-          <ul className="list-disc space-y-3 pb-5 pl-10 font-sans" {...props} />
+          <ul className="list-disc space-y-3 pb-5 pl-10" {...props} />
         ),
         ol: (props) => (
-          <ol
-            className="list-decimal space-y-3 pb-5 pl-10 font-sans"
-            {...props}
-          />
+          <ol className="list-decimal space-y-3 pb-5 pl-10" {...props} />
         ),
         code: (props) => <CodeBlock {...props} />,
         blockquote: (props) => (

@@ -45,6 +45,7 @@ import {
   SiC,
   SiSwagger,
   SiGin,
+  SiTwilio,
 } from "react-icons/si";
 import { RiShieldKeyholeFill } from "react-icons/ri";
 
@@ -239,7 +240,7 @@ export const STACKS: SkillProps = {
   "Express.js": {
     icon: <SiExpress size={iconSize} />,
     background: "bg-neutral-800",
-    color: "text-neutral-800",
+    color: "text-neutral-900 dark:text-neutral-100",
     isActive: false,
     category: "backend",
   },
@@ -292,6 +293,14 @@ export const STACKS: SkillProps = {
     background: "bg-green-500",
     color: "text-green-500",
     isActive: false,
+    category: "backend",
+  },
+  // ── Backend: Integrations ────────────────────────────────
+  Twilio: {
+    icon: <SiTwilio size={iconSize} />,
+    background: "bg-red-500",
+    color: "text-red-500",
+    isActive: true,
     category: "backend",
   },
   // ── Backend: C# ecosystem ────────────────────────────────

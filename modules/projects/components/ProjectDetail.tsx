@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { HiOutlinePlay as PlayIcon } from "react-icons/hi";
 
 import Tooltip from "@/common/components/elements/Tooltip";
 import Image from "@/common/components/elements/Image";
@@ -8,15 +9,24 @@ import { STACKS } from "@/common/constants/stacks";
 
 import ProjectLink from "./ProjectLink";
 
+const getYoutubeVideoId = (url: string): string | null => {
+  const match = url.match(
+    /(?:youtube\.com\/(?:watch\?v=|embed\/|v\/)|youtu\.be\/)([\w-]{11})/,
+  );
+  return match ? match[1] : null;
+};
+
 const ProjectDetail = ({
   title,
   image,
   stacks,
   link_demo,
   link_github,
+  link_video,
   content,
 }: ProjectItem) => {
   const t = useTranslations("ProjectsPage");
+  const videoId = link_video ? getYoutubeVideoId(link_video) : null;
 
   return (
     <div className="space-y-8">
@@ -63,6 +73,32 @@ const ProjectDetail = ({
           className="transition duration-500 hover:scale-[1.04]"
         />
       </div>
+
+      {videoId && link_video && (
+        <a
+          href={link_video}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative block overflow-hidden rounded-xl"
+          aria-label={`Watch ${title} demo video`}
+        >
+          <Image
+            src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+            alt={`${title} demo video thumbnail`}
+            width={1000}
+            height={563}
+            className="w-full transition duration-500 group-hover:scale-[1.04]"
+          />
+          <div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-colors duration-300 group-hover:bg-black/50">
+            <span className="flex h-16 w-16 items-center justify-center rounded-full bg-red-600 text-white shadow-lg transition-transform duration-300 group-hover:scale-110">
+              <PlayIcon size={32} className="ml-1" />
+            </span>
+          </div>
+          <div className="absolute bottom-3 left-3 rounded-md bg-black/70 px-2 py-1 text-xs text-white backdrop-blur-sm">
+            Watch demo video
+          </div>
+        </a>
+      )}
 
       {content ? (
         <div className="mt-5 space-y-6 leading-[1.8] dark:text-neutral-300">

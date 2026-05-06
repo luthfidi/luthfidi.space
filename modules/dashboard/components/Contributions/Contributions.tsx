@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import useSWR from "swr";
 import { BsGithub as GithubIcon } from "react-icons/bs";
@@ -7,6 +8,9 @@ import { useTranslations } from "next-intl";
 
 import Overview from "./Overview";
 import Calendar from "./Calendar";
+import YearSelector from "./YearSelector";
+import Streak from "./Streak";
+import TopLanguages from "./TopLanguages";
 
 import SectionHeading from "@/common/components/elements/SectionHeading";
 import SectionSubHeading from "@/common/components/elements/SectionSubHeading";
@@ -20,18 +24,27 @@ interface ContributionsProps {
 }
 
 const Contributions = ({ endpoint }: ContributionsProps) => {
-  const { data, isLoading, error } = useSWR(endpoint, fetcher);
+  const [year, setYear] = useState<number | null>(null);
+
+  const url = year !== null ? `${endpoint}?year=${year}` : endpoint;
+  const { data, isLoading, error } = useSWR(url, fetcher, {
+    keepPreviousData: true,
+  });
+
   const contributionCalendar =
     data?.contributionsCollection?.contributionCalendar;
 
-  const { github_url, is_active } = GITHUB_ACCOUNTS;
+  const earliestYear = data?.createdAt
+    ? new Date(data.createdAt).getFullYear()
+    : undefined;
 
+  const { github_url, is_active } = GITHUB_ACCOUNTS;
   const t = useTranslations("DashboardPage");
 
   if (!is_active) return null;
 
   return (
-    <section className="space-y-2">
+    <section className="space-y-3">
       <SectionHeading title={t("github.title")} icon={<GithubIcon />} />
       <SectionSubHeading>
         <p>{t("github.sub_title")}</p>
@@ -46,12 +59,30 @@ const Contributions = ({ endpoint }: ContributionsProps) => {
 
       {error ? (
         <EmptyState message={t("error")} />
-      ) : isLoading ? (
+      ) : isLoading && !data ? (
         <ContributionsSkeleton />
       ) : (
-        <div className="space-y-3">
+        <div className="space-y-4">
           <Overview data={contributionCalendar} />
-          <Calendar data={contributionCalendar} />
+
+          {contributionCalendar?.weeks && (
+            <Streak weeks={contributionCalendar.weeks} />
+          )}
+
+          {data?.topRepos?.nodes && (
+            <TopLanguages repos={data.topRepos.nodes} />
+          )}
+
+          <Calendar
+            data={contributionCalendar}
+            rightSlot={
+              <YearSelector
+                value={year}
+                onChange={setYear}
+                earliestYear={earliestYear}
+              />
+            }
+          />
         </div>
       )}
     </section>

@@ -3,7 +3,6 @@ import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import Container from "@/common/components/elements/Container";
 import PageHeading from "@/common/components/elements/PageHeading";
-import Breakline from "@/common/components/elements/Breakline";
 import Dashboard from "@/modules/dashboard/components/Dashboard";
 import UmamiSkeleton from "@/modules/dashboard/components/Umami/UmamiSkeleton";
 import ContributionsSkeleton from "@/modules/dashboard/components/Contributions/ContributionsSkeleton";
@@ -31,13 +30,14 @@ const DashboardPage = async ({ params }: Props) => {
       <PageHeading title={t("title")} description={t("description")} />
       <Suspense
         fallback={
-          <div aria-label="Loading dashboard" aria-busy="true">
+          <div
+            className="space-y-8"
+            aria-label="Loading dashboard"
+            aria-busy="true"
+          >
             <UmamiSkeleton />
-            <Breakline className="my-8" />
             <ContributionsSkeleton />
-            <Breakline className="my-8" />
             <CodingActiveSkeleton />
-            <Breakline className="my-8" />
             <MonkeytypeSkeleton />
           </div>
         }
