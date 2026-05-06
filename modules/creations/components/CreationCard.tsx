@@ -118,7 +118,7 @@ const CreationCard = ({
           {title}
         </h3>
 
-        <dl className="grid grid-cols-5 gap-2 text-center text-[10px] text-neutral-600 dark:text-neutral-400">
+        <dl className="grid grid-cols-5 gap-2 text-center text-[11px] text-neutral-600 dark:text-neutral-400">
           <Stat label="Reach" icon={<HiOutlineEye size={14} />} value={metrics.reach} />
           <Stat label="Likes" icon={<HiOutlineHeart size={14} />} value={metrics.likes} />
           <Stat label="Comments" icon={<HiOutlineChatAlt2 size={14} />} value={metrics.comments} />
@@ -127,7 +127,7 @@ const CreationCard = ({
         </dl>
 
         <div className="mt-auto flex items-center justify-between border-t border-neutral-100 pt-2 dark:border-neutral-800">
-          <span className="text-[10px] uppercase text-neutral-400 dark:text-neutral-500">
+          <span className="text-[11px] uppercase text-neutral-400 dark:text-neutral-500">
             {issueDate}
           </span>
           <Link

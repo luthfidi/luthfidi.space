@@ -71,7 +71,7 @@ const AchievementCard = ({
         role="button"
         tabIndex={0}
         aria-haspopup="dialog"
-        aria-label={`View details for ${name}`}
+        aria-label={t("card.view_details_for", { name })}
         onClick={() => setIsOpen(true)}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
@@ -94,7 +94,7 @@ const AchievementCard = ({
             </motion.div>
 
             <div className="absolute inset-0 flex items-center justify-center gap-2 bg-black/60 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <span className="text-sm font-medium">View detail</span>
+              <span className="text-sm font-medium">{t("card.view_detail")}</span>
               <ViewIcon size={20} />
             </div>
           </div>
@@ -111,17 +111,17 @@ const AchievementCard = ({
 
             <div className="space-y-3">
               <div className="flex flex-wrap gap-2">
-                <span className="rounded-full border border-neutral-300 bg-neutral-100 px-2 py-0.5 text-[10px] capitalize text-neutral-600 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400">
+                <span className="rounded-full border border-neutral-300 bg-neutral-100 px-2 py-0.5 text-[11px] capitalize text-neutral-600 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400">
                   {type}
                 </span>
-                <span className="rounded-full border border-neutral-300 bg-neutral-100 px-2 py-0.5 text-[10px] capitalize text-neutral-600 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400">
+                <span className="rounded-full border border-neutral-300 bg-neutral-100 px-2 py-0.5 text-[11px] capitalize text-neutral-600 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400">
                   {category}
                 </span>
               </div>
 
               <div className="border-t border-neutral-100 pt-2 dark:border-neutral-800">
-                <p className="text-[10px] uppercase text-neutral-400 dark:text-neutral-500">
-                  Issued on {issueDate}
+                <p className="text-[11px] uppercase text-neutral-400 dark:text-neutral-500">
+                  {t("card.issued_on", { date: issueDate })}
                 </p>
               </div>
             </div>
@@ -156,7 +156,7 @@ const AchievementCard = ({
                   ref={closeButtonRef}
                   type="button"
                   onClick={handleClose}
-                  aria-label="Close dialog"
+                  aria-label={t("card.close")}
                   className="absolute right-4 top-4 z-[10001] rounded-full bg-black/50 p-2 text-white backdrop-blur-md transition-transform hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-white active:scale-95"
                 >
                   <CloseIcon size={20} />
@@ -188,7 +188,7 @@ const AchievementCard = ({
                     <div className="mt-6 space-y-4">
                       <div>
                         <p className="text-xs uppercase text-neutral-400">
-                          Type
+                          {t("card.type")}
                         </p>
                         <p className="text-sm capitalize dark:text-neutral-300">
                           {type || "-"}
@@ -196,7 +196,7 @@ const AchievementCard = ({
                       </div>
                       <div>
                         <p className="text-xs uppercase text-neutral-400">
-                          Category
+                          {t("card.category")}
                         </p>
                         <p className="text-sm capitalize dark:text-neutral-300">
                           {category || "-"}
@@ -204,7 +204,7 @@ const AchievementCard = ({
                       </div>
                       <div>
                         <p className="text-xs uppercase text-neutral-400">
-                          Issue Date
+                          {t("card.issue_date")}
                         </p>
                         <p className="text-sm dark:text-neutral-300">
                           {issueDate}
@@ -219,7 +219,7 @@ const AchievementCard = ({
                         rel="noopener noreferrer"
                         className="mt-6 flex w-fit justify-between gap-2 rounded-full bg-primary px-3 py-3 text-dark transition duration-300 hover:scale-105 hover:bg-primary-400"
                       >
-                        <p className="text-sm font-semibold ">Credential URL</p>
+                        <p className="text-sm font-semibold ">{t("card.credential_url")}</p>
                         <ViewIcon size={20} className=" " />
                       </Link>
                     )}

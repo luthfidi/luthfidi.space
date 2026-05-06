@@ -104,7 +104,7 @@ const CreationFilter = ({
       </div>
 
       <div className="ml-1 text-sm text-neutral-500 dark:text-neutral-400">
-        Total: {total}
+        {t("total", { count: total })}
       </div>
     </div>
   );

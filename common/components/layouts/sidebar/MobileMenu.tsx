@@ -10,7 +10,7 @@ const MobileMenu = () => {
   const filteredMenu = MENU_ITEMS?.filter((item) => item?.isShow);
   return (
     <motion.div
-      className="my-3 flex h-screen flex-col"
+      className="my-3 flex flex-col"
       initial={{ y: -100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}

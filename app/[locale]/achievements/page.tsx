@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import Container from "@/common/components/elements/Container";
 import PageHeading from "@/common/components/elements/PageHeading";
 import Achievements from "@/modules/achievements";
+import AchievementSkeleton from "@/modules/achievements/components/AchievementSkeleton";
 import { METADATA } from "@/common/constants/metadata";
 import { Suspense } from "react";
 
@@ -34,7 +35,19 @@ const AchievementsPage = async ({ params }: AchievementsPageProps) => {
   return (
     <Container data-aos="fade-up">
       <PageHeading title={t("title")} description={t("description")} />
-      <Suspense>
+      <Suspense
+        fallback={
+          <div
+            className="grid grid-cols-1 gap-4 md:grid-cols-3"
+            aria-label="Loading achievements"
+            aria-busy="true"
+          >
+            {[...Array(6)].map((_, i) => (
+              <AchievementSkeleton key={i} />
+            ))}
+          </div>
+        }
+      >
         <Achievements />
       </Suspense>
     </Container>

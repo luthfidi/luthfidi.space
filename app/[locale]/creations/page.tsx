@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import Container from "@/common/components/elements/Container";
 import PageHeading from "@/common/components/elements/PageHeading";
 import Creations from "@/modules/creations";
+import CreationSkeleton from "@/modules/creations/components/CreationSkeleton";
 import { METADATA } from "@/common/constants/metadata";
 
 interface CreationsPageProps {
@@ -34,7 +35,19 @@ const CreationsPage = async ({ params }: CreationsPageProps) => {
   return (
     <Container data-aos="fade-up">
       <PageHeading title={t("title")} description={t("description")} />
-      <Suspense>
+      <Suspense
+        fallback={
+          <div
+            className="grid grid-cols-1 gap-4 md:grid-cols-3"
+            aria-label="Loading creations"
+            aria-busy="true"
+          >
+            {[...Array(6)].map((_, i) => (
+              <CreationSkeleton key={i} />
+            ))}
+          </div>
+        }
+      >
         <Creations />
       </Suspense>
     </Container>

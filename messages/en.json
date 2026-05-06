@@ -65,6 +65,7 @@
       "shares": "Shares",
       "saves": "Saves"
     },
+    "total": "Total: {count}",
     "error": "An error occurred on the server.",
     "no_data": "No data available."
   },
@@ -73,7 +74,24 @@
     "description": "A curated collection of certificates and badges I’ve earned throughout my professional and academic journey.",
     "error": "An error occurred on the server.",
     "no_data": "No data available.",
-    "show_credential": "Show Credentials"
+    "show_credential": "Show Credentials",
+    "total": "Total: {count}",
+    "filter": {
+      "by_type": "Filter by Type",
+      "by_category": "Filter by Category",
+      "all_types": "All Types",
+      "all_categories": "All Categories"
+    },
+    "card": {
+      "view_detail": "View detail",
+      "view_details_for": "View details for {name}",
+      "credential_url": "Credential URL",
+      "type": "Type",
+      "category": "Category",
+      "issue_date": "Issue Date",
+      "issued_on": "Issued on {date}",
+      "close": "Close dialog"
+    }
   },
   "ProjectsPage": {
     "title": "Projects",
