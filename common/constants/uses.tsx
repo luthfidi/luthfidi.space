@@ -3,7 +3,6 @@ import {
   HiOutlineCode,
   HiOutlineTerminal,
   HiOutlineGlobeAlt,
-  HiOutlineCube,
 } from "react-icons/hi";
 import { TbApps } from "react-icons/tb";
 
@@ -27,16 +26,12 @@ export const USES: UseSection[] = [
     icon: <HiOutlineDesktopComputer size={iconSize} />,
     items: [
       {
-        name: "Windows Laptop",
-        description: "Daily driver for development and design work.",
+        name: "ASUS Laptop",
+        description: "My daily driver for all development work.",
       },
       {
-        name: "External Monitor",
-        description: "Secondary screen for split-view debugging and design.",
-      },
-      {
-        name: "Mechanical Keyboard",
-        description: "Tactile switches for long coding sessions.",
+        name: "Wireless Mouse",
+        description: "Ergonomic mouse for comfortable everyday use.",
       },
     ],
   },
@@ -86,6 +81,10 @@ export const USES: UseSection[] = [
       {
         name: "Git Bash",
         description: "Unix-style shell for Git workflows.",
+      },
+      {
+        name: "Ubuntu",
+        description: "Linux environment via WSL for Unix tooling.",
       },
     ],
   },
@@ -139,39 +138,16 @@ export const USES: UseSection[] = [
         link: "https://www.google.com/chrome",
       },
       {
-        name: "Microsoft Edge",
-        description: "Secondary browser for cross-browser testing.",
-        link: "https://www.microsoft.com/edge",
-      },
-    ],
-  },
-  {
-    title: "Tech Stack",
-    icon: <HiOutlineCube size={iconSize} />,
-    items: [
-      {
-        name: "Next.js + TypeScript",
-        description: "Frontend framework and language of choice.",
+        name: "React Developer Tools",
+        description:
+          "Browser extension for inspecting React component trees and props.",
+        link: "https://react.dev/learn/react-developer-tools",
       },
       {
-        name: "Tailwind CSS + Chakra UI",
-        description: "Utility-first styling and component library.",
-      },
-      {
-        name: "Golang (Echo, GORM)",
-        description: "Backend services for production projects.",
-      },
-      {
-        name: "Laravel + PHP",
-        description: "Backend stack for client web projects.",
-      },
-      {
-        name: "Solidity + Foundry",
-        description: "Smart contract development on the Lisk blockchain.",
-      },
-      {
-        name: "PostgreSQL / MySQL",
-        description: "Primary relational databases.",
+        name: "Wappalyzer",
+        description:
+          "Identifies the technology stack of any website at a glance.",
+        link: "https://www.wappalyzer.com",
       },
     ],
   },
