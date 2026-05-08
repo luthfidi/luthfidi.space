@@ -65,8 +65,11 @@ const Contributions = ({ endpoint }: ContributionsProps) => {
         <div className="space-y-4">
           <Overview data={contributionCalendar} />
 
-          {contributionCalendar?.weeks && (
-            <Streak weeks={contributionCalendar.weeks} />
+          {data?.lifetimeStreaks && (
+            <Streak
+              current={data.lifetimeStreaks.current ?? 0}
+              longest={data.lifetimeStreaks.longest ?? 0}
+            />
           )}
 
           {data?.topRepos?.nodes && (
