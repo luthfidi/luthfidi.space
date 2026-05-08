@@ -9,7 +9,7 @@ import { SiGmail } from "react-icons/si";
 import { SocialMediaProps } from "../types/socialMedia";
 
 const iconSize = 35;
-const backgroundIconSize = 275;
+const backgroundIconSize = 256;
 
 export const SOCIAL_MEDIA: SocialMediaProps[] = [
   {
