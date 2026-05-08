@@ -112,49 +112,103 @@ const buildLifetimeQuery = (years: number[]) => {
   }`;
 };
 
+interface StreakStats {
+  current: number;
+  longest: number;
+  currentStart: string | null;
+  currentEnd: string | null;
+  longestStart: string | null;
+  longestEnd: string | null;
+}
+
 const computeStreaks = (
   days: { date: string; count: number }[],
-): { current: number; longest: number } => {
-  if (days.length === 0) return { current: 0, longest: 0 };
+): StreakStats => {
+  const empty: StreakStats = {
+    current: 0,
+    longest: 0,
+    currentStart: null,
+    currentEnd: null,
+    longestStart: null,
+    longestEnd: null,
+  };
+  if (days.length === 0) return empty;
 
-  // Deduplicate by date (year boundaries can overlap on first/last day).
+  const today = new Date().toISOString().slice(0, 10);
+
+  // Dedup + drop FUTURE dates (GitHub pads the calendar to the end of the
+  // ISO week with count 0, which would otherwise break the walk-back).
   const dedup = new Map<string, number>();
-  for (const d of days) dedup.set(d.date, d.count);
+  for (const d of days) {
+    if (d.date <= today) dedup.set(d.date, d.count);
+  }
   const sorted = Array.from(dedup.entries())
     .map(([date, count]) => ({ date, count }))
     .sort((a, b) => a.date.localeCompare(b.date));
 
+  // Longest streak with its start/end dates.
   let longest = 0;
+  let longestStart: string | null = null;
+  let longestEnd: string | null = null;
   let running = 0;
+  let runStart: string | null = null;
   for (const d of sorted) {
     if (d.count > 0) {
+      if (running === 0) runStart = d.date;
       running += 1;
-      longest = Math.max(longest, running);
+      if (running > longest) {
+        longest = running;
+        longestStart = runStart;
+        longestEnd = d.date;
+      }
     } else {
       running = 0;
     }
   }
 
-  // Current streak: walk back from the latest day, skipping today if zero
-  // (the user might just not have committed yet today).
+  // Current streak: walk back from the latest day, skipping today if zero.
   let current = 0;
-  const today = new Date().toISOString().slice(0, 10);
   let i = sorted.length - 1;
-  if (i >= 0 && sorted[i].date === today && sorted[i].count === 0) {
-    i -= 1;
-  }
+  if (i >= 0 && sorted[i].date === today && sorted[i].count === 0) i -= 1;
+  const endIdx = i;
   for (; i >= 0; i -= 1) {
     if (sorted[i].count > 0) current += 1;
     else break;
   }
+  const startIdx = i + 1;
 
-  return { current, longest };
+  const currentStart =
+    current > 0 && startIdx >= 0 && startIdx < sorted.length
+      ? sorted[startIdx].date
+      : null;
+  const currentEnd =
+    current > 0 && endIdx >= 0 && endIdx < sorted.length
+      ? sorted[endIdx].date
+      : null;
+
+  return {
+    current,
+    longest,
+    currentStart,
+    currentEnd,
+    longestStart,
+    longestEnd,
+  };
+};
+
+const EMPTY_STREAKS: StreakStats = {
+  current: 0,
+  longest: 0,
+  currentStart: null,
+  currentEnd: null,
+  longestStart: null,
+  longestEnd: null,
 };
 
 const fetchLifetimeStreaks = async (
   username: string,
   token: string,
-): Promise<{ current: number; longest: number }> => {
+): Promise<StreakStats> => {
   const currentYear = new Date().getFullYear();
   const years: number[] = [];
   for (let y = currentYear; y >= currentYear - 9; y -= 1) years.push(y);
@@ -172,7 +226,7 @@ const fetchLifetimeStreaks = async (
     );
 
     const data = response.data?.data?.user;
-    if (!data) return { current: 0, longest: 0 };
+    if (!data) return EMPTY_STREAKS;
 
     const allDays: { date: string; count: number }[] = [];
     for (const year of years) {
@@ -188,14 +242,14 @@ const fetchLifetimeStreaks = async (
     return computeStreaks(allDays);
   } catch (error) {
     console.error("GitHub lifetime streaks error:", error);
-    return { current: 0, longest: 0 };
+    return EMPTY_STREAKS;
   }
 };
 
 const getCachedLifetimeStreaks = unstable_cache(
   async (username: string, token: string) =>
     fetchLifetimeStreaks(username, token),
-  ["github-lifetime-streaks-cache"],
+  ["github-lifetime-streaks-cache-v2"],
   {
     revalidate: 3600,
     tags: ["github-stats-tag"],

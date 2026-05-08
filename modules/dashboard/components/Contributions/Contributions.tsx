@@ -69,6 +69,10 @@ const Contributions = ({ endpoint }: ContributionsProps) => {
             <Streak
               current={data.lifetimeStreaks.current ?? 0}
               longest={data.lifetimeStreaks.longest ?? 0}
+              currentStart={data.lifetimeStreaks.currentStart}
+              currentEnd={data.lifetimeStreaks.currentEnd}
+              longestStart={data.lifetimeStreaks.longestStart}
+              longestEnd={data.lifetimeStreaks.longestEnd}
             />
           )}
 
