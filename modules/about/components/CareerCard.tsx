@@ -82,17 +82,17 @@ const CareerCard = ({
       onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setIsShowDetails(!isShowDetails)}
       className="cursor-pointer"
     >
-    <SpotlightCard className="flex items-start gap-5 p-6">
+    <SpotlightCard className="flex items-start gap-4 p-5 md:gap-5 md:p-6">
       {logo ? (
         <Image
           width={75}
           height={75}
           src={logo}
           alt={company}
-          className="shrink-0 rounded-lg border-[1.5px] border-neutral-300 bg-neutral-100 dark:border-neutral-700"
+          className="h-[60px] w-[60px] shrink-0 rounded-lg border-[1.5px] border-neutral-300 bg-neutral-100 dark:border-neutral-700 md:h-[75px] md:w-[75px]"
         />
       ) : (
-        <CompanyIcon size={75} className="shrink-0 text-neutral-500" />
+        <CompanyIcon className="h-[60px] w-[60px] shrink-0 text-neutral-500 md:h-[75px] md:w-[75px]" />
       )}
 
       <div className="w-full space-y-1">
@@ -110,15 +110,13 @@ const CareerCard = ({
           </div>
         </div>
         <div className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
-          <div className="flex flex-col gap-2 md:flex-row">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
             <Link href={link || "#"} target="_blank" onClick={(e) => e.stopPropagation()}>
               <span className="cursor-pointer hover:text-neutral-900 hover:underline hover:dark:text-neutral-50">
                 {company}
               </span>
             </Link>
-            <span className="hidden text-neutral-300 dark:text-neutral-700 md:block">
-              •
-            </span>
+            <span className="text-neutral-300 dark:text-neutral-700">•</span>
             <span className="flex items-center gap-1">
               {(() => {
                 const { code, cleanText } = parseFlagFromText(location);
@@ -133,27 +131,21 @@ const CareerCard = ({
             </span>
           </div>
 
-          <div className="flex flex-col gap-2 text-[13px] md:flex-row">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px]">
             <div className="flex gap-1 text-neutral-600 dark:text-neutral-400">
               <span>{format(startDate, "MMM yyyy")}</span> -{" "}
               <span>{end_date ? format(endDate, "MMM yyyy") : "Present"}</span>
             </div>
 
-            <span className="hidden text-neutral-300 dark:text-neutral-700 md:block">
-              •
-            </span>
+            <span className="text-neutral-300 dark:text-neutral-700">•</span>
             <span className="text-neutral-500">{durationText}</span>
 
-            <span className="hidden text-neutral-300 dark:text-neutral-700 md:block">
-              •
-            </span>
+            <span className="text-neutral-300 dark:text-neutral-700">•</span>
             <span className="text-neutral-600 dark:text-neutral-400">
               {type}
             </span>
 
-            <span className="hidden text-neutral-300 dark:text-neutral-700 md:block">
-              •
-            </span>
+            <span className="text-neutral-300 dark:text-neutral-700">•</span>
             <span className="text-neutral-600 dark:text-neutral-400">
               {location_type}
             </span>

@@ -23,7 +23,7 @@ const ContactCard = ({
 
   return (
     <SpotlightCard
-      className={`relative grid w-full grid-cols-[2.5fr_1fr] overflow-hidden rounded-md border-2 border-neutral-300 p-6 dark:border-neutral-700 ${colSpan} ${backgroundGradientColor}`}
+      className={`relative grid w-full grid-cols-[2.5fr_1fr] overflow-hidden rounded-md border-2 border-neutral-300 p-5 dark:border-neutral-700 md:p-6 ${colSpan} ${backgroundGradientColor}`}
     >
       <div className="pointer-events-none absolute -left-14 -top-14 text-neutral-50/10">
         {backgroundIcon}

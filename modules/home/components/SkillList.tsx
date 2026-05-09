@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { BiCodeAlt as SkillsIcon } from "react-icons/bi";
 import { useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "motion/react";
@@ -26,6 +26,8 @@ const FILTERS: { key: FilterKey; label: string }[] = [
 const SkillList = () => {
   const t = useTranslations("HomePage");
   const [filter, setFilter] = useState<FilterKey>("all");
+  const listRef = useRef<HTMLDivElement>(null);
+  const isFirstRender = useRef(true);
 
   const activeStacks = useMemo(
     () =>
@@ -55,6 +57,21 @@ const SkillList = () => {
     return activeStacks.filter(([, value]) => value.category === filter);
   }, [activeStacks, filter]);
 
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    const timer = setTimeout(() => {
+      const el = listRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const targetY = window.scrollY + rect.bottom - window.innerHeight + 32;
+      window.scrollTo({ top: targetY, behavior: "smooth" });
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [filter]);
+
   return (
     <section className="space-y-6">
       <div className="space-y-2">
@@ -72,7 +89,7 @@ const SkillList = () => {
               key={key}
               type="button"
               onClick={() => setFilter(key)}
-              className="relative flex items-center gap-1.5 rounded-full border border-neutral-300 px-3 py-1.5 text-xs transition-colors hover:border-neutral-400 dark:border-neutral-700 dark:hover:border-neutral-500"
+              className="relative flex items-center gap-1.5 rounded-full border border-neutral-300 px-3 py-2 text-xs transition-colors hover:border-neutral-400 md:py-1.5 dark:border-neutral-700 dark:hover:border-neutral-500"
             >
               {isActive && (
                 <motion.div
@@ -106,7 +123,7 @@ const SkillList = () => {
         })}
       </div>
 
-      <div className="flex flex-wrap gap-2">
+      <div ref={listRef} className="flex flex-wrap gap-2">
         <AnimatePresence initial={false}>
           {visible.map(([name, value]) => (
             <motion.div

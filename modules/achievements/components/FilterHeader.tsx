@@ -21,7 +21,7 @@ const FilterHeader = ({
     <div className="space-y-4">
       <div className="flex w-full flex-col items-center justify-between gap-4 md:flex-row">
         <InputSearch />
-        <div className="flex w-full flex-col gap-4 md:w-auto md:flex-row">
+        <div className="grid w-full grid-cols-2 gap-4 md:flex md:w-auto md:flex-row">
           <ComboBoxFilter
             data={typeOptions}
             paramKey="type"

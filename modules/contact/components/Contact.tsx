@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <>
       <ContactList />
-      <Breakline className="my-6" />
+      <Breakline className="my-4 md:my-6" />
       <ContactForm />
     </>
   );

@@ -65,7 +65,7 @@ const CreationFilter = ({
 
   return (
     <div className="space-y-4">
-      <div className="flex w-full flex-col gap-3 md:flex-row">
+      <div className="grid w-full grid-cols-2 gap-3 md:grid-cols-4">
         <ComboBoxFilter
           data={accounts}
           placeholder={t("all_accounts")}

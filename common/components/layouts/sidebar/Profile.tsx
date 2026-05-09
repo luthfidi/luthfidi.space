@@ -39,15 +39,9 @@ const Profile = () => {
       )}
     >
       <div className="flex items-center justify-between md:px-2 lg:flex-col lg:space-y-4">
-        <ProfileHeader expandMenu={isOpen} imageSize={imageSize} />
+        <ProfileHeader imageSize={imageSize} />
         {isMobile && (
-          <div
-            className={clsx(
-              "mt-1 flex items-center gap-5 lg:hidden",
-              isOpen &&
-                "h-[130px] flex-col-reverse !items-end justify-between pb-1",
-            )}
-          >
+          <div className="flex items-center gap-5 lg:hidden">
             <div className="flex gap-4">
               <IntlToggle />
               <ThemeToggle />

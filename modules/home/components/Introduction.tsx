@@ -8,7 +8,7 @@ const Introduction = () => {
 
   return (
     <section className="space-y-2 bg-cover bg-no-repeat">
-      <div className="text-3xl font-medium text-neutral-900 dark:text-neutral-50">
+      <div className="text-2xl font-medium text-neutral-900 dark:text-neutral-50 md:text-3xl">
         <h1>{t("intro")}</h1>
       </div>
 
@@ -22,7 +22,7 @@ const Introduction = () => {
           </li>
           <li>{t("location_type")}</li>
         </ul>
-        <div className="mt-6 space-y-4 leading-7 text-neutral-600 dark:text-neutral-300">
+        <div className="mt-6 space-y-4 leading-6 text-neutral-600 dark:text-neutral-300 md:leading-7">
           {paragraphData.map((paragraph) => (
             <div key={paragraph.index}>
               {t(`resume.paragraph_${paragraph.index}`)}

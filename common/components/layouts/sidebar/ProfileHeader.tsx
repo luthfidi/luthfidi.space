@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HiOutlineDocumentText as CvIcon } from "react-icons/hi2";
 import { MdVerified as VerifiedIcon } from "react-icons/md";
 
 import ThemeToggle from "./ThemeToggle";
@@ -6,25 +7,17 @@ import IntlToggle from "./IntlToggle";
 import Tooltip from "../../elements/Tooltip";
 import Image from "../../elements/Image";
 
-import cn from "@/common/libs/clsxm";
-
 interface ProfileHeaderProps {
-  expandMenu: boolean;
   imageSize: number;
 }
 
-const ProfileHeader = ({ expandMenu, imageSize }: ProfileHeaderProps) => {
+const ProfileHeader = ({ imageSize }: ProfileHeaderProps) => {
   return (
-    <div
-      className={cn(
-        "flex w-full flex-grow items-center gap-4 lg:flex-col  lg:gap-0.5",
-        expandMenu && "flex-col !items-start",
-      )}
-    >
+    <div className="flex w-full flex-grow items-center gap-4 lg:flex-col lg:gap-0.5">
       <Image
         src={"/images/profile.jpg"}
-        width={expandMenu ? 80 : imageSize * 1}
-        height={expandMenu ? 80 : imageSize * 1}
+        width={imageSize}
+        height={imageSize}
         alt="Luthfi Hadi"
         className="border-2 border-neutral-400 dark:border-neutral-600 lg:hover:scale-105"
         rounded="rounded-full"
@@ -45,6 +38,16 @@ const ProfileHeader = ({ expandMenu, imageSize }: ProfileHeaderProps) => {
       <div className="hidden text-sm text-neutral-600 transition-all duration-300 hover:text-neutral-700 dark:text-neutral-500 dark:hover:text-neutral-400 lg:flex">
         @luthfidi
       </div>
+
+      <Link
+        href="/files/Luthfi-Hadi-CV.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-3 hidden items-center gap-1.5 rounded-md border border-neutral-300 px-2.5 py-1 text-xs font-medium text-neutral-600 transition-colors hover:border-neutral-400 hover:text-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:hover:border-neutral-600 dark:hover:text-neutral-200 lg:flex"
+      >
+        <CvIcon size={14} />
+        View CV
+      </Link>
 
       <div className="hidden justify-between gap-6 lg:mt-4 lg:flex">
         <IntlToggle />

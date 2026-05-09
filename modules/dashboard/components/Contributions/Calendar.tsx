@@ -193,8 +193,8 @@ const Calendar = ({ data, rightSlot }: CalendarProps) => {
 
   return (
     <>
-      <div className="relative flex flex-col">
-        <ul className="flex justify-end gap-[3px] overflow-hidden text-xs dark:text-neutral-400 md:justify-start">
+      <div className="relative flex flex-col overflow-x-auto">
+        <ul className="flex justify-start gap-[3px] text-xs dark:text-neutral-400">
           {months.map((month) => (
             <li
               key={month.firstDay}
@@ -206,7 +206,7 @@ const Calendar = ({ data, rightSlot }: CalendarProps) => {
           ))}
         </ul>
 
-        <div className="flex justify-start gap-[2.9px] overflow-hidden">
+        <div className="flex justify-start gap-[2.9px]">
           {weeks?.map((week) => (
             <div key={week.firstDay}>
               {week.contributionDays.map((contribution) => {
@@ -259,7 +259,7 @@ const Calendar = ({ data, rightSlot }: CalendarProps) => {
         </AnimatePresence>
       </Portal>
 
-      <div className="flex flex-wrap items-center justify-between gap-3">
+      <div className="flex flex-col items-center gap-3 md:flex-row md:flex-wrap md:justify-between">
         <div className="flex items-center gap-2 text-sm">
           <span className="dark:text-neutral-400">
             {t("title_less_contribution")}
@@ -286,7 +286,7 @@ const Calendar = ({ data, rightSlot }: CalendarProps) => {
           <span>{t("title_more_contribution")}</span>
         </div>
 
-        {rightSlot && <div className="ml-auto">{rightSlot}</div>}
+        {rightSlot && <div>{rightSlot}</div>}
       </div>
     </>
   );

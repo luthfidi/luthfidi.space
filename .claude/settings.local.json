@@ -67,7 +67,9 @@
       "WebFetch(domain:vitejs.dev)",
       "Bash(npx eslint *)",
       "Bash(DOMAIN= NODE_ENV=production npx tsc --noEmit)",
-      "Bash(tasklist.exe)"
+      "Bash(tasklist.exe)",
+      "Bash(mkdir -p public/files)",
+      "Bash(cp \"/c/Users/luthf/Downloads/Luthfi-Hadi-May2026.pdf\" \"public/files/Luthfi-Hadi-CV.pdf\")"
     ]
   }
 }
