@@ -1,3 +1,5 @@
+export type LocalizedStrings = { en: string[]; id: string[] };
+
 export interface CareerProps {
   position: string;
   company: string;
@@ -9,9 +11,9 @@ export interface CareerProps {
   end_date: string | null;
   industry: string;
   link: string | null;
-  responsibilities?: string[];
-  lessons_learned?: string[];
-  impact?: string[];
+  responsibilities?: LocalizedStrings;
+  lessons_learned?: LocalizedStrings;
+  impact?: LocalizedStrings;
   indexCareer?: number;
   isShow?: boolean;
 }

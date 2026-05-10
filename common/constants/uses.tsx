@@ -6,14 +6,16 @@ import {
 } from "react-icons/hi";
 import { TbApps } from "react-icons/tb";
 
+export type LocalizedString = { en: string; id: string };
+
 export interface UseItem {
   name: string;
-  description: string;
+  description: LocalizedString;
   link?: string;
 }
 
 export interface UseSection {
-  title: string;
+  title: LocalizedString;
   icon: React.ReactNode;
   items: UseItem[];
 }
@@ -22,131 +24,192 @@ const iconSize = 22;
 
 export const USES: UseSection[] = [
   {
-    title: "Hardware",
+    title: { en: "Hardware", id: "Perangkat Keras" },
     icon: <HiOutlineDesktopComputer size={iconSize} />,
     items: [
       {
         name: "ASUS Laptop",
-        description: "My daily driver for all development work.",
+        description: {
+          en: "My daily driver for all development work.",
+          id: "Daily driver utama untuk semua pekerjaan development.",
+        },
       },
       {
         name: "Wireless Mouse",
-        description: "Ergonomic mouse for comfortable everyday use.",
+        description: {
+          en: "Ergonomic mouse for comfortable everyday use.",
+          id: "Mouse ergonomis untuk kenyamanan pemakaian sehari-hari.",
+        },
       },
     ],
   },
   {
-    title: "Editor",
+    title: { en: "Editor", id: "Editor" },
     icon: <HiOutlineCode size={iconSize} />,
     items: [
       {
         name: "Visual Studio Code",
-        description: "Primary editor for web and product development.",
+        description: {
+          en: "Primary editor for web and product development.",
+          id: "Editor utama untuk pengembangan web dan produk.",
+        },
         link: "https://code.visualstudio.com",
       },
       {
         name: "Visual Studio",
-        description: "For ASP.NET / C# work.",
+        description: {
+          en: "For ASP.NET / C# work.",
+          id: "Untuk pekerjaan ASP.NET / C#.",
+        },
         link: "https://visualstudio.microsoft.com",
       },
       {
         name: "Dev C++",
-        description: "Lightweight editor for C/C++ exercises.",
+        description: {
+          en: "Lightweight editor for C/C++ exercises.",
+          id: "Editor ringan untuk latihan C/C++.",
+        },
         link: "https://www.bloodshed.net",
       },
       {
         name: "Eclipse IDE",
-        description: "Used for Java coursework and projects.",
+        description: {
+          en: "Used for Java coursework and projects.",
+          id: "Dipakai untuk tugas dan proyek Java.",
+        },
         link: "https://www.eclipse.org",
       },
       {
         name: "Remix IDE",
-        description: "Browser-based editor for Solidity smart contracts.",
+        description: {
+          en: "Browser-based editor for Solidity smart contracts.",
+          id: "Editor berbasis browser untuk smart contract Solidity.",
+        },
         link: "https://remix.ethereum.org",
       },
     ],
   },
   {
-    title: "Terminal",
+    title: { en: "Terminal", id: "Terminal" },
     icon: <HiOutlineTerminal size={iconSize} />,
     items: [
       {
         name: "Windows Terminal",
-        description: "Default terminal multiplexer on Windows.",
+        description: {
+          en: "Default terminal multiplexer on Windows.",
+          id: "Terminal default di Windows.",
+        },
       },
       {
         name: "PowerShell",
-        description: "Primary shell for scripting and Windows tooling.",
+        description: {
+          en: "Primary shell for scripting and Windows tooling.",
+          id: "Shell utama untuk scripting dan tooling Windows.",
+        },
       },
       {
         name: "Git Bash",
-        description: "Unix-style shell for Git workflows.",
+        description: {
+          en: "Unix-style shell for Git workflows.",
+          id: "Shell ala Unix untuk workflow Git.",
+        },
       },
       {
         name: "Ubuntu",
-        description: "Linux environment via WSL for Unix tooling.",
+        description: {
+          en: "Linux environment via WSL for Unix tooling.",
+          id: "Environment Linux via WSL untuk tooling Unix.",
+        },
       },
     ],
   },
   {
-    title: "Apps",
+    title: { en: "Apps", id: "Aplikasi" },
     icon: <TbApps size={iconSize} />,
     items: [
       {
         name: "Microsoft 365",
-        description: "Word, Excel, PowerPoint for documentation and reports.",
+        description: {
+          en: "Word, Excel, PowerPoint for documentation and reports.",
+          id: "Word, Excel, PowerPoint untuk dokumentasi dan laporan.",
+        },
       },
       {
         name: "Google Workspace",
-        description: "Docs, Sheets, Drive, and Calendar for collaboration.",
+        description: {
+          en: "Docs, Sheets, Drive, and Calendar for collaboration.",
+          id: "Docs, Sheets, Drive, dan Calendar untuk kolaborasi.",
+        },
         link: "https://workspace.google.com",
       },
       {
         name: "Figma",
-        description: "Design and product prototyping.",
+        description: {
+          en: "Design and product prototyping.",
+          id: "Desain dan prototyping produk.",
+        },
         link: "https://figma.com",
       },
       {
         name: "Canva",
-        description: "Quick visuals and social media assets.",
+        description: {
+          en: "Quick visuals and social media assets.",
+          id: "Bikin visual cepat dan aset media sosial.",
+        },
         link: "https://canva.com",
       },
       {
         name: "ClickUp",
-        description: "Project and task management for client work.",
+        description: {
+          en: "Project and task management for client work.",
+          id: "Manajemen proyek dan task untuk pekerjaan klien.",
+        },
         link: "https://clickup.com",
       },
       {
         name: "Adobe Premiere Pro",
-        description: "Professional video editing.",
+        description: {
+          en: "Professional video editing.",
+          id: "Editing video profesional.",
+        },
         link: "https://www.adobe.com/products/premiere.html",
       },
       {
         name: "CapCut",
-        description: "Lightweight editor for short-form content.",
+        description: {
+          en: "Lightweight editor for short-form content.",
+          id: "Editor ringan untuk konten short-form.",
+        },
         link: "https://www.capcut.com",
       },
     ],
   },
   {
-    title: "Browser",
+    title: { en: "Browser", id: "Browser" },
     icon: <HiOutlineGlobeAlt size={iconSize} />,
     items: [
       {
         name: "Google Chrome",
-        description: "Primary browser, DevTools, and Lighthouse audits.",
+        description: {
+          en: "Primary browser, DevTools, and Lighthouse audits.",
+          id: "Browser utama, DevTools, dan audit Lighthouse.",
+        },
         link: "https://www.google.com/chrome",
       },
       {
         name: "React Developer Tools",
-        description:
-          "Browser extension for inspecting React component trees and props.",
+        description: {
+          en: "Browser extension for inspecting React component trees and props.",
+          id: "Ekstensi browser untuk inspeksi komponen React dan props-nya.",
+        },
         link: "https://react.dev/learn/react-developer-tools",
       },
       {
         name: "Wappalyzer",
-        description:
-          "Identifies the technology stack of any website at a glance.",
+        description: {
+          en: "Identifies the technology stack of any website at a glance.",
+          id: "Mengidentifikasi technology stack website apa saja secara cepat.",
+        },
         link: "https://www.wappalyzer.com",
       },
     ],

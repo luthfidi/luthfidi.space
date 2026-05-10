@@ -3,6 +3,7 @@ export type ProjectItem = {
   title: string;
   slug: string;
   description: string;
+  description_id?: string;
   image: string;
   link_demo?: string | null;
   link_github?: string | null;

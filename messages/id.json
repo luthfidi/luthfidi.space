@@ -22,7 +22,7 @@
     "title": "Tentang",
     "description": "Pengenalan singkat mengenai siapa saya.",
     "resume": {
-      "paragraph_1": "Saya Luthfi Hadi, lulusan Computer Science Bina Nusantara University dengan pengalaman langsung dalam manajemen proyek IT, metodologi Agile/Scrum, dan pengiriman produk end-to-end. Saya memiliki rekam jejak memimpin tim lintas fungsi serta mengelola komunikasi stakeholder dalam 11+ proyek klien.",
+      "paragraph_1": "Saya Luthfi Hadi, lulusan Computer Science Bina Nusantara University dengan pengalaman langsung dalam manajemen proyek IT, metodologi Agile/Scrum, serta merilis produk dari konsep hingga peluncuran. Saya memiliki rekam jejak memimpin tim lintas fungsi serta mengelola komunikasi stakeholder dalam 11+ proyek klien.",
       "paragraph_2": "Fokus utama saya adalah merancang arsitektur perangkat lunak yang tidak hanya berfungsi tetapi juga terstruktur dengan baik, mudah dipelihara, dan skalabel untuk memenuhi kebutuhan bisnis. Saya percaya bahwa kode berkualitas tinggi harus berjalan beriringan dengan efisiensi sistem dan kejelasan logis.",
       "paragraph_3": "Saya memadukan keahlian teknis dengan komunikasi proaktif, berpikir kritis, dan manajemen waktu yang efektif. Saya berkembang dalam lingkungan kolaboratif dan memanfaatkan keterampilan kepemimpinan untuk memastikan setiap proyek memberikan hasil optimal dan dampak nyata.",
       "paragraph_4": "Salam hangat,"
@@ -223,6 +223,10 @@
         "title": "Tetap Terhubung",
         "description": "Hubungi saya melalui email untuk pertanyaan atau kolaborasi."
       },
+      "whatsapp": {
+        "title": "Chat di WhatsApp",
+        "description": "Kirim pesan via WhatsApp untuk obrolan cepat."
+      },
       "instagram": {
         "title": "Ikuti Perjalanan Saya",
         "description": "Ikuti perjalanan kreatif saya."
@@ -238,6 +242,14 @@
       "github": {
         "title": "Jelajahi Kode",
         "description": "Jelajahi karya sumber terbuka saya."
+      },
+      "twitter": {
+        "title": "Simak Pikiran Saya",
+        "description": "Ikuti pemikiran dan update terbaru saya di X."
+      },
+      "telegram": {
+        "title": "Kirim Pesan",
+        "description": "Hubungi saya di Telegram untuk chat dan update cepat."
       }
     },
     "form": {

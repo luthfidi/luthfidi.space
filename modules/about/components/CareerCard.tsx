@@ -13,12 +13,20 @@ import {
 import { HiChevronRight as ChevronIcon } from "react-icons/hi";
 import { HiOutlineRocketLaunch as ImpactIcon } from "react-icons/hi2";
 import { AnimatePresence, motion } from "motion/react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { differenceInMonths, differenceInYears, format } from "date-fns";
 
 import SpotlightCard from "@/common/components/elements/SpotlightCard";
 import { parseFlagFromText } from "@/common/libs/parseFlag";
-import { CareerProps } from "@/common/types/careers";
+import { CareerProps, LocalizedStrings } from "@/common/types/careers";
+
+const pickLocale = (
+  value: LocalizedStrings | undefined,
+  locale: string,
+): string[] => {
+  if (!value) return [];
+  return locale === "id" ? value.id : value.en;
+};
 
 const CareerCard = ({
   position,
@@ -37,6 +45,11 @@ const CareerCard = ({
   const [isShowDetails, setIsShowDetails] = useState(false);
 
   const t = useTranslations("AboutPage.career");
+  const locale = useLocale();
+
+  const localizedResponsibilities = pickLocale(responsibilities, locale);
+  const localizedLessons = pickLocale(lessons_learned, locale);
+  const localizedImpact = pickLocale(impact, locale);
 
   const startDate = new Date(start_date);
   const endDate = end_date ? new Date(end_date) : new Date();
@@ -148,7 +161,7 @@ const CareerCard = ({
                 >
                   <div className="space-y-4 py-3 leading-normal text-neutral-600 dark:text-neutral-400">
                     {/* Responsibilities Section */}
-                    {responsibilities && responsibilities.length > 0 && (
+                    {localizedResponsibilities.length > 0 && (
                       <div className="space-y-2">
                         <div className="flex items-center gap-2 font-semibold text-primary">
                           <ResponsibilityIcon size={16} />
@@ -157,7 +170,7 @@ const CareerCard = ({
                           </span>
                         </div>
                         <ul className="space-y-1 text-xs leading-relaxed opacity-90">
-                          {responsibilities.map((item, index) => (
+                          {localizedResponsibilities.map((item, index) => (
                             <li key={index} className="flex items-start gap-2">
                               <span className="font-bold text-neutral-700 dark:text-neutral-300">
                                 ✓
@@ -172,7 +185,7 @@ const CareerCard = ({
                     {/* Lessons Learned & Impact Grid */}
                     <div className="grid grid-cols-1 gap-4 dark:border-neutral-800 sm:grid-cols-2 md:mt-4 md:border-t md:border-neutral-200 md:pt-4">
                       {/* What I Learned */}
-                      {lessons_learned && lessons_learned.length > 0 && (
+                      {localizedLessons.length > 0 && (
                         <div className="space-y-2">
                           <div className="flex items-center gap-2 font-semibold text-primary">
                             <LearnIcon size={16} />
@@ -181,7 +194,7 @@ const CareerCard = ({
                             </span>
                           </div>
                           <ul className="space-y-1 text-xs leading-relaxed opacity-90">
-                            {lessons_learned.map((item, index) => (
+                            {localizedLessons.map((item, index) => (
                               <li
                                 key={index}
                                 className="flex items-start gap-2"
@@ -197,7 +210,7 @@ const CareerCard = ({
                       )}
 
                       {/* Impact */}
-                      {impact && impact.length > 0 && (
+                      {localizedImpact.length > 0 && (
                         <div className="space-y-2">
                           <div className="flex items-center gap-2 font-semibold text-primary dark:text-primary">
                             <ImpactIcon size={16} />
@@ -206,7 +219,7 @@ const CareerCard = ({
                             </span>
                           </div>
                           <ul className="space-y-1 text-xs leading-relaxed opacity-90">
-                            {impact.map((item, index) => (
+                            {localizedImpact.map((item, index) => (
                               <li
                                 key={index}
                                 className="flex items-start gap-2"

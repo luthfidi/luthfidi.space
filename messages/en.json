@@ -223,6 +223,10 @@
         "title": "Stay in Touch",
         "description": "Reach out via email for inquiries or collaborations."
       },
+      "whatsapp": {
+        "title": "Chat on WhatsApp",
+        "description": "Message me on WhatsApp for quick conversations."
+      },
       "instagram": {
         "title": "Follow My Journey",
         "description": "Follow my creative journey."
@@ -238,6 +242,14 @@
       "github": {
         "title": "Explore the Code",
         "description": "Explore my open-source work."
+      },
+      "twitter": {
+        "title": "Catch My Thoughts",
+        "description": "Follow my latest takes and updates on X."
+      },
+      "telegram": {
+        "title": "Drop a Message",
+        "description": "Reach me on Telegram for quick chats and updates."
       }
     },
     "form": {

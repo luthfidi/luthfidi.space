@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { HiOutlineArrowSmRight as ViewIcon } from "react-icons/hi";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { TbPinnedFilled as PinIcon } from "react-icons/tb";
 
 import Image from "@/common/components/elements/Image";
@@ -12,14 +12,19 @@ const ProjectCard = ({
   title,
   slug,
   description,
+  description_id,
   image,
   stacks,
   is_featured,
 }: ProjectItem) => {
   const t = useTranslations("ProjectsPage");
+  const locale = useLocale();
 
+  const localizedDescription =
+    locale === "id" && description_id ? description_id : description;
   const trimmedContent =
-    description.slice(0, 85) + (description.length > 85 ? "..." : "");
+    localizedDescription.slice(0, 85) +
+    (localizedDescription.length > 85 ? "..." : "");
 
   return (
     <Link href={`/projects/${slug}`}>
