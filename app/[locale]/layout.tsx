@@ -1,4 +1,3 @@
-import NextTopLoader from "nextjs-toploader";
 import { Analytics } from "@vercel/analytics/next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
@@ -7,7 +6,6 @@ import type { Metadata, Viewport } from "next";
 import "../globals.css";
 
 import Layouts from "@/common/components/layouts";
-import FollowingCursor from "@/common/components/elements/FollowingCursor";
 import ThemeProviderContext from "@/common/stores/theme";
 import { METADATA, getSiteUrl } from "@/common/constants/metadata";
 import { inter } from "@/common/styles/fonts";
@@ -102,22 +100,10 @@ const RootLayout = async ({ children, params }: RootLayoutProps) => {
         />
       </head>
       <body className={inter.className}>
-        <NextTopLoader
-          color="#60a5fa"
-          initialPosition={0.08}
-          crawlSpeed={200}
-          height={3}
-          crawl={true}
-          showSpinner={false}
-          easing="ease"
-          speed={200}
-          shadow="0 0 10px #60a5fa,0 0 5px #dbeafe"
-        />
         <NextIntlClientProvider messages={messages} locale={locale}>
           <ThemeProviderContext>
             <SkeletonThemeProvider>
               <Layouts>{children}</Layouts>
-              <FollowingCursor />
             </SkeletonThemeProvider>
           </ThemeProviderContext>
         </NextIntlClientProvider>

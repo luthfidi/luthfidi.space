@@ -89,6 +89,8 @@ const SkillList = () => {
               key={key}
               type="button"
               onClick={() => setFilter(key)}
+              aria-label={`Filter by ${label}`}
+              aria-pressed={isActive}
               className="relative flex items-center gap-1.5 rounded-full border border-neutral-300 px-3 py-2 text-xs transition-colors hover:border-neutral-400 md:py-1.5 dark:border-neutral-700 dark:hover:border-neutral-500"
             >
               {isActive && (

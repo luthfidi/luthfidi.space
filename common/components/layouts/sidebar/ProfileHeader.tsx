@@ -19,6 +19,7 @@ const ProfileHeader = ({ imageSize }: ProfileHeaderProps) => {
         width={imageSize}
         height={imageSize}
         alt="Luthfi Hadi"
+        priority
         className="border-2 border-neutral-400 dark:border-neutral-600 lg:hover:scale-105"
         rounded="rounded-full"
       />

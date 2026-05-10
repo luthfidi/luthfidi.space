@@ -14,7 +14,13 @@ const MobileMenuButton = ({ expandMenu, setExpandMenu }: MobileMenuButtonProps) 
   const menuSpanData = [{ index: 1 }, { index: 2 }, { index: 3 }]
 
   return (
-    <StyledMenu className="flex lg:hidden" onClick={handleMenuToggle}>
+    <StyledMenu
+      className="flex lg:hidden"
+      onClick={handleMenuToggle}
+      role="button"
+      aria-label={expandMenu ? "Close menu" : "Open menu"}
+      aria-expanded={expandMenu}
+    >
       {menuSpanData.map(item => (
         <StyledMenuSpan
           key={item.index}

@@ -12,11 +12,9 @@ export default function Sidebar() {
     <header className="lg:w-1/5">
       <div className="sticky top-4 z-10 flex flex-col lg:py-8">
         <Profile />
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Breakline />
-          <div className="hidden lg:block">
-            <Menu list={filteredMenu} />
-          </div>
+          <Menu list={filteredMenu} />
           <Breakline />
         </div>
       </div>

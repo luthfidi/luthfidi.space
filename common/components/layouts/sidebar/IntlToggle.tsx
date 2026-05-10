@@ -56,6 +56,8 @@ const IntlToggle = () => {
             key={locale.value}
             className="relative z-10 flex h-8 w-10 items-center justify-center transition duration-200"
             onClick={() => handleLocaleChange(locale.value)}
+            aria-label={`Switch to ${locale.label === "EN" ? "English" : "Indonesian"}`}
+            aria-pressed={currentIndex === index}
             whileHover={{ scale: isPending ? 1 : 1.15 }}
             whileTap={{ scale: isPending ? 1 : 0.9 }}
             disabled={isPending}
@@ -78,6 +80,7 @@ const IntlToggle = () => {
         onClick={() =>
           handleLocaleChange(locales[(currentIndex + 1) % locales.length].value)
         }
+        aria-label={`Switch to ${locales[(currentIndex + 1) % locales.length].label === "EN" ? "English" : "Indonesian"}`}
         disabled={isPending}
       >
         <motion.div
