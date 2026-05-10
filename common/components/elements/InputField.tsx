@@ -64,7 +64,7 @@ const InputField = <TFormValue extends FieldValues>({
           aria-invalid={hasError}
           aria-describedby={hasError ? errorId : undefined}
           {...register(name, rule)}
-          className="w-full rounded-lg bg-neutral-50 p-2 outline outline-neutral-300 focus:outline-neutral-400 dark:bg-neutral-900 dark:outline-neutral-700"
+          className="w-full rounded-lg bg-neutral-50 p-2 text-base outline outline-neutral-300 focus:outline-neutral-400 dark:bg-neutral-900 dark:outline-neutral-700"
         />
       ) : (
         <input
@@ -74,7 +74,7 @@ const InputField = <TFormValue extends FieldValues>({
           aria-invalid={hasError}
           aria-describedby={hasError ? errorId : undefined}
           {...register(name, rule)}
-          className="w-full rounded-lg bg-neutral-50 p-2 outline outline-neutral-300 focus:outline-neutral-400 dark:bg-neutral-900 dark:outline-neutral-700"
+          className="w-full rounded-lg bg-neutral-50 p-2 text-base outline outline-neutral-300 focus:outline-neutral-400 dark:bg-neutral-900 dark:outline-neutral-700"
         />
       )}
       {errorMessage && (

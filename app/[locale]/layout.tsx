@@ -3,7 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "../globals.css";
 
 import Layouts from "@/common/components/layouts";
@@ -34,6 +34,20 @@ export const metadata: Metadata = {
     locale: METADATA.openGraph.locale,
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: METADATA.creator,
+    description: METADATA.description,
+    images: METADATA.profile,
+    creator: "@luthfidi",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
+    { media: "(prefers-color-scheme: dark)", color: "#121212" },
+  ],
 };
 
 interface RootLayoutProps {
@@ -52,8 +66,41 @@ const RootLayout = async ({ children, params }: RootLayoutProps) => {
 
   const messages = await getMessages();
 
+  const siteUrl = getSiteUrl();
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: METADATA.creator,
+    url: siteUrl,
+    image: `${siteUrl}${METADATA.profile}`,
+    description: METADATA.description,
+    jobTitle: "Full Stack Developer & Product Manager",
+    sameAs: [
+      "https://github.com/luthfidi",
+      "https://www.linkedin.com/in/luthfi-hadi",
+    ],
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: METADATA.openGraph.siteName,
+    url: siteUrl,
+    inLanguage: locale,
+  };
+
   return (
     <html lang={locale} suppressHydrationWarning={true}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+      </head>
       <body className={inter.className}>
         <NextTopLoader
           color="#60a5fa"

@@ -8,9 +8,9 @@ const About = () => {
   return (
     <>
       <Story />
-      <Breakline className="my-8" />
+      <Breakline className="my-6 md:my-8" />
       <CareerList />
-      <Breakline className="my-8" />
+      <Breakline className="my-6 md:my-8" />
       <EducationList />
     </>
   );

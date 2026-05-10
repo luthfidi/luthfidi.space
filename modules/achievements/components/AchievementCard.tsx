@@ -170,22 +170,22 @@ const AchievementCard = ({
                         alt={name}
                         width={1000}
                         height={700}
-                        className="h-full max-h-[70vh] w-full object-contain md:max-h-[85vh]"
+                        className="h-full max-h-[60vh] w-full object-contain md:max-h-[85vh]"
                       />
                     </motion.div>
                   </div>
 
-                  <div className="w-90 hidden flex-col border-l border-neutral-200 py-4 pl-8 pr-20 dark:border-neutral-800 md:flex">
+                  <div className="flex flex-col border-neutral-200 px-5 py-4 dark:border-neutral-800 md:w-90 md:border-l md:py-4 md:pl-8 md:pr-20">
                     <h2
                       id={titleId}
-                      className="text-lg font-bold text-neutral-900 dark:text-white"
+                      className="text-base font-bold text-neutral-900 dark:text-white md:text-lg"
                     >
                       {name}
                     </h2>
-                    <p className="mt-2 text-neutral-500">
+                    <p className="mt-1 text-sm text-neutral-500 md:mt-2 md:text-base">
                       {issuing_organization}
                     </p>
-                    <div className="mt-6 space-y-4">
+                    <div className="mt-4 space-y-3 md:mt-6 md:space-y-4">
                       <div>
                         <p className="text-xs uppercase text-neutral-400">
                           {t("card.type")}

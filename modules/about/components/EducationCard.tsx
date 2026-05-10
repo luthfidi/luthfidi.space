@@ -4,15 +4,7 @@ import { BsBuildings as CompanyIcon } from "react-icons/bs";
 
 import { EducationProps } from "@/common/types/education";
 import SpotlightCard from "@/common/components/elements/SpotlightCard";
-
-const parseFlagFromText = (text: string): { code: string | null; cleanText: string } => {
-  const flagRegex = /[\u{1F1E6}-\u{1F1FF}]{2}/gu;
-  const match = text.match(flagRegex);
-  if (!match) return { code: null, cleanText: text };
-  const chars = [...match[0]];
-  const code = chars.map(c => String.fromCharCode(c.codePointAt(0)! - 0x1F1A5)).join("");
-  return { code, cleanText: text.replace(flagRegex, "").trim() };
-};
+import { parseFlagFromText } from "@/common/libs/parseFlag";
 
 const EducationCard = ({
   school,

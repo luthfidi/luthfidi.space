@@ -79,7 +79,7 @@ export const POST = async (request: Request) => {
     if (error) {
       console.error("[email] Resend error:", error);
       return NextResponse.json(
-        { message: "Gagal mengirim email", error: error.message },
+        { message: "Gagal mengirim email" },
         { status: 500 },
       );
     }
@@ -88,10 +88,10 @@ export const POST = async (request: Request) => {
       { message: "Email berhasil dikirim!" },
       { status: 200 },
     );
-  } catch (error: any) {
+  } catch (error) {
     console.error("[email] Unexpected error:", error);
     return NextResponse.json(
-      { message: "Gagal mengirim email", error: error?.message },
+      { message: "Gagal mengirim email" },
       { status: 500 },
     );
   }

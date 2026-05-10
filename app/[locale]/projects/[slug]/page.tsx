@@ -47,6 +47,12 @@ export const generateMetadata = async ({
       type: "article",
       authors: [METADATA.creator],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.description,
+      images: project.image,
+    },
     keywords: project.title,
     alternates: {
       canonical: `/${locale}/projects/${slug}`,
@@ -59,7 +65,7 @@ const ProjectDetailPage = async ({ params }: ProjectDetailPageProps) => {
   const data = await getProjectDetail(slug);
 
   return (
-    <Container data-aos="fade-up">
+    <Container>
       <BackButton url="/projects" />
       <PageHeading title={data?.title} description={data?.description} />
       <ProjectDetail {...data} />

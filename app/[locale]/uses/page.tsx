@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 import Container from "@/common/components/elements/Container";
 import PageHeading from "@/common/components/elements/PageHeading";
 import Uses from "@/modules/uses";
-import { METADATA } from "@/common/constants/metadata";
+import { buildPageMetadata } from "@/common/libs/pageMetadata";
 
 interface UsesPageProps {
   params: Promise<{ locale: string }>;
@@ -16,14 +16,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "UsesPage" });
 
-  return {
-    title: `${t("title")} ${METADATA.exTitle}`,
+  return buildPageMetadata({
+    title: t("title"),
     description: t("description"),
+    path: "/uses",
+    locale,
     keywords: "uses, hardware, editor, tools, luthfi hadi",
-    alternates: {
-      canonical: `/${locale}/uses`,
-    },
-  };
+  });
 }
 
 const UsesPage = async ({ params }: UsesPageProps) => {
@@ -31,7 +30,7 @@ const UsesPage = async ({ params }: UsesPageProps) => {
   const t = await getTranslations({ locale, namespace: "UsesPage" });
 
   return (
-    <Container data-aos="fade-up">
+    <Container>
       <PageHeading title={t("title")} description={t("description")} />
       <Uses />
     </Container>

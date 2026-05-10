@@ -29,7 +29,17 @@
     },
     "career": {
       "title": "Career",
-      "sub_title": "My professional journey."
+      "sub_title": "My professional journey.",
+      "year": "year",
+      "years": "years",
+      "month": "Month",
+      "months": "Months",
+      "show_details": "Show details",
+      "hide_details": "Hide details",
+      "details": "Details",
+      "responsibilities": "Responsibilities",
+      "what_i_learned": "What I Learned",
+      "impact": "Impact"
     },
     "education": {
       "title": "Education",

@@ -13,20 +13,12 @@ import {
 import { HiChevronRight as ChevronIcon } from "react-icons/hi";
 import { HiOutlineRocketLaunch as ImpactIcon } from "react-icons/hi2";
 import { AnimatePresence, motion } from "motion/react";
-import { useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import { differenceInMonths, differenceInYears, format } from "date-fns";
 
 import SpotlightCard from "@/common/components/elements/SpotlightCard";
+import { parseFlagFromText } from "@/common/libs/parseFlag";
 import { CareerProps } from "@/common/types/careers";
-
-const parseFlagFromText = (text: string): { code: string | null; cleanText: string } => {
-  const flagRegex = /[\u{1F1E6}-\u{1F1FF}]{2}/gu;
-  const match = text.match(flagRegex);
-  if (!match) return { code: null, cleanText: text };
-  const chars = [...match[0]];
-  const code = chars.map(c => String.fromCharCode(c.codePointAt(0)! - 0x1F1A5)).join("");
-  return { code, cleanText: text.replace(flagRegex, "").trim() };
-};
 
 const CareerCard = ({
   position,
@@ -44,7 +36,7 @@ const CareerCard = ({
 }: CareerProps) => {
   const [isShowDetails, setIsShowDetails] = useState(false);
 
-  const locale = useLocale();
+  const t = useTranslations("AboutPage.career");
 
   const startDate = new Date(start_date);
   const endDate = end_date ? new Date(end_date) : new Date();
@@ -52,10 +44,8 @@ const CareerCard = ({
   const durationYears = differenceInYears(endDate, startDate);
   const durationMonths = differenceInMonths(endDate, startDate) % 12;
 
-  const yearText =
-    locale === "en" ? `year${durationYears > 1 ? "s" : ""}` : "tahun";
-  const monthText =
-    locale === "en" ? `Month${durationMonths > 1 ? "s" : ""}` : "bulan";
+  const yearText = durationYears > 1 ? t("years") : t("year");
+  const monthText = durationMonths > 1 ? t("months") : t("month");
 
   let durationText = "";
   if (durationYears > 0) {
@@ -65,14 +55,10 @@ const CareerCard = ({
     durationText += `${durationMonths} ${monthText}`;
   }
 
-  const hideText = locale === "en" ? "Hide" : "Sembunyikan";
-  const showText = locale === "en" ? "Show" : "Tampilkan";
-  const detailsText = locale === "en" ? "details" : "detail";
-
-  const learnedLabel =
-    locale === "en" ? "What I Learned" : "Apa yang saya pelajari";
-  const impactLabel = locale === "en" ? "Impact" : "Dampak";
-  const responsibilityLabel = locale === "en" ? "Responsibilities" : "Tugas";
+  const detailsText = t("details");
+  const learnedLabel = t("what_i_learned");
+  const impactLabel = t("impact");
+  const responsibilityLabel = t("responsibilities");
 
   return (
     <div
@@ -99,7 +85,7 @@ const CareerCard = ({
         <div className="flex items-start justify-between gap-2">
           <h5>{position}</h5>
           <div className="flex shrink-0 items-center gap-0.5 text-xs text-neutral-400 dark:text-neutral-500">
-            <span>Details</span>
+            <span>{detailsText}</span>
             <motion.span
               animate={{ rotate: isShowDetails ? 90 : 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}

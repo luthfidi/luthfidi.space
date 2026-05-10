@@ -29,7 +29,17 @@
     },
     "career": {
       "title": "Karier",
-      "sub_title": "Perjalanan profesional saya."
+      "sub_title": "Perjalanan profesional saya.",
+      "year": "tahun",
+      "years": "tahun",
+      "month": "bulan",
+      "months": "bulan",
+      "show_details": "Tampilkan detail",
+      "hide_details": "Sembunyikan detail",
+      "details": "Detail",
+      "responsibilities": "Tugas",
+      "what_i_learned": "Apa yang saya pelajari",
+      "impact": "Dampak"
     },
     "education": {
       "title": "Pendidikan",

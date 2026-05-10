@@ -6,7 +6,7 @@ import Container from "@/common/components/elements/Container";
 import PageHeading from "@/common/components/elements/PageHeading";
 import Creations from "@/modules/creations";
 import CreationSkeleton from "@/modules/creations/components/CreationSkeleton";
-import { METADATA } from "@/common/constants/metadata";
+import { buildPageMetadata } from "@/common/libs/pageMetadata";
 
 interface CreationsPageProps {
   params: Promise<{ locale: string }>;
@@ -18,14 +18,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "CreationsPage" });
 
-  return {
-    title: `${t("title")} ${METADATA.exTitle}`,
+  return buildPageMetadata({
+    title: t("title"),
     description: t("description"),
+    path: "/creations",
+    locale,
     keywords: "luthfi hadi creations, social media content, instagram, tiktok",
-    alternates: {
-      canonical: `/${locale}/creations`,
-    },
-  };
+  });
 }
 
 const CreationsPage = async ({ params }: CreationsPageProps) => {
@@ -33,7 +32,7 @@ const CreationsPage = async ({ params }: CreationsPageProps) => {
   const t = await getTranslations({ locale, namespace: "CreationsPage" });
 
   return (
-    <Container data-aos="fade-up">
+    <Container>
       <PageHeading title={t("title")} description={t("description")} />
       <Suspense
         fallback={

@@ -29,13 +29,18 @@ export async function generateMetadata({
       locale: locale === "id" ? "id_ID" : "en_US",
       type: "website",
     },
+    twitter: {
+      card: "summary_large_image",
+      title: `${METADATA.creator} | Personal Website`,
+      description: t("resume.paragraph_1"),
+    },
   };
 }
 
 const HomePage = async ({ params }: HomePageProps) => {
   await params;
   return (
-    <Container data-aos="fade-up">
+    <Container>
       <Home />
     </Container>
   );

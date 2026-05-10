@@ -6,7 +6,7 @@ import Container from "@/common/components/elements/Container";
 import PageHeading from "@/common/components/elements/PageHeading";
 import Projects from "@/modules/projects";
 import ProjectSkeleton from "@/modules/projects/components/ProjectSkeleton";
-import { METADATA } from "@/common/constants/metadata";
+import { buildPageMetadata } from "@/common/libs/pageMetadata";
 
 interface ProjectsPageProps {
   params: Promise<{ locale: string }>;
@@ -18,14 +18,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ProjectsPage" });
 
-  return {
-    title: `${t("title")} ${METADATA.exTitle}`,
+  return buildPageMetadata({
+    title: t("title"),
     description: t("description"),
+    path: "/projects",
+    locale,
     keywords: "portfolio frontend developer, full stack developer, luthfi hadi",
-    alternates: {
-      canonical: `/${locale}/projects`,
-    },
-  };
+  });
 }
 
 const ProjectsPage = async ({ params }: ProjectsPageProps) => {
@@ -33,7 +32,7 @@ const ProjectsPage = async ({ params }: ProjectsPageProps) => {
   const t = await getTranslations({ locale, namespace: "ProjectsPage" });
 
   return (
-    <Container data-aos="fade-up">
+    <Container>
       <PageHeading title={t("title")} description={t("description")} />
       <Suspense
         fallback={

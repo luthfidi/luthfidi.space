@@ -8,25 +8,26 @@ import UmamiSkeleton from "@/modules/dashboard/components/Umami/UmamiSkeleton";
 import ContributionsSkeleton from "@/modules/dashboard/components/Contributions/ContributionsSkeleton";
 import CodingActiveSkeleton from "@/modules/dashboard/components/CodingActive/CodingActiveSkeleton";
 import MonkeytypeSkeleton from "@/modules/dashboard/components/Monkeytype/MonkeytypeSkeleton";
-import { METADATA } from "@/common/constants/metadata";
+import { buildPageMetadata } from "@/common/libs/pageMetadata";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "DashboardPage" });
-  return {
-    title: `${t("title")} ${METADATA.exTitle}`,
+  return buildPageMetadata({
+    title: t("title"),
     description: t("description"),
-    alternates: { canonical: `/${locale}/dashboard` },
-  };
+    path: "/dashboard",
+    locale,
+  });
 }
 
 const DashboardPage = async ({ params }: Props) => {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "DashboardPage" });
   return (
-    <Container data-aos="fade-up">
+    <Container>
       <PageHeading title={t("title")} description={t("description")} />
       <Suspense
         fallback={

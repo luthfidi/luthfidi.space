@@ -27,6 +27,7 @@ export const GET = async (req: NextRequest) => {
       { status: 200 },
     );
   } catch (error) {
+    console.error("Creations API Error:", error);
     return NextResponse.json(
       { message: "Internal Server Error" },
       { status: 500 },

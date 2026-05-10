@@ -5,7 +5,7 @@ import Container from "@/common/components/elements/Container";
 import PageHeading from "@/common/components/elements/PageHeading";
 import Achievements from "@/modules/achievements";
 import AchievementSkeleton from "@/modules/achievements/components/AchievementSkeleton";
-import { METADATA } from "@/common/constants/metadata";
+import { buildPageMetadata } from "@/common/libs/pageMetadata";
 import { Suspense } from "react";
 
 interface AchievementsPageProps {
@@ -18,14 +18,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "AchievementsPage" });
 
-  return {
-    title: `${t("title")} ${METADATA.exTitle}`,
+  return buildPageMetadata({
+    title: t("title"),
     description: t("description"),
+    path: "/achievements",
+    locale,
     keywords: "software engineer achievements, certificates, luthfi hadi",
-    alternates: {
-      canonical: `/${locale}/achievements`,
-    },
-  };
+  });
 }
 
 const AchievementsPage = async ({ params }: AchievementsPageProps) => {
@@ -33,7 +32,7 @@ const AchievementsPage = async ({ params }: AchievementsPageProps) => {
   const t = await getTranslations({ locale, namespace: "AchievementsPage" });
 
   return (
-    <Container data-aos="fade-up">
+    <Container>
       <PageHeading title={t("title")} description={t("description")} />
       <Suspense
         fallback={
