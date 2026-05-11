@@ -2,14 +2,6 @@
 
 <p>Personal portfolio built with Next.js, TypeScript, Tailwind CSS, and next-intl.</p>
 
-## Stack
-
-- Next.js 14 (App Router) + TypeScript
-- Tailwind CSS, Framer Motion, GSAP
-- next-intl (id / en)
-- SWR, Zustand
-- Resend (contact form)
-
 ## Getting Started
 
 ```bash
