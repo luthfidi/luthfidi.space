@@ -5,6 +5,11 @@ import { unstable_cache } from "next/cache";
 const { api_key, base_url, all_time_endpoint, stats_endpoint } =
   WAKATIME_ACCOUNT;
 
+// Wakatime API expects Basic auth where the credentials are base64-encoded.
+const authHeader = api_key
+  ? `Basic ${Buffer.from(api_key).toString("base64")}`
+  : "";
+
 type WakatimeLanguage = {
   name: string;
   percent: number;
@@ -39,7 +44,7 @@ const fetchReadStats = async (): Promise<{ data: WakatimeStats }> => {
     const response = await axios.get(
       `${base_url}${stats_endpoint}/last_7_days`,
       {
-        headers: { Authorization: `Basic ${api_key}` },
+        headers: { Authorization: authHeader },
       },
     );
 
@@ -73,7 +78,7 @@ const fetchAllTimeSinceToday = async (): Promise<{ data: WakatimeAllTime }> => {
   }
   try {
     const response = await axios.get(`${base_url}${all_time_endpoint}`, {
-      headers: { Authorization: `Basic ${api_key}` },
+      headers: { Authorization: authHeader },
     });
 
     const getData = response.data;

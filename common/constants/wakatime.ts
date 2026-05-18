@@ -4,5 +4,5 @@ export const WAKATIME_ACCOUNT = {
   stats_endpoint: "/stats",
   all_time_endpoint: "/all_time_since_today",
   base_url: "https://wakatime.com/api/v1/users/current",
-  is_active: false,
+  is_active: true,
 };
