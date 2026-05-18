@@ -7,7 +7,9 @@ export const getSiteUrl = (): string => {
     process.env.VERCEL_URL ||
     "";
   if (!raw) return "http://localhost:3000";
-  return /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+  const withProtocol = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+  // Strip trailing slash to prevent double-slash URLs when concatenating paths.
+  return withProtocol.replace(/\/$/, "");
 };
 
 const SITE_URL = getSiteUrl();
