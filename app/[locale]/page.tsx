@@ -15,24 +15,38 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "HomePage" });
 
+  const title = `${METADATA.creator} | Portfolio`;
+  const description = t("resume.paragraph_1");
+  const path = `/${locale}`;
+
   return {
-    title: `${METADATA.creator} | Portfolio`,
-    description: t("resume.paragraph_1"),
+    title,
+    description,
     alternates: {
-      canonical: `/${locale}`,
+      canonical: path,
+      languages: {
+        en: "/en",
+        id: "/id",
+        "x-default": "/en",
+      },
     },
     openGraph: {
       title: `${METADATA.creator} | Personal Website`,
-      description: t("resume.paragraph_1"),
-      url: `/${locale}`,
+      description,
+      url: path,
       siteName: METADATA.openGraph.siteName,
       locale: locale === "id" ? "id_ID" : "en_US",
+      alternateLocale: locale === "id" ? "en_US" : "id_ID",
       type: "website",
+      images: METADATA.profile,
     },
     twitter: {
       card: "summary_large_image",
       title: `${METADATA.creator} | Personal Website`,
-      description: t("resume.paragraph_1"),
+      description,
+      images: METADATA.profile,
+      creator: METADATA.twitter.handle,
+      site: METADATA.twitter.handle,
     },
   };
 }

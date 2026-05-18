@@ -37,7 +37,8 @@ export const metadata: Metadata = {
     title: METADATA.creator,
     description: METADATA.description,
     images: METADATA.profile,
-    creator: "@luthfidi",
+    creator: METADATA.twitter.handle,
+    site: METADATA.twitter.handle,
   },
 };
 
@@ -69,13 +70,47 @@ const RootLayout = async ({ children, params }: RootLayoutProps) => {
     "@context": "https://schema.org",
     "@type": "Person",
     name: METADATA.creator,
+    alternateName: ["luthfidi", "Luthfi"],
     url: siteUrl,
     image: `${siteUrl}${METADATA.profile}`,
     description: METADATA.description,
     jobTitle: "Full Stack Developer & Product Manager",
+    worksFor: {
+      "@type": "Organization",
+      name: "Lummy Ticket",
+      url: "https://lummyticket.com",
+    },
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "BINUS University",
+      url: "https://binus.ac.id",
+    },
+    nationality: {
+      "@type": "Country",
+      name: "Indonesia",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "ID",
+      addressLocality: "Jakarta",
+    },
+    knowsAbout: [
+      "Full Stack Development",
+      "Product Management",
+      "Agile Methodology",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Web3",
+      "Solidity",
+    ],
     sameAs: [
       "https://github.com/luthfidi",
       "https://www.linkedin.com/in/luthfi-hadi",
+      "https://x.com/0xluthfidi",
+      "https://www.instagram.com/luthfidi_/",
+      "https://www.tiktok.com/@anordinarycat",
+      "https://t.me/filonami",
     ],
   };
 
@@ -85,6 +120,11 @@ const RootLayout = async ({ children, params }: RootLayoutProps) => {
     name: METADATA.openGraph.siteName,
     url: siteUrl,
     inLanguage: locale,
+    author: {
+      "@type": "Person",
+      name: METADATA.creator,
+      url: siteUrl,
+    },
   };
 
   return (

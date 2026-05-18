@@ -27,13 +27,21 @@ export const buildPageMetadata = ({
     title: fullTitle,
     description,
     ...(keywords ? { keywords } : {}),
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: {
+        en: `/en${path}`,
+        id: `/id${path}`,
+        "x-default": `/en${path}`,
+      },
+    },
     openGraph: {
       title: fullTitle,
       description,
       url,
       siteName: METADATA.openGraph.siteName,
       locale: ogLocale,
+      alternateLocale: locale === "id" ? "en_US" : "id_ID",
       type: "website",
       images: image,
     },
@@ -42,6 +50,8 @@ export const buildPageMetadata = ({
       title: fullTitle,
       description,
       images: image,
+      creator: METADATA.twitter.handle,
+      site: METADATA.twitter.handle,
     },
   };
 };

@@ -5,7 +5,7 @@ import Container from "@/common/components/elements/Container";
 import PageHeading from "@/common/components/elements/PageHeading";
 import ProjectDetail from "@/modules/projects/components/ProjectDetail";
 import { ProjectItem } from "@/common/types/projects";
-import { METADATA } from "@/common/constants/metadata";
+import { METADATA, getSiteUrl } from "@/common/constants/metadata";
 import { getProjectsDataBySlug } from "@/services/projects";
 
 interface ProjectDetailPageProps {
@@ -42,14 +42,28 @@ export const generateMetadata = async ({
   const locale = rawLocale || "en";
   const project = await getProjectDetail(slug, locale);
 
+  const path = `/${locale}/projects/${slug}`;
+
   return {
     title: `${project.title} ${METADATA.exTitle}`,
     description: project.description,
+    keywords: `${project.title}, ${project.stacks?.join(", ") ?? ""}, luthfi hadi`,
+    alternates: {
+      canonical: path,
+      languages: {
+        en: `/en/projects/${slug}`,
+        id: `/id/projects/${slug}`,
+        "x-default": `/en/projects/${slug}`,
+      },
+    },
     openGraph: {
+      title: project.title,
+      description: project.description,
       images: project.image,
-      url: `${METADATA.openGraph.url}/${project.slug}`,
+      url: path,
       siteName: METADATA.openGraph.siteName,
       locale: locale === "id" ? "id_ID" : "en_US",
+      alternateLocale: locale === "id" ? "en_US" : "id_ID",
       type: "article",
       authors: [METADATA.creator],
     },
@@ -58,10 +72,8 @@ export const generateMetadata = async ({
       title: project.title,
       description: project.description,
       images: project.image,
-    },
-    keywords: project.title,
-    alternates: {
-      canonical: `/${locale}/projects/${slug}`,
+      creator: METADATA.twitter.handle,
+      site: METADATA.twitter.handle,
     },
   };
 };
@@ -71,8 +83,33 @@ const ProjectDetailPage = async ({ params }: ProjectDetailPageProps) => {
   const locale = rawLocale || "en";
   const data = await getProjectDetail(slug, locale);
 
+  const siteUrl = getSiteUrl();
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: data.title,
+    description: data.description,
+    image: data.image,
+    author: {
+      "@type": "Person",
+      name: METADATA.creator,
+      url: siteUrl,
+    },
+    publisher: {
+      "@type": "Person",
+      name: METADATA.creator,
+      url: siteUrl,
+    },
+    inLanguage: locale,
+    mainEntityOfPage: `${siteUrl}/${locale}/projects/${slug}`,
+  };
+
   return (
     <Container>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <BackButton url="/projects" />
       <PageHeading title={data?.title} description={data?.description} />
       <ProjectDetail {...data} />
