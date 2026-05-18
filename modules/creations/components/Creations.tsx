@@ -1,13 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import useSWR from "swr";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 
 import EmptyState from "@/common/components/elements/EmptyState";
-import { fetcher } from "@/services/fetcher";
 import type {
   CreationItem,
   CreationSortBy,
@@ -17,16 +15,16 @@ import CreationCard from "./CreationCard";
 import CreationSkeleton from "./CreationSkeleton";
 import CreationFilter from "./CreationFilter";
 
-interface CreationsApiResponse {
-  items: CreationItem[];
-  categories: string[];
+interface CreationsProps {
+  creations: CreationItem[];
   accounts: string[];
+  categories: string[];
 }
 
 const BATCH_SIZE = 8;
 const DEFAULT_SORT: CreationSortBy = "likes";
 
-const Creations = () => {
+const Creations = ({ creations, accounts, categories }: CreationsProps) => {
   const t = useTranslations("CreationsPage");
 
   const router = useRouter();
@@ -53,17 +51,20 @@ const Creations = () => {
     router.push(`${pathname}${qs ? `?${qs}` : ""}`, { scroll: false });
   };
 
-  const fetchParams = new URLSearchParams();
-  if (account) fetchParams.append("account", account);
-  if (platform) fetchParams.append("platform", platform);
-  if (category) fetchParams.append("category", category);
-  fetchParams.append("sortBy", sortBy);
-
-  const { data, isLoading, error } = useSWR<CreationsApiResponse>(
-    `/api/creations?${fetchParams.toString()}`,
-    fetcher,
-    { keepPreviousData: true },
-  );
+  const filtered = useMemo(() => {
+    const result = creations.filter((c) => {
+      if (account && c.account !== account) return false;
+      if (platform && c.platform !== platform) return false;
+      if (category && c.category !== category) return false;
+      return true;
+    });
+    if (sortBy === "date") {
+      result.sort((a, b) => b.date.localeCompare(a.date));
+    } else {
+      result.sort((a, b) => b.metrics[sortBy] - a.metrics[sortBy]);
+    }
+    return result;
+  }, [creations, account, platform, category, sortBy]);
 
   // Reset visible count whenever the active filter set changes
   useEffect(() => {
@@ -73,7 +74,7 @@ const Creations = () => {
 
   // Sentinel observer for incremental loading
   useEffect(() => {
-    const total = data?.items?.length ?? 0;
+    const total = filtered.length;
     if (visibleCount >= total) return;
     const sentinel = sentinelRef.current;
     if (!sentinel) return;
@@ -88,18 +89,18 @@ const Creations = () => {
     );
     observer.observe(sentinel);
     return () => observer.disconnect();
-  }, [data?.items, visibleCount]);
+  }, [filtered, visibleCount]);
 
-  const totalItems = data?.items?.length ?? 0;
-  const visibleItems = data?.items?.slice(0, visibleCount) ?? [];
+  const totalItems = filtered.length;
+  const visibleItems = filtered.slice(0, visibleCount);
   const pendingCount = Math.min(BATCH_SIZE, totalItems - visibleCount);
   const hasMore = visibleCount < totalItems;
 
   return (
     <section className="space-y-4">
       <CreationFilter
-        accounts={data?.accounts ?? []}
-        categories={data?.categories ?? []}
+        accounts={accounts}
+        categories={categories}
         account={account}
         platform={platform}
         category={category}
@@ -111,21 +112,9 @@ const Creations = () => {
         total={totalItems}
       />
 
-      {isLoading && !data && (
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {[...Array(BATCH_SIZE)].map((_, i) => (
-            <CreationSkeleton key={i} />
-          ))}
-        </div>
-      )}
-
-      {error && <EmptyState message={t("error")} />}
-
-      {!isLoading && data && data.items.length === 0 && (
+      {totalItems === 0 ? (
         <EmptyState message={t("no_data")} />
-      )}
-
-      {data && data.items.length > 0 && (
+      ) : (
         <>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {visibleItems.map((item, index) => (

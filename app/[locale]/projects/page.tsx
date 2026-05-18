@@ -1,12 +1,11 @@
 import { Metadata } from "next";
-import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 
 import Container from "@/common/components/elements/Container";
 import PageHeading from "@/common/components/elements/PageHeading";
 import Projects from "@/modules/projects";
-import ProjectSkeleton from "@/modules/projects/components/ProjectSkeleton";
 import { buildPageMetadata } from "@/common/libs/pageMetadata";
+import { getProjectsData } from "@/services/projects";
 
 interface ProjectsPageProps {
   params: Promise<{ locale: string }>;
@@ -31,24 +30,18 @@ const ProjectsPage = async ({ params }: ProjectsPageProps) => {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ProjectsPage" });
 
+  const projects = await getProjectsData();
+  const sorted = [...projects].sort((a, b) => {
+    if (a.is_featured && !b.is_featured) return -1;
+    if (!a.is_featured && b.is_featured) return 1;
+    if (a.is_featured && b.is_featured) return a.id - b.id;
+    return b.id - a.id;
+  });
+
   return (
     <Container>
       <PageHeading title={t("title")} description={t("description")} />
-      <Suspense
-        fallback={
-          <div
-            className="grid grid-cols-1 gap-6 md:grid-cols-2"
-            aria-label="Loading projects"
-            aria-busy="true"
-          >
-            {[...Array(4)].map((_, i) => (
-              <ProjectSkeleton key={i} />
-            ))}
-          </div>
-        }
-      >
-        <Projects />
-      </Suspense>
+      <Projects projects={sorted} />
     </Container>
   );
 };

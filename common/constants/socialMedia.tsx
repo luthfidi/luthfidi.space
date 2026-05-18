@@ -17,6 +17,7 @@ const backgroundIconSize = 256;
 export const SOCIAL_MEDIA: SocialMediaProps[] = [
   {
     name: "gmail",
+    handle: "luthfihadi543@gmail.com",
     href: "mailto:luthfihadi543@gmail.com",
     icon: <SiGmail size={iconSize} />,
     backgroundIcon: <SiGmail size={backgroundIconSize} />,
@@ -28,6 +29,7 @@ export const SOCIAL_MEDIA: SocialMediaProps[] = [
   },
   {
     name: "whatsapp",
+    handle: "+62 812-9560-3317",
     href: "https://wa.me/6281295603317",
     icon: <WhatsappIcon size={iconSize} />,
     backgroundIcon: <WhatsappIcon size={backgroundIconSize} />,
@@ -39,6 +41,7 @@ export const SOCIAL_MEDIA: SocialMediaProps[] = [
   },
   {
     name: "github",
+    handle: "@luthfidi",
     href: "https://github.com/luthfidi",
     icon: <GithubIcon size={iconSize} />,
     backgroundIcon: <GithubIcon size={backgroundIconSize} />,
@@ -50,6 +53,7 @@ export const SOCIAL_MEDIA: SocialMediaProps[] = [
   },
   {
     name: "linkedin",
+    handle: "@luthfi-hadi",
     href: "https://www.linkedin.com/in/luthfi-hadi",
     icon: <LinkedinIcon size={iconSize} />,
     backgroundIcon: <LinkedinIcon size={backgroundIconSize} />,
@@ -61,6 +65,7 @@ export const SOCIAL_MEDIA: SocialMediaProps[] = [
   },
   {
     name: "instagram",
+    handle: "@luthfidi_",
     href: "https://www.instagram.com/luthfidi_/",
     icon: <InstagramIcon size={iconSize} />,
     backgroundIcon: <InstagramIcon size={backgroundIconSize} />,
@@ -73,6 +78,7 @@ export const SOCIAL_MEDIA: SocialMediaProps[] = [
   },
   {
     name: "tiktok",
+    handle: "@anordinarycat",
     href: "https://www.tiktok.com/@anordinarycat",
     icon: <TiktokIcon size={iconSize} />,
     backgroundIcon: <TiktokIcon size={backgroundIconSize} />,
@@ -84,6 +90,7 @@ export const SOCIAL_MEDIA: SocialMediaProps[] = [
   },
   {
     name: "twitter",
+    handle: "@0xluthfidi",
     href: "https://x.com/0xluthfidi",
     icon: <TwitterIcon size={iconSize} />,
     backgroundIcon: <TwitterIcon size={backgroundIconSize} />,
@@ -95,6 +102,7 @@ export const SOCIAL_MEDIA: SocialMediaProps[] = [
   },
   {
     name: "telegram",
+    handle: "@filonami",
     href: "https://t.me/filonami",
     icon: <TelegramIcon size={iconSize} />,
     backgroundIcon: <TelegramIcon size={backgroundIconSize} />,

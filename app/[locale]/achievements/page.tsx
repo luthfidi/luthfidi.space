@@ -1,12 +1,16 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 
 import Container from "@/common/components/elements/Container";
 import PageHeading from "@/common/components/elements/PageHeading";
 import Achievements from "@/modules/achievements";
-import AchievementSkeleton from "@/modules/achievements/components/AchievementSkeleton";
 import { buildPageMetadata } from "@/common/libs/pageMetadata";
-import { Suspense } from "react";
+import {
+  getAchievementsData,
+  getAchivementCategories,
+  getAchivementTypes,
+} from "@/services/achievements";
 
 interface AchievementsPageProps {
   params: Promise<{ locale: string }>;
@@ -31,23 +35,21 @@ const AchievementsPage = async ({ params }: AchievementsPageProps) => {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "AchievementsPage" });
 
+  const [achievements, categories, types] = await Promise.all([
+    getAchievementsData({}),
+    getAchivementCategories(),
+    getAchivementTypes(),
+  ]);
+
   return (
     <Container>
       <PageHeading title={t("title")} description={t("description")} />
-      <Suspense
-        fallback={
-          <div
-            className="grid grid-cols-1 gap-4 md:grid-cols-3"
-            aria-label="Loading achievements"
-            aria-busy="true"
-          >
-            {[...Array(6)].map((_, i) => (
-              <AchievementSkeleton key={i} />
-            ))}
-          </div>
-        }
-      >
-        <Achievements />
+      <Suspense>
+        <Achievements
+          achievements={achievements}
+          categories={categories}
+          types={types}
+        />
       </Suspense>
     </Container>
   );

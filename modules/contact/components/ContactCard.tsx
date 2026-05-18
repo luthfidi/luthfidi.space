@@ -1,61 +1,54 @@
 import Link from "next/link";
-import { MdArrowOutward as ArrowIcon } from "react-icons/md";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 
 import { SocialMediaProps } from "@/common/types/socialMedia";
 import SpotlightCard from "@/common/components/elements/SpotlightCard";
 
 const ContactCard = ({
   name,
+  handle,
   href,
   icon,
   backgroundIcon,
   backgroundGradientColor,
-  backgroundColor,
   borderColor,
   textColor,
   colSpan,
 }: SocialMediaProps) => {
   const t = useTranslations("ContactPage");
-  const locale = useLocale();
 
   return (
-    <SpotlightCard
-      className={`relative grid w-full grid-cols-[2.5fr_1fr] overflow-hidden rounded-md border-2 border-neutral-300 p-5 dark:border-neutral-700 md:p-6 ${colSpan} ${backgroundGradientColor}`}
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Open ${name}`}
+      data-umami-event={`click_contact_${name}`}
+      className="block transition-transform duration-300 hover:-translate-y-0.5"
     >
-      <div className="pointer-events-none absolute -left-14 -top-14 text-neutral-50/10">
-        {backgroundIcon}
-      </div>
-      <div
-        className={`${textColor} z-10 flex flex-col justify-between gap-y-2`}
+      <SpotlightCard
+        className={`relative grid w-full grid-cols-[2.5fr_1fr] overflow-hidden rounded-md border-2 border-neutral-300 p-5 dark:border-neutral-700 md:p-6 ${colSpan} ${backgroundGradientColor}`}
       >
-        <h4 className="text-lg font-semibold tracking-wide">
-          {t(`social_media.${name}.title`)}
-        </h4>
-        <p className="pb-2 text-xs">{t(`social_media.${name}.description`)}</p>
-        <Link
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`${backgroundColor} flex items-center justify-center gap-x-2 rounded-md bg-opacity-85 px-4 py-2 text-black transition duration-300 hover:scale-105 hover:bg-opacity-100 md:w-max`}
-          data-umami-event={`click_contact_${name}`}
-        >
-          <p className="text-sm font-medium">
-            {locale === "en" ? "Go to" : "Pergi ke"}{" "}
-            <span className="capitalize">{name}</span>
-          </p>
-          <ArrowIcon size={17} />
-        </Link>
-      </div>
-
-      <div className="flex items-end justify-end">
-        <div
-          className={`rounded-2xl border-2 p-3 ${textColor} ${borderColor}`}
-        >
-          {icon}
+        <div className="pointer-events-none absolute -left-14 -top-14 text-neutral-50/10">
+          {backgroundIcon}
         </div>
-      </div>
-    </SpotlightCard>
+
+        <div className={`${textColor} z-10 flex flex-col justify-between gap-y-2`}>
+          <h4 className="text-lg font-semibold tracking-wide">
+            {t(`social_media.${name}.title`)}
+          </h4>
+          <p className="break-all text-xs opacity-90">{handle}</p>
+        </div>
+
+        <div className="flex items-end justify-end">
+          <div
+            className={`rounded-2xl border-2 p-3 ${textColor} ${borderColor}`}
+          >
+            {icon}
+          </div>
+        </div>
+      </SpotlightCard>
+    </Link>
   );
 };
 
