@@ -14,7 +14,3 @@ export type ProjectItem = {
   is_show: boolean;
   is_featured: boolean;
 };
-
-export type ProjectItemProps = {
-  projects: ProjectItem[];
-}

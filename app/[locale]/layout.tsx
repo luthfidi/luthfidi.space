@@ -9,7 +9,7 @@ import Layouts from "@/common/components/layouts";
 import ThemeProviderContext from "@/common/stores/theme";
 import { METADATA, getSiteUrl } from "@/common/constants/metadata";
 import { inter } from "@/common/styles/fonts";
-import SkeletonThemeProvider from "@/SkeletonThemeProvider";
+import SkeletonThemeProvider from "@/common/components/elements/SkeletonThemeProvider";
 import { routing } from "@/i18n/routing";
 
 export function generateStaticParams() {

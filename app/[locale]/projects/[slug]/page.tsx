@@ -6,7 +6,6 @@ import PageHeading from "@/common/components/elements/PageHeading";
 import ProjectDetail from "@/modules/projects/components/ProjectDetail";
 import { ProjectItem } from "@/common/types/projects";
 import { METADATA } from "@/common/constants/metadata";
-import { loadMdxFiles } from "@/common/libs/mdx";
 import { getProjectsDataBySlug } from "@/services/projects";
 
 interface ProjectDetailPageProps {
@@ -21,21 +20,17 @@ const getProjectDetail = async (
   locale: string,
 ): Promise<ProjectItem> => {
   const projects = await getProjectsDataBySlug(slug);
-  const contents = loadMdxFiles();
-  const mdxContent = contents.find((item) => item.slug === slug)?.content;
   const isId = locale === "id";
   const localizedDescription =
     isId && projects?.description_id
       ? projects.description_id
       : projects?.description;
-  const localizedInlineContent =
+  const localizedContent =
     isId && projects?.content_id ? projects.content_id : projects?.content;
-  // Prefer MDX file if it exists, otherwise fall back to inline content
-  // from projects.json so projects without a separate MDX still render.
   const response = {
     ...projects,
     description: localizedDescription,
-    content: mdxContent ?? localizedInlineContent,
+    content: localizedContent,
   };
   return JSON.parse(JSON.stringify(response));
 };

@@ -41,13 +41,3 @@ export const formatDate = (date: string, type = "MMMM dd, yyyy") => {
 
   return formattedDate;
 };
-
-// export const parseQueryParams = (searchParams) => {
-//   const clonedParams = { ...searchParams };
-//   Object.keys(clonedParams).forEach((key) => {
-//     if (clonedParams[key] === "" || clonedParams[key] === null) {
-//       delete clonedParams[key];
-//     }
-//   });
-//   return clonedParams;
-// };
