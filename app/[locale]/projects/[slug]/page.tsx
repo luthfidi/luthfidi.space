@@ -16,15 +16,26 @@ interface ProjectDetailPageProps {
   }>;
 }
 
-const getProjectDetail = async (slug: string): Promise<ProjectItem> => {
+const getProjectDetail = async (
+  slug: string,
+  locale: string,
+): Promise<ProjectItem> => {
   const projects = await getProjectsDataBySlug(slug);
   const contents = loadMdxFiles();
   const mdxContent = contents.find((item) => item.slug === slug)?.content;
+  const isId = locale === "id";
+  const localizedDescription =
+    isId && projects?.description_id
+      ? projects.description_id
+      : projects?.description;
+  const localizedInlineContent =
+    isId && projects?.content_id ? projects.content_id : projects?.content;
   // Prefer MDX file if it exists, otherwise fall back to inline content
   // from projects.json so projects without a separate MDX still render.
   const response = {
     ...projects,
-    content: mdxContent ?? projects?.content,
+    description: localizedDescription,
+    content: mdxContent ?? localizedInlineContent,
   };
   return JSON.parse(JSON.stringify(response));
 };
@@ -33,8 +44,8 @@ export const generateMetadata = async ({
   params,
 }: ProjectDetailPageProps): Promise<Metadata> => {
   const { slug, locale: rawLocale } = await params;
-  const project = await getProjectDetail(slug);
   const locale = rawLocale || "en";
+  const project = await getProjectDetail(slug, locale);
 
   return {
     title: `${project.title} ${METADATA.exTitle}`,
@@ -61,8 +72,9 @@ export const generateMetadata = async ({
 };
 
 const ProjectDetailPage = async ({ params }: ProjectDetailPageProps) => {
-  const { slug } = await params;
-  const data = await getProjectDetail(slug);
+  const { slug, locale: rawLocale } = await params;
+  const locale = rawLocale || "en";
+  const data = await getProjectDetail(slug, locale);
 
   return (
     <Container>

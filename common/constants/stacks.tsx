@@ -46,6 +46,7 @@ import {
   SiSwagger,
   SiGin,
   SiTwilio,
+  SiMediapipe,
 } from "react-icons/si";
 import { RiShieldKeyholeFill } from "react-icons/ri";
 
@@ -453,6 +454,13 @@ export const STACKS: SkillProps = {
     icon: <FaJava size={iconSize} />,
     background: "bg-red-600",
     color: "text-red-600",
+    isActive: true,
+    category: "other",
+  },
+  MediaPipe: {
+    icon: <SiMediapipe size={iconSize} />,
+    background: "bg-blue-500",
+    color: "text-blue-500",
     isActive: true,
     category: "other",
   },

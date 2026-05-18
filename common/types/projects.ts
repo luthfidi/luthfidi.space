@@ -10,6 +10,7 @@ export type ProjectItem = {
   link_video?: string | null;
   stacks: string[];
   content?: string | null;
+  content_id?: string | null;
   is_show: boolean;
   is_featured: boolean;
 };
