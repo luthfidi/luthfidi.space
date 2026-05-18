@@ -119,24 +119,6 @@
     "description": "Dasbor pribadi saya yang dibangun dengan rute API Next.js, memvisualisasikan statistik pengembangan dan kontribusi secara real-time.",
     "error": "Terjadi kesalahan pada server.",
     "no_data": "Statistik tidak tersedia.",
-    "umami": {
-      "title": "Umami",
-      "sub_title": "Pantau trafik dan interaksi real-time dari situs portofolio saya.",
-      "overview": {
-        "page_views": "Dilihat",
-        "visitors": "Pengunjung",
-        "visits": "Kunjungan",
-        "countries": "Negara",
-        "events": "Acara"
-      },
-      "chart": {
-        "title": "Tren Trafik",
-        "sessions": "Sesi",
-        "page_views": "Tampilan Halaman"
-      },
-      "all": "Semua",
-      "filter_placeholder": "Filter domain..."
-    },
     "github": {
       "title": "Kontribusi GitHub",
       "sub_title": "Aktivitas GitHub saya selama setahun terakhir.",
@@ -163,34 +145,6 @@
       "best_day": "Hari Terbaik",
       "all_time_since_joined": "Total Coding Sejak Bergabung",
       "languages": "Bahasa Teratas"
-    },
-    "codewars": {
-      "title": "Progres Codewars",
-      "sub_title": "Metrik performa dari tantangan Codewars.",
-      "title_rank": "Peringkat",
-      "title_honor": "Kehormatan",
-      "title_completed": "Tantangan Selesai",
-      "title_leaderboard": "Papan Peringkat Global",
-      "title_clan": "Klan",
-      "title_skills": "Keahlian Terkait"
-    },
-    "monkeytype": {
-      "title": "Statistik Monkeytype",
-      "sub_title": "Statistik dan performa mengetik.",
-      "joined": "Bergabung",
-      "current_streak": "Streak Saat Ini",
-      "unit_days": "hari",
-      "title_test_started": "Tes Dimulai",
-      "title_test_completed": "Tes Selesai",
-      "title_time_typing": "Total Waktu Mengetik",
-      "title_leaderboard": "Papan Peringkat Bahasa Inggris",
-      "unit_seconds": "detik",
-      "unit_time": "waktu",
-      "unit_words": "kata",
-      "top": "teratas",
-      "days_ago": "hari yang lalu",
-      "xp_until_next_level": "XP ke Level Berikutnya",
-      "total_xp": "Total XP"
     }
   },
   "ChatRoomPage": {

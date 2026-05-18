@@ -29,6 +29,7 @@ const MDXComponent = ({ children }: MarkdownRendererProps) => {
           <a
             className="cursor-pointer text-teal-600 hover:text-teal-400 hover:underline"
             target="_blank"
+            rel="noopener noreferrer"
             {...props}
           />
         ),

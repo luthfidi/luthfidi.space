@@ -13,7 +13,7 @@ const ContactList = () => {
       <h2>{t("social_media.title")}</h2>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {filteredSocialMedia.map((media) => (
-          <ContactCard key={media.title} {...media} />
+          <ContactCard key={media.name} {...media} />
         ))}
       </div>
     </div>

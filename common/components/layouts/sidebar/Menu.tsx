@@ -15,8 +15,8 @@ const Menu = ({ title, list }: MenuProps) => {
           {title}
         </div>
       )}
-      {list?.map((item: MenuItemProps, index: number) => (
-        <MenuItem key={index} {...item} />
+      {list?.map((item) => (
+        <MenuItem key={item.href} {...item} />
       ))}
     </nav>
   );

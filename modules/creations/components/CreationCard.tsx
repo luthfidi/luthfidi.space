@@ -16,29 +16,12 @@ import {
 
 import SpotlightCard from "@/common/components/elements/SpotlightCard";
 import type { CreationItem } from "@/common/types/creations";
+import { getEmbedUrl } from "@/common/libs/embedUrl";
 
 const formatNumber = (n: number): string => {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
   if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
   return n.toString();
-};
-
-const getInstagramEmbedUrl = (url: string): string | null => {
-  const match = url.match(/instagram\.com\/(p|reel|tv)\/([^/?]+)/);
-  if (!match) return null;
-  return `https://www.instagram.com/${match[1]}/${match[2]}/embed/`;
-};
-
-const getTikTokEmbedUrl = (url: string): string | null => {
-  const match = url.match(/tiktok\.com\/@[^/]+\/video\/(\d+)/);
-  if (!match) return null;
-  return `https://www.tiktok.com/embed/v2/${match[1]}`;
-};
-
-const getEmbedUrl = (platform: string, url: string): string | null => {
-  if (platform === "instagram") return getInstagramEmbedUrl(url);
-  if (platform === "tiktok") return getTikTokEmbedUrl(url);
-  return null;
 };
 
 const CreationCard = ({

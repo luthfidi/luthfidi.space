@@ -119,24 +119,6 @@
     "description": "My personal dashboard built with Next.js API routes, visualizing development statistics and contributions in real-time.",
     "error": "An error occurred on the server.",
     "no_data": "No data available.",
-    "umami": {
-      "title": "Umami",
-      "sub_title": "Monitor real-time traffic and interactions from my portfolio site.",
-      "overview": {
-        "page_views": "Page Views",
-        "visitors": "Visitors",
-        "visits": "Visits",
-        "countries": "Countries",
-        "events": "Events"
-      },
-      "chart": {
-        "title": "Traffic Trends",
-        "sessions": "Sessions",
-        "page_views": "Page Views"
-      },
-      "all": "All",
-      "filter_placeholder": "Filter domain..."
-    },
     "github": {
       "title": "GitHub Contributions",
       "sub_title": "My GitHub activity over the past year.",
@@ -163,34 +145,6 @@
       "best_day": "Best Day",
       "all_time_since_joined": "All-Time Coding Since Joined",
       "languages": "Top Languages"
-    },
-    "codewars": {
-      "title": "Codewars Progress",
-      "sub_title": "Performance metrics from Codewars challenges.",
-      "title_rank": "Rank",
-      "title_honor": "Honor",
-      "title_completed": "Challenges Completed",
-      "title_leaderboard": "Global Leaderboard",
-      "title_clan": "Clan",
-      "title_skills": "Associated Skills"
-    },
-    "monkeytype": {
-      "title": "Monkeytype Stats",
-      "sub_title": "Typing statistics and performance.",
-      "joined": "Joined",
-      "current_streak": "Current Streak",
-      "unit_days": "days",
-      "title_test_started": "Tests Started",
-      "title_test_completed": "Tests Completed",
-      "title_time_typing": "Total Typing Time",
-      "title_leaderboard": "All-Time English Leaderboard",
-      "unit_seconds": "seconds",
-      "unit_time": "time",
-      "unit_words": "words",
-      "top": "top",
-      "days_ago": "days ago",
-      "xp_until_next_level": "XP to Next Level",
-      "total_xp": "Total XP"
     }
   },
   "ChatRoomPage": {

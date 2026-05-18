@@ -7,6 +7,9 @@ import { useTranslations } from "next-intl";
 
 import InputField from "@/common/components/elements/InputField";
 
+const EMAIL_REGEX =
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 interface FormEmail {
   name: string;
   email: string;
@@ -25,9 +28,6 @@ const ContactForm = () => {
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const t = useTranslations("ContactPage");
-
-  const regexEmail =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   useEffect(() => {
     if (!isSuccess) return;
@@ -89,7 +89,7 @@ const ContactForm = () => {
             rule={{
               required: true,
               pattern: {
-                value: regexEmail,
+                value: EMAIL_REGEX,
                 message: t("form.errors.invalid_email"),
               },
             }}

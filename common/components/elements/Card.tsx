@@ -1,8 +1,4 @@
-interface CardProps {
-  children: React.ReactNode;
-  className?: string;
-  [propName: string]: unknown;
-}
+type CardProps = React.HTMLAttributes<HTMLDivElement>;
 
 const Card = ({ children, className = "", ...others }: CardProps) => {
   return (

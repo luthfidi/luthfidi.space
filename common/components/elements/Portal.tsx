@@ -16,7 +16,7 @@ const Portal = ({ children }: PortalProps) => {
     return () => setMounted(false);
   }, []);
 
-  return mounted ? createPortal(children as any, document.body) : null;
+  return mounted ? createPortal(children, document.body) : null;
 };
 
 export default Portal;

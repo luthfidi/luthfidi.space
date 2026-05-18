@@ -39,6 +39,7 @@ const FollowingCursor = ({
     const finePointer = window.matchMedia("(pointer: fine)");
     if (!finePointer.matches) return;
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- activate cursor only after pointer/motion checks
     setActive(true);
 
     const handleMouseMove = (e: MouseEvent) => {

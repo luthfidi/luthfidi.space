@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
 
 import Sidebar from "./sidebar";
 
-const Notif = dynamic(() => import("../elements/Notif"), { ssr: false });
 const NextTopLoader = dynamic(() => import("nextjs-toploader"), { ssr: false });
 const FollowingCursor = dynamic(() => import("../elements/FollowingCursor"), {
   ssr: false,
@@ -34,7 +33,6 @@ const Layouts = ({ children }: LayoutsProps) => {
           {children}
         </main>
       </div>
-      <Notif />
       <FollowingCursor />
     </div>
   );

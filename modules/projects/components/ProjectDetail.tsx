@@ -5,16 +5,10 @@ import Image from "@/common/components/elements/Image";
 import MDXComponent from "@/common/components/elements/MDXComponent";
 import { ProjectItem } from "@/common/types/projects";
 import { STACKS } from "@/common/constants/stacks";
+import { getYoutubeVideoId } from "@/common/libs/embedUrl";
 
 import ProjectLink from "./ProjectLink";
 import VideoPlayer from "./VideoPlayer";
-
-const getYoutubeVideoId = (url: string): string | null => {
-  const match = url.match(
-    /(?:youtube\.com\/(?:watch\?v=|embed\/|v\/)|youtu\.be\/)([\w-]{11})/,
-  );
-  return match ? match[1] : null;
-};
 
 const ProjectDetail = ({
   title,
@@ -36,12 +30,12 @@ const ProjectDetail = ({
             {t("tech_stack")} :{" "}
           </span>
           <div className="flex flex-wrap items-center gap-3">
-            {(stacks ?? []).map((stack: string, index: number) => {
+            {(stacks ?? []).map((stack) => {
               const stackData = STACKS[stack];
 
               if (!stackData) {
                 return (
-                  <Tooltip title={stack} key={index}>
+                  <Tooltip title={stack} key={stack}>
                     <span className="rounded-full border border-neutral-300 bg-neutral-100 px-2 py-0.5 text-xs text-neutral-600 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400">
                       {stack}
                     </span>
@@ -50,7 +44,7 @@ const ProjectDetail = ({
               }
 
               return (
-                <Tooltip title={stack} key={index}>
+                <Tooltip title={stack} key={stack}>
                   <div className={`${stackData.color}`}>{stackData.icon}</div>
                 </Tooltip>
               );

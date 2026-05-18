@@ -35,7 +35,7 @@ const EducationCard = ({
       )}
 
       <div className="space-y-1">
-        <a href={link || "#"} target="_blank">
+        <a href={link || "#"} target="_blank" rel="noopener noreferrer">
           <h6>{school}</h6>
         </a>
         <div className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">

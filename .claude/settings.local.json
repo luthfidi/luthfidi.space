@@ -71,7 +71,8 @@
       "Bash(mkdir -p public/files)",
       "Bash(cp \"/c/Users/luthf/Downloads/Luthfi-Hadi-May2026.pdf\" \"public/files/Luthfi-Hadi-CV.pdf\")",
       "Bash(ls C:\\\\\\\\Users\\\\\\\\luthf\\\\\\\\OneDrive\\\\\\\\Desktop\\\\\\\\code\\\\\\\\portfolio\\\\\\\\public\\\\\\\\ *)",
-      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\luthf\\\\.claude\\\\projects\\\\\" -Directory -ErrorAction SilentlyContinue | ForEach-Object { $_.Name })"
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\luthf\\\\.claude\\\\projects\\\\\" -Directory -ErrorAction SilentlyContinue | ForEach-Object { $_.Name })",
+      "Bash(npm ls *)"
     ]
   }
 }

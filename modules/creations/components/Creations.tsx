@@ -67,6 +67,7 @@ const Creations = () => {
 
   // Reset visible count whenever the active filter set changes
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset pagination when filter inputs change
     setVisibleCount(BATCH_SIZE);
   }, [account, platform, category, sortBy]);
 

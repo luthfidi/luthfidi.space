@@ -12,7 +12,10 @@ const ThemeToggle = () => {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- mount detection for hydration safety
+    setMounted(true);
+  }, []);
 
   // Render a same-shape placeholder before hydration so server and client
   // markup match — useTheme returns undefined on the server, so any

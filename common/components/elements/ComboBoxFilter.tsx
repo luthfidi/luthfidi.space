@@ -116,8 +116,10 @@ const ComboBoxFilter = ({
   useEffect(() => {
     if (isOpen) {
       const idx = items.findIndex((item) => item.value === selectValue);
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- sync active highlight to selected option when listbox opens
       setActiveIndex(idx >= 0 ? idx : 0);
     } else {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- reset highlight when listbox closes
       setActiveIndex(-1);
     }
   }, [isOpen, items, selectValue]);

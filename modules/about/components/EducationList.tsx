@@ -20,8 +20,8 @@ const EducationList = () => {
       </div>
 
       <div className="grid grid-cols-1 gap-4">
-        {EDUCATION?.map((item, index) => (
-          <EducationCard key={index} {...item} />
+        {EDUCATION?.map((item) => (
+          <EducationCard key={`${item.school}-${item.start_year}`} {...item} />
         ))}
       </div>
     </section>

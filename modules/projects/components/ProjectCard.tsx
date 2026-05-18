@@ -56,13 +56,13 @@ const ProjectCard = ({
             {trimmedContent}
           </p>
           <div className="flex flex-wrap items-center gap-3 pt-2">
-            {stacks.map((stack: string, index: number) => {
+            {stacks.map((stack) => {
               const stackData = STACKS[stack];
 
               if (!stackData) {
                 return (
                   <span
-                    key={index}
+                    key={stack}
                     className="rounded-full border border-neutral-300 bg-neutral-100 px-2 py-0.5 text-[10px] text-neutral-600 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400"
                   >
                     {stack}
@@ -71,7 +71,7 @@ const ProjectCard = ({
               }
 
               return (
-                <div key={index} className={`${stackData.color}`}>
+                <div key={stack} className={`${stackData.color}`}>
                   {stackData.icon}
                 </div>
               );

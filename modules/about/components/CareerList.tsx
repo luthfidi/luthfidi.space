@@ -32,7 +32,11 @@ const CareerList = () => {
 
       <div className="grid grid-cols-1 gap-4">
         {sortedCareers?.map((career, index) => (
-          <CareerCard key={index} indexCareer={index} {...career} />
+          <CareerCard
+            key={`${career.company}-${career.position}-${career.start_date}`}
+            indexCareer={index}
+            {...career}
+          />
         ))}
       </div>
     </section>

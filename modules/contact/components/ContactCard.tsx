@@ -6,8 +6,6 @@ import { SocialMediaProps } from "@/common/types/socialMedia";
 import SpotlightCard from "@/common/components/elements/SpotlightCard";
 
 const ContactCard = ({
-  title,
-  description,
   name,
   href,
   icon,
@@ -35,22 +33,19 @@ const ContactCard = ({
           {t(`social_media.${name}.title`)}
         </h4>
         <p className="pb-2 text-xs">{t(`social_media.${name}.description`)}</p>
-        <button
-          className={`${backgroundColor} rounded-md bg-opacity-85 px-4 py-2 transition duration-300 hover:scale-105 hover:bg-opacity-100 md:w-max`}
+        <Link
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${backgroundColor} flex items-center justify-center gap-x-2 rounded-md bg-opacity-85 px-4 py-2 text-black transition duration-300 hover:scale-105 hover:bg-opacity-100 md:w-max`}
+          data-umami-event={`click_contact_${name}`}
         >
-          <Link
-            href={href}
-            target="_blank"
-            className="flex items-center justify-center gap-x-2  text-black"
-            data-umami-event={`click_contact_${name}`}
-          >
-            <p className="text-sm font-medium">
-              {locale == "en" ? "Go to" : "Pergi ke"}{" "}
-              <span className="capitalize">{name}</span>
-            </p>
-            <ArrowIcon size={17} />
-          </Link>
-        </button>
+          <p className="text-sm font-medium">
+            {locale === "en" ? "Go to" : "Pergi ke"}{" "}
+            <span className="capitalize">{name}</span>
+          </p>
+          <ArrowIcon size={17} />
+        </Link>
       </div>
 
       <div className="flex items-end justify-end">

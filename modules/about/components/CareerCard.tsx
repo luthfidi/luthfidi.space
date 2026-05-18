@@ -110,7 +110,12 @@ const CareerCard = ({
         </div>
         <div className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-            <Link href={link || "#"} target="_blank" onClick={(e) => e.stopPropagation()}>
+            <Link
+              href={link || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+            >
               <span className="cursor-pointer hover:text-neutral-900 hover:underline hover:dark:text-neutral-50">
                 {company}
               </span>
@@ -170,8 +175,8 @@ const CareerCard = ({
                           </span>
                         </div>
                         <ul className="space-y-1 text-xs leading-relaxed opacity-90">
-                          {localizedResponsibilities.map((item, index) => (
-                            <li key={index} className="flex items-start gap-2">
+                          {localizedResponsibilities.map((item) => (
+                            <li key={item} className="flex items-start gap-2">
                               <span className="font-bold text-neutral-700 dark:text-neutral-300">
                                 ✓
                               </span>
@@ -194,9 +199,9 @@ const CareerCard = ({
                             </span>
                           </div>
                           <ul className="space-y-1 text-xs leading-relaxed opacity-90">
-                            {localizedLessons.map((item, index) => (
+                            {localizedLessons.map((item) => (
                               <li
-                                key={index}
+                                key={item}
                                 className="flex items-start gap-2"
                               >
                                 <span className="font-bold text-neutral-700 dark:text-neutral-300">
@@ -219,9 +224,9 @@ const CareerCard = ({
                             </span>
                           </div>
                           <ul className="space-y-1 text-xs leading-relaxed opacity-90">
-                            {localizedImpact.map((item, index) => (
+                            {localizedImpact.map((item) => (
                               <li
-                                key={index}
+                                key={item}
                                 className="flex items-start gap-2"
                               >
                                 <span className="font-bold text-neutral-700 dark:text-neutral-300">

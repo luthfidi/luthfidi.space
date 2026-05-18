@@ -1,13 +1,8 @@
 import { Metadata } from "next";
-import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import Container from "@/common/components/elements/Container";
 import PageHeading from "@/common/components/elements/PageHeading";
 import Dashboard from "@/modules/dashboard/components/Dashboard";
-import UmamiSkeleton from "@/modules/dashboard/components/Umami/UmamiSkeleton";
-import ContributionsSkeleton from "@/modules/dashboard/components/Contributions/ContributionsSkeleton";
-import CodingActiveSkeleton from "@/modules/dashboard/components/CodingActive/CodingActiveSkeleton";
-import MonkeytypeSkeleton from "@/modules/dashboard/components/Monkeytype/MonkeytypeSkeleton";
 import { buildPageMetadata } from "@/common/libs/pageMetadata";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -29,22 +24,7 @@ const DashboardPage = async ({ params }: Props) => {
   return (
     <Container>
       <PageHeading title={t("title")} description={t("description")} />
-      <Suspense
-        fallback={
-          <div
-            className="space-y-8"
-            aria-label="Loading dashboard"
-            aria-busy="true"
-          >
-            <UmamiSkeleton />
-            <ContributionsSkeleton />
-            <CodingActiveSkeleton />
-            <MonkeytypeSkeleton />
-          </div>
-        }
-      >
-        <Dashboard />
-      </Suspense>
+      <Dashboard />
     </Container>
   );
 };

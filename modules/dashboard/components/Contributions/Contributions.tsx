@@ -51,6 +51,7 @@ const Contributions = ({ endpoint }: ContributionsProps) => {
         <Link
           href={github_url}
           target="_blank"
+          rel="noopener noreferrer"
           className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-500 dark:hover:text-neutral-400"
         >
           @{GITHUB_ACCOUNTS.username}

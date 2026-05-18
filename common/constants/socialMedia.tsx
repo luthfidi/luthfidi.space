@@ -16,8 +16,6 @@ const backgroundIconSize = 256;
 
 export const SOCIAL_MEDIA: SocialMediaProps[] = [
   {
-    title: "Stay in Touch",
-    description: "Reach out via email for any inquiries or collaborations.",
     name: "gmail",
     href: "mailto:luthfihadi543@gmail.com",
     icon: <SiGmail size={iconSize} />,
@@ -29,8 +27,6 @@ export const SOCIAL_MEDIA: SocialMediaProps[] = [
     isShow: true,
   },
   {
-    title: "Chat on WhatsApp",
-    description: "Message me on WhatsApp for quick conversations.",
     name: "whatsapp",
     href: "https://wa.me/6281295603317",
     icon: <WhatsappIcon size={iconSize} />,
@@ -42,8 +38,6 @@ export const SOCIAL_MEDIA: SocialMediaProps[] = [
     isShow: true,
   },
   {
-    title: "Explore the Code",
-    description: "Explore the source code for all my projects on GitHub.",
     name: "github",
     href: "https://github.com/luthfidi",
     icon: <GithubIcon size={iconSize} />,
@@ -55,9 +49,6 @@ export const SOCIAL_MEDIA: SocialMediaProps[] = [
     isShow: true,
   },
   {
-    title: "Let's Connect",
-    description:
-      "Connect for collaboration or explore my professional experience.",
     name: "linkedin",
     href: "https://www.linkedin.com/in/luthfi-hadi",
     icon: <LinkedinIcon size={iconSize} />,
@@ -69,8 +60,6 @@ export const SOCIAL_MEDIA: SocialMediaProps[] = [
     isShow: true,
   },
   {
-    title: "Follow My Journey",
-    description: "Stay updated with my latest posts and stories on Instagram.",
     name: "instagram",
     href: "https://www.instagram.com/luthfidi_/",
     icon: <InstagramIcon size={iconSize} />,
@@ -83,8 +72,6 @@ export const SOCIAL_MEDIA: SocialMediaProps[] = [
     isShow: true,
   },
   {
-    title: "Join the Fun",
-    description: "Follow me on TikTok for entertaining and engaging content.",
     name: "tiktok",
     href: "https://www.tiktok.com/@anordinarycat",
     icon: <TiktokIcon size={iconSize} />,
@@ -96,8 +83,6 @@ export const SOCIAL_MEDIA: SocialMediaProps[] = [
     isShow: true,
   },
   {
-    title: "Catch My Thoughts",
-    description: "Follow my latest takes and updates on X.",
     name: "twitter",
     href: "https://x.com/0xluthfidi",
     icon: <TwitterIcon size={iconSize} />,
@@ -109,8 +94,6 @@ export const SOCIAL_MEDIA: SocialMediaProps[] = [
     isShow: true,
   },
   {
-    title: "Drop a Message",
-    description: "Reach me on Telegram for quick chats and updates.",
     name: "telegram",
     href: "https://t.me/filonami",
     icon: <TelegramIcon size={iconSize} />,

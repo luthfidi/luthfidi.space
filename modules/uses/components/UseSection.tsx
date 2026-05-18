@@ -19,9 +19,9 @@ const UseSection = ({ title, icon, items }: UseSectionType) => {
       </div>
 
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-        {items.map((item, i) => (
+        {items.map((item) => (
           <SpotlightCard
-            key={i}
+            key={item.name}
             className="border border-neutral-200 p-4 dark:border-neutral-800"
           >
             <div className="flex items-start justify-between gap-2">

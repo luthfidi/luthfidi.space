@@ -1,5 +1,3 @@
-import React from "react";
-
 import { MENU_ITEMS } from "@/common/constants/menu";
 
 import Breakline from "../../elements/Breakline";

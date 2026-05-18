@@ -5,9 +5,35 @@ import { unstable_cache } from "next/cache";
 const { api_key, base_url, all_time_endpoint, stats_endpoint } =
   WAKATIME_ACCOUNT;
 
-const fetchReadStats = async () => {
+type WakatimeLanguage = {
+  name: string;
+  percent: number;
+  text: string;
+  hours: number;
+  minutes: number;
+};
+
+type WakatimeEditor = WakatimeLanguage;
+
+type WakatimeStats = {
+  start_date?: string;
+  end_date?: string;
+  last_update?: string;
+  best_day?: { date?: string; text?: string };
+  human_readable_daily_average?: string;
+  human_readable_total?: string;
+  languages?: WakatimeLanguage[];
+  editors?: WakatimeEditor[];
+};
+
+type WakatimeAllTime = {
+  text?: string;
+  total_seconds?: number;
+};
+
+const fetchReadStats = async (): Promise<{ data: WakatimeStats }> => {
   if (!api_key) {
-    return { data: {} as any };
+    return { data: {} };
   }
   try {
     const response = await axios.get(
@@ -37,13 +63,13 @@ const fetchReadStats = async () => {
     };
   } catch (error) {
     console.error("Wakatime Stats Error:", error);
-    return { data: {} as any };
+    return { data: {} };
   }
 };
 
-const fetchAllTimeSinceToday = async () => {
+const fetchAllTimeSinceToday = async (): Promise<{ data: WakatimeAllTime }> => {
   if (!api_key) {
-    return { data: {} as any };
+    return { data: {} };
   }
   try {
     const response = await axios.get(`${base_url}${all_time_endpoint}`, {
@@ -59,7 +85,7 @@ const fetchAllTimeSinceToday = async () => {
     };
   } catch (error) {
     console.error("Wakatime All Time Error:", error);
-    return { data: {} as any };
+    return { data: {} };
   }
 };
 

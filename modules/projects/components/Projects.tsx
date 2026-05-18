@@ -49,7 +49,7 @@ const Projects = () => {
     <section className="grid grid-cols-1 gap-6 md:grid-cols-2">
       {filteredProjects?.map((project, index) => (
         <motion.div
-          key={index}
+          key={project.id}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: index * 0.1 }}

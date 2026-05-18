@@ -68,6 +68,7 @@ const CodingActive = () => {
         <Link
           href="https://wakatime.com/@luthfidi"
           target="_blank"
+          rel="noopener noreferrer"
           className="text-sm text-neutral-600 hover:text-neutral-800 dark:text-neutral-500 dark:hover:text-neutral-400"
         >
           {t("wakatime.last_update")}: {renderLastUpdate()}
