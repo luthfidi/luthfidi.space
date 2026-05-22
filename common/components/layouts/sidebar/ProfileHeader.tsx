@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { HiOutlineDocumentText as CvIcon } from "react-icons/hi2";
 import { MdVerified as VerifiedIcon } from "react-icons/md";
+import { useTranslations } from "next-intl";
 
 import ThemeToggle from "./ThemeToggle";
 import IntlToggle from "./IntlToggle";
@@ -12,6 +13,8 @@ interface ProfileHeaderProps {
 }
 
 const ProfileHeader = ({ imageSize }: ProfileHeaderProps) => {
+  const t = useTranslations("Navigation");
+
   return (
     <div className="flex w-full flex-grow items-center gap-4 lg:flex-col lg:gap-0.5">
       <Image
@@ -47,7 +50,7 @@ const ProfileHeader = ({ imageSize }: ProfileHeaderProps) => {
         className="mt-3 hidden items-center gap-1.5 rounded-md border border-neutral-300 px-2.5 py-1 text-xs font-medium text-neutral-600 transition-colors hover:border-neutral-400 hover:text-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:hover:border-neutral-600 dark:hover:text-neutral-200 lg:flex"
       >
         <CvIcon size={14} />
-        View CV
+        {t("view_cv")}
       </Link>
 
       <div className="hidden justify-between gap-6 lg:mt-4 lg:flex">

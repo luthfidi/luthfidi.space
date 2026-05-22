@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import { HiOutlineDocumentText as CvIcon } from "react-icons/hi2";
+import { useTranslations } from "next-intl";
 
 import { MENU_ITEMS } from "@/common/constants/menu";
 import { useMenu } from "@/common/stores/menu";
@@ -12,6 +13,7 @@ import Menu from "./Menu";
 const MobileMenu = () => {
   const filteredMenu = MENU_ITEMS?.filter((item) => item?.isShow);
   const { hideMenu } = useMenu();
+  const t = useTranslations("Navigation");
 
   return (
     <motion.div
@@ -32,7 +34,7 @@ const MobileMenu = () => {
         className="flex items-center gap-2 rounded-lg px-4 py-2 text-neutral-700 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
       >
         <CvIcon size={20} />
-        <span className="flex-grow">View CV</span>
+        <span className="flex-grow">{t("view_cv")}</span>
       </Link>
     </motion.div>
   );

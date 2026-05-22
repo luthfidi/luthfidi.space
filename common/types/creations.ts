@@ -1,4 +1,8 @@
-export type CreationAccount = "filetechno" | "bnccbinus" | "filemagz";
+export type CreationAccount =
+  | "filetechno"
+  | "bnccbinus"
+  | "filemagz"
+  | "technoscapebncc";
 export type CreationPlatform = "instagram" | "tiktok";
 
 export interface CreationMetrics {

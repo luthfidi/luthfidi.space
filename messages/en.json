@@ -245,7 +245,8 @@
     "Achievements": "Achievements",
     "Dashboard": "Dashboard",
     "Uses": "Uses",
-    "Contact": "Contact"
+    "Contact": "Contact",
+    "view_cv": "View CV"
   },
   "NotFoundPage": {
     "title": "Page not found",

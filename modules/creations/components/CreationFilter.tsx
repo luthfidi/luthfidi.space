@@ -23,6 +23,7 @@ const accountLabel: Record<string, string> = {
   filetechno: "@filetechno",
   bnccbinus: "@bnccbinus",
   filemagz: "@filemagz",
+  technoscapebncc: "@technoscapebncc",
 };
 
 const platformLabel: Record<string, string> = {

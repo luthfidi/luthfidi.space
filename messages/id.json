@@ -190,7 +190,7 @@
         "description": "Terhubung dengan saya secara profesional."
       },
       "tiktok": {
-        "title": "Bergabung dalam Keseruan",
+        "title": "Konten Seru",
         "description": "Tonton konten yang menarik dan menyenangkan."
       },
       "github": {
@@ -198,7 +198,7 @@
         "description": "Jelajahi karya sumber terbuka saya."
       },
       "twitter": {
-        "title": "Simak Pikiran Saya",
+        "title": "Ikuti di X",
         "description": "Ikuti pemikiran dan update terbaru saya di X."
       },
       "telegram": {
@@ -245,7 +245,8 @@
     "Achievements": "Pencapaian",
     "Dashboard": "Dasbor",
     "Uses": "Tools",
-    "Contact": "Kontak"
+    "Contact": "Kontak",
+    "view_cv": "Lihat CV"
   },
   "NotFoundPage": {
     "title": "Halaman tidak ditemukan",
