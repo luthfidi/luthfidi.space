@@ -17,7 +17,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { differenceInMonths, differenceInYears, format } from "date-fns";
 
 import SpotlightCard from "@/common/components/elements/SpotlightCard";
-import { parseFlagFromText } from "@/common/libs/parseFlag";
+import { parseFlaggedSegments } from "@/common/libs/parseFlag";
 import { CareerProps, LocalizedStrings } from "@/common/types/careers";
 
 const pickLocale = (
@@ -32,6 +32,7 @@ const CareerCard = ({
   position,
   company,
   logo,
+  wideLogo,
   location,
   start_date,
   end_date,
@@ -88,7 +89,10 @@ const CareerCard = ({
           height={75}
           src={logo}
           alt={company}
-          className="h-[60px] w-[60px] shrink-0 rounded-lg border-[1.5px] border-neutral-300 bg-neutral-100 dark:border-neutral-700 md:h-[75px] md:w-[75px]"
+          className={clsx(
+            "h-[60px] w-[60px] shrink-0 rounded-lg border-[1.5px] border-neutral-300 bg-neutral-100 dark:border-neutral-700 md:h-[75px] md:w-[75px]",
+            wideLogo && "object-contain p-1.5",
+          )}
         />
       ) : (
         <CompanyIcon className="h-[60px] w-[60px] shrink-0 text-neutral-500 md:h-[75px] md:w-[75px]" />
@@ -121,17 +125,19 @@ const CareerCard = ({
               </span>
             </Link>
             <span className="text-neutral-300 dark:text-neutral-700">•</span>
-            <span className="flex items-center gap-1">
-              {(() => {
-                const { code, cleanText } = parseFlagFromText(location);
-                const FlagComp = code ? Flags[code as keyof typeof Flags] : null;
-                return (
-                  <>
-                    {cleanText}
-                    {FlagComp && <FlagComp className="h-2.5 w-3.5 shrink-0 rounded-sm" />}
-                  </>
-                );
-              })()}
+            <span className="inline-flex flex-wrap items-center gap-x-1">
+              {parseFlaggedSegments(location).map((seg, i) => {
+                if (seg.type === "text") {
+                  return <span key={i}>{seg.value}</span>;
+                }
+                const FlagComp = Flags[seg.code as keyof typeof Flags];
+                return FlagComp ? (
+                  <FlagComp
+                    key={i}
+                    className="inline-block h-2.5 w-3.5 shrink-0 rounded-sm"
+                  />
+                ) : null;
+              })}
             </span>
           </div>
 

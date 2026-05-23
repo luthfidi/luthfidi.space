@@ -19,7 +19,6 @@ import {
   SiPhp,
   SiRedux,
   SiVuedotjs,
-  SiFirebase,
   SiReactrouter,
   SiReacthookform,
   SiReacttable,
@@ -354,13 +353,6 @@ export const STACKS: SkillProps = {
     background: "bg-green-600",
     color: "text-green-600",
     isActive: false,
-    category: "database",
-  },
-  Firebase: {
-    icon: <SiFirebase size={iconSize} />,
-    background: "bg-amber-500",
-    color: "text-amber-500",
-    isActive: true,
     category: "database",
   },
   Supabase: {

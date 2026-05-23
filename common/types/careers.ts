@@ -4,6 +4,8 @@ export interface CareerProps {
   position: string;
   company: string;
   logo: string | null;
+  /** Set true for wide/non-square logos (e.g. text-based brand marks) to prevent stretching */
+  wideLogo?: boolean;
   location: string;
   location_type: "Onsite" | "Remote" | "Hybrid";
   type: string;

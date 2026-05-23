@@ -4,7 +4,7 @@ import { BsBuildings as CompanyIcon } from "react-icons/bs";
 
 import { EducationProps } from "@/common/types/education";
 import SpotlightCard from "@/common/components/elements/SpotlightCard";
-import { parseFlagFromText } from "@/common/libs/parseFlag";
+import { parseFlaggedSegments } from "@/common/libs/parseFlag";
 
 const EducationCard = ({
   school,
@@ -17,9 +17,6 @@ const EducationCard = ({
   location,
   GPA,
 }: EducationProps) => {
-  const { code, cleanText } = parseFlagFromText(location);
-  const FlagComp = code ? Flags[code as keyof typeof Flags] : null;
-
   return (
     <SpotlightCard className="flex items-start gap-4 p-5 md:gap-5 md:p-6">
       {logo ? (
@@ -55,9 +52,19 @@ const EducationCard = ({
               {start_year} - {end_year}
             </span>
             <span className="text-neutral-300 dark:text-neutral-700">•</span>
-            <span className="flex items-center gap-1">
-              {cleanText}
-              {FlagComp && <FlagComp className="h-2.5 w-3.5 shrink-0 rounded-sm" />}
+            <span className="inline-flex flex-wrap items-center gap-x-1">
+              {parseFlaggedSegments(location).map((seg, i) => {
+                if (seg.type === "text") {
+                  return <span key={i}>{seg.value}</span>;
+                }
+                const FlagComp = Flags[seg.code as keyof typeof Flags];
+                return FlagComp ? (
+                  <FlagComp
+                    key={i}
+                    className="inline-block h-2.5 w-3.5 shrink-0 rounded-sm"
+                  />
+                ) : null;
+              })}
             </span>
           </div>
         </div>
