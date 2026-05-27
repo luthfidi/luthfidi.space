@@ -41,6 +41,7 @@ const IntlToggle = () => {
       >
         <motion.div
           className="absolute bottom-1 top-1 w-10 rounded-full bg-primary"
+          initial={false}
           animate={{
             x: slidePosition + currentIndex * 4,
           }}
@@ -64,6 +65,7 @@ const IntlToggle = () => {
           >
             <motion.div
               className="flex flex-col items-center justify-center text-xs font-medium"
+              initial={false}
               animate={{
                 color: currentIndex === index ? "#121212" : "#737373",
               }}

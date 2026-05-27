@@ -36,6 +36,7 @@ const ThemeToggle = () => {
       <div className="relative hidden items-center gap-2 rounded-full border-[1.5px] border-neutral-300 bg-neutral-100 p-1 dark:border-neutral-700 dark:bg-neutral-800 lg:flex">
         <motion.div
           className="absolute bottom-1 top-1 w-8 rounded-full bg-neutral-300 dark:bg-neutral-700"
+          initial={false}
           animate={{
             x: isLightMode ? 0 : 40,
           }}
@@ -55,6 +56,7 @@ const ThemeToggle = () => {
           whileTap={{ scale: 0.9 }}
         >
           <motion.div
+            initial={false}
             animate={{
               color: isLightMode ? "#171717" : "#FFFFFF",
             }}
@@ -73,6 +75,7 @@ const ThemeToggle = () => {
           whileTap={{ scale: 0.9 }}
         >
           <motion.div
+            initial={false}
             animate={{
               color: !isLightMode ? "#FFFFFF" : "#737373",
             }}
