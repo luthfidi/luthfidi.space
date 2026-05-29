@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useMotionTemplate, useMotionValue, useSpring } from "motion/react";
+import { useTheme } from "next-themes";
 import { useRef, useState } from "react";
 import type { MouseEventHandler, PropsWithChildren } from "react";
 
@@ -10,12 +11,18 @@ interface SpotlightCardProps extends PropsWithChildren {
 }
 
 const SPRING_CONFIG = { damping: 25, stiffness: 180, mass: 0.4 };
+const DEFAULT_DARK_SPOTLIGHT = "rgba(255, 255, 255, 0.10)";
+const DEFAULT_LIGHT_SPOTLIGHT = "rgba(0, 0, 0, 0.30)";
 
 const SpotlightCard = ({
   children,
   className = "",
-  spotlightColor = "rgba(255, 255, 255, 0.25)",
+  spotlightColor,
 }: SpotlightCardProps) => {
+  const { resolvedTheme } = useTheme();
+  const effectiveColor: string =
+    spotlightColor ??
+    (resolvedTheme === "light" ? DEFAULT_LIGHT_SPOTLIGHT : DEFAULT_DARK_SPOTLIGHT);
   const divRef = useRef<HTMLDivElement>(null);
   const [isFocused, setIsFocused] = useState(false);
   const [opacity, setOpacity] = useState(0);
@@ -25,7 +32,7 @@ const SpotlightCard = ({
   const x = useSpring(mouseX, SPRING_CONFIG);
   const y = useSpring(mouseY, SPRING_CONFIG);
 
-  const background = useMotionTemplate`radial-gradient(circle at ${x}px ${y}px, ${spotlightColor}, transparent 80%)`;
+  const background = useMotionTemplate`radial-gradient(circle at ${x}px ${y}px, ${effectiveColor}, transparent 80%)`;
 
   const handleMouseMove: MouseEventHandler<HTMLDivElement> = (e) => {
     if (!divRef.current || isFocused) return;
