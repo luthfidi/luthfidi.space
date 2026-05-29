@@ -1,11 +1,10 @@
-import Card from "@/common/components/elements/Card";
 import SkeletonLoader from "@/common/components/elements/SkeletonLoader";
 import Skeleton from "react-loading-skeleton";
 
 const ProjectSkeleton = () => {
   return (
     <SkeletonLoader>
-      <Card>
+      <div className="relative overflow-hidden rounded-2xl border-[1.5px] border-neutral-300 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900">
         <Skeleton
           containerClassName="block leading-none"
           className="h-44 !rounded-b-none !rounded-t-lg"
@@ -31,7 +30,7 @@ const ProjectSkeleton = () => {
             ))}
           </div>
         </div>
-      </Card>
+      </div>
     </SkeletonLoader>
   );
 };

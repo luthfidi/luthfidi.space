@@ -1,17 +1,15 @@
 "use client";
 
+import { motion, useMotionTemplate, useMotionValue, useSpring } from "motion/react";
 import { useRef, useState } from "react";
 import type { MouseEventHandler, PropsWithChildren } from "react";
-
-interface Position {
-  x: number;
-  y: number;
-}
 
 interface SpotlightCardProps extends PropsWithChildren {
   className?: string;
   spotlightColor?: `rgba(${number}, ${number}, ${number}, ${number})`;
 }
+
+const SPRING_CONFIG = { damping: 25, stiffness: 180, mass: 0.4 };
 
 const SpotlightCard = ({
   children,
@@ -19,15 +17,21 @@ const SpotlightCard = ({
   spotlightColor = "rgba(255, 255, 255, 0.25)",
 }: SpotlightCardProps) => {
   const divRef = useRef<HTMLDivElement>(null);
-  const [isFocused, setIsFocused] = useState<boolean>(false);
-  const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
-  const [opacity, setOpacity] = useState<number>(0);
+  const [isFocused, setIsFocused] = useState(false);
+  const [opacity, setOpacity] = useState(0);
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const x = useSpring(mouseX, SPRING_CONFIG);
+  const y = useSpring(mouseY, SPRING_CONFIG);
+
+  const background = useMotionTemplate`radial-gradient(circle at ${x}px ${y}px, ${spotlightColor}, transparent 80%)`;
 
   const handleMouseMove: MouseEventHandler<HTMLDivElement> = (e) => {
     if (!divRef.current || isFocused) return;
-
     const rect = divRef.current.getBoundingClientRect();
-    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    mouseX.set(e.clientX - rect.left);
+    mouseY.set(e.clientY - rect.top);
   };
 
   const handleFocus = () => {
@@ -40,7 +44,16 @@ const SpotlightCard = ({
     setOpacity(0);
   };
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter: MouseEventHandler<HTMLDivElement> = (e) => {
+    if (divRef.current) {
+      const rect = divRef.current.getBoundingClientRect();
+      const nx = e.clientX - rect.left;
+      const ny = e.clientY - rect.top;
+      mouseX.set(nx);
+      mouseY.set(ny);
+      x.jump(nx);
+      y.jump(ny);
+    }
     setOpacity(0.6);
   };
 
@@ -56,14 +69,11 @@ const SpotlightCard = ({
       onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative overflow-hidden rounded-2xl border-[1.5px] border-neutral-300 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900  ${className}`}
+      className={`relative overflow-hidden rounded-2xl border-[1.5px] border-neutral-300 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900 ${className}`}
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out"
-        style={{
-          opacity,
-          background: `radial-gradient(circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 80%)`,
-        }}
+      <motion.div
+        className="pointer-events-none absolute inset-0 transition-opacity duration-500 ease-in-out"
+        style={{ opacity, background }}
       />
       {children}
     </div>
