@@ -6,6 +6,7 @@ export type ProjectItem = {
   description_id?: string;
   image: string;
   link_demo?: string | null;
+  link_demo_label?: string | null;
   link_github?: string | null;
   link_video?: string | null;
   stacks: string[];

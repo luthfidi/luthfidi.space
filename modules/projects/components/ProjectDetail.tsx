@@ -15,6 +15,7 @@ const ProjectDetail = ({
   image,
   stacks,
   link_demo,
+  link_demo_label,
   link_github,
   link_video,
   content,
@@ -54,6 +55,7 @@ const ProjectDetail = ({
         <ProjectLink
           title={title}
           link_demo={link_demo || ""}
+          link_demo_label={link_demo_label ?? undefined}
           link_github={link_github || ""}
         />
       </div>

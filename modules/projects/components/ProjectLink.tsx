@@ -8,6 +8,7 @@ interface ProjectLinkProps {
   title?: string;
   link_github?: string;
   link_demo?: string;
+  link_demo_label?: string;
 }
 
 interface LinkComponentProps {
@@ -29,7 +30,12 @@ const LinkComponent = ({ url, text, icon }: LinkComponentProps) => {
   );
 };
 
-const ProjectLink = ({ title, link_github, link_demo }: ProjectLinkProps) => {
+const ProjectLink = ({
+  title,
+  link_github,
+  link_demo,
+  link_demo_label,
+}: ProjectLinkProps) => {
   const t = useTranslations("ProjectsPage");
 
   return (
@@ -47,7 +53,7 @@ const ProjectLink = ({ title, link_github, link_demo }: ProjectLinkProps) => {
       {link_demo ? (
         <LinkComponent
           url={link_demo}
-          text={t("live_demo_text")}
+          text={link_demo_label || t("live_demo_text")}
           icon={<LinkIcon size={22} />}
         />
       ) : null}
