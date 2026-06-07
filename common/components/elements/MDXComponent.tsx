@@ -27,7 +27,7 @@ const MDXComponent = ({ children }: MarkdownRendererProps) => {
       components={{
         a: (props) => (
           <a
-            className="cursor-pointer text-teal-600 hover:text-teal-400 hover:underline"
+            className="cursor-pointer text-primary-500 hover:text-primary-400 hover:underline"
             target="_blank"
             rel="noopener noreferrer"
             {...props}
