@@ -1,5 +1,17 @@
 [
   {
+    "id": 14,
+    "credential_id": "apple-branding-business-comm-2026",
+    "slug": "branding-business-communication-apple",
+    "name": "Branding & Business Communication, Apple Developer Institute for Professionals",
+    "issuing_organization": "Apple Developer Institute (BINUS University)",
+    "type": "Course",
+    "category": "Marketing",
+    "issue_date": "2026-06-01",
+    "image": "/images/achievements/apple-branding-business-communication.png",
+    "is_show": true
+  },
+  {
     "id": 13,
     "credential_id": "hackquest-monad-builder-2025",
     "slug": "monad-builder-hackquest",
