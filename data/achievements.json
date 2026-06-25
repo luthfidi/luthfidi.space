@@ -1,5 +1,18 @@
 [
   {
+    "id": 15,
+    "credential_id": "5z9vt4tppsqj",
+    "slug": "claude-code-in-action-anthropic",
+    "name": "Claude Code in Action",
+    "issuing_organization": "Anthropic",
+    "type": "Course",
+    "category": "AI",
+    "url_credential": "https://verify.skilljar.com/c/5z9vt4tppsqj",
+    "issue_date": "2026-06-01",
+    "image": "/images/achievements/claude-code-in-action.png",
+    "is_show": true
+  },
+  {
     "id": 14,
     "credential_id": "apple-branding-business-comm-2026",
     "slug": "branding-business-communication-apple",
